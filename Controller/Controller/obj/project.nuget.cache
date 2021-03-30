@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bql5kBQcuPjwFmmN3tqhNa2umTGzXuHnAbsuX7iPd9A1qtsggmsLPjBK/eAc3tlSsodBFDZceR46WHhiwYeH0A==",
+  "dgSpecHash": "55teXM9Vzj8NcF+/b9EMdJFqSA+0/3Xs5Uibqt5cC74RxkM0HSyNEa1qs86Osp3QvWPmUi1YK09CJCt87ZiVnQ==",
   "success": true,
-  "projectFilePath": "D:\\Controller\\Controller\\Controller.csproj",
+  "projectFilePath": "/home/john/RiderProjects/verkeers_simulatie/Controller/Controller/Controller.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

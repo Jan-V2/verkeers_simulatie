@@ -1,74 +1,64 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.Net.WebSockets;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Controller
 {
     class Program
     {
-        static void Main(string[] args)
+        private const string serverAdress = "ws://127.0.0.1:6969";
+        static async Task Main(string[] args)
         {
-            Socket sck = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            string ip;
-            int port;
-            Console.Write("Ip: ");
-            ip = Console.ReadLine();
-            Console.Write("Port: ");
-            port = Int32.Parse(Console.ReadLine());
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(ip), port);
-            //Trying to make a connection
-            while (true)
+            do
             {
-                try 
-                { 
-                    sck.Connect(endPoint);
-                    break;
-                }
-                catch
-                {
-                    Console.WriteLine("Connecting to simulation not succesful, try again? (y/n)");
-                    string response = Console.ReadLine();
-                    if (response != "y")
+                using (var socket = new ClientWebSocket())
+                    try
                     {
-                        return;
+                        await socket.ConnectAsync(new Uri(serverAdress), CancellationToken.None);
+                        Console.WriteLine("connected");
+                        await Send(socket, "data");
+                        await Receive(socket);
+
                     }
-                }
-            }
-            
-            //Asking user if what to do
-            while (true)
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"ERROR - {ex.Message}");
+                        Thread.Sleep(1000);
+
+                    }
+            } while (true);
+        }
+
+        static async Task Send(ClientWebSocket socket, string data) =>
+            await socket.SendAsync(Encoding.UTF8.GetBytes(data), WebSocketMessageType.Text, true, CancellationToken.None);
+
+        static async Task Receive(ClientWebSocket socket)
+        {
+            var buffer = new ArraySegment<byte>(new byte[2048]);
+            do
             {
-                Console.Write("[Send], [Receive] or [Quit]: ");
-                string command = Console.ReadLine();
-                try
+                WebSocketReceiveResult result;
+                using (var ms = new MemoryStream())
                 {
-                    switch (command)
+                    do
                     {
-                        case "Send":
-                            Console.Write("Message: ");
-                            string message = Console.ReadLine();
-                            byte[] sendbuffer = Encoding.Default.GetBytes(message);
-                            sck.Send(sendbuffer, 0, sendbuffer.Length, 0);
-                            break;
-                        case "Receive":
-                            byte[] receivebuffer = new byte[255];
-                            int receive = sck.Receive(receivebuffer, 0, receivebuffer.Length, 0);
-                            Array.Resize(ref receivebuffer, receive);
-                            Console.WriteLine("Received: " + Encoding.Default.GetString(receivebuffer));
-                            break;
-                        case "Quit":
-                            return;
-                            break;
-                    }
-                    Console.WriteLine("Succesful");
+                        result = await socket.ReceiveAsync(buffer, CancellationToken.None);
+                        ms.Write(buffer.Array, buffer.Offset, result.Count);
+                    } while (!result.EndOfMessage);
+
+                    if (result.MessageType == WebSocketMessageType.Close)
+                        break;
+
+                    ms.Seek(0, SeekOrigin.Begin);
+                    using (var reader = new StreamReader(ms, Encoding.UTF8))
+                        Console.WriteLine(await reader.ReadToEndAsync());
                 }
-                catch
-                {
-                    Console.WriteLine("Unsuccesful");
-                }
-            }
+            } while (true);
         }
     }
 }
