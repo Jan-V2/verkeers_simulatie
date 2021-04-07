@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Controller
 {
@@ -21,8 +22,9 @@ namespace Controller
                     {
                         await socket.ConnectAsync(new Uri(serverAdress), CancellationToken.None);
                         Console.WriteLine("connected");
-                        await Send(socket, "data");
+                        //await Send(socket, "data");
                         await Receive(socket);
+                        
 
                     }
                     catch (Exception ex)
@@ -56,7 +58,17 @@ namespace Controller
 
                     ms.Seek(0, SeekOrigin.Begin);
                     using (var reader = new StreamReader(ms, Encoding.UTF8))
-                        Console.WriteLine(await reader.ReadToEndAsync());
+                    {
+                        string jsonstring = await reader.ReadToEndAsync();
+                        var details = JObject.Parse(jsonstring);
+
+                        if (details["msg_type"].ToString() == "notify_state_change")
+                        {
+                            Console.WriteLine(details["data"]["id"]);
+
+                        }
+
+                    }
                 }
             } while (true);
         }

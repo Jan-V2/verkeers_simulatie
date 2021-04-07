@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "55teXM9Vzj8NcF+/b9EMdJFqSA+0/3Xs5Uibqt5cC74RxkM0HSyNEa1qs86Osp3QvWPmUi1YK09CJCt87ZiVnQ==",
+  "dgSpecHash": "pp5bl4IGX5aFxW34N1hKdLZJze/AmvlTpxgsaLHElu2RZkAUYrnXNxlMEOVBBG9i2TbxBaLQeo3RrP3CDz5SvQ==",
   "success": true,
-  "projectFilePath": "/home/john/RiderProjects/verkeers_simulatie/Controller/Controller/Controller.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\emmap\\Documents\\verkeers_simulatie\\Controller\\Controller\\Controller.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\emmap\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
