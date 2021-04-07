@@ -8,28 +8,36 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "/home/john/.nuget/packages/": {}
+    "C:\\Users\\Aviana\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/john/RiderProjects/verkeers_simulatie/Controller/Controller/Controller.csproj",
+      "projectUniqueName": "C:\\Users\\Aviana\\Documents\\GitHub\\verkeers_simulatie\\Controller\\Controller\\Controller.csproj",
       "projectName": "Controller",
-      "projectPath": "/home/john/RiderProjects/verkeers_simulatie/Controller/Controller/Controller.csproj",
-      "packagesPath": "/home/john/.nuget/packages/",
-      "outputPath": "/home/john/RiderProjects/verkeers_simulatie/Controller/Controller/obj/",
+      "projectPath": "C:\\Users\\Aviana\\Documents\\GitHub\\verkeers_simulatie\\Controller\\Controller\\Controller.csproj",
+      "packagesPath": "C:\\Users\\Aviana\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Aviana\\Documents\\GitHub\\verkeers_simulatie\\Controller\\Controller\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "/home/john/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Aviana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -41,6 +49,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -56,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.407/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

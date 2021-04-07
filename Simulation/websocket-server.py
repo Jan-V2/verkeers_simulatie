@@ -21,10 +21,27 @@ async def notify_state():
         message = state_event()
         await asyncio.wait([user.send(message) for user in USERS])
 
-async def notify_users():
+
+def initialization():
+    message = {
+        "msg_id": [0],
+        "msg_type": "notify_state_change",
+        "data": [
+            {
+                "id": [1],
+                "crosses": [2],
+                "clearing_time": [3]
+            }
+        ]
+    }
+    return json.dump(message)
+
+
+async def notify_users(initialization):
     if USERS:
         message = users_event()
-        await asyncio.wait([user.send(message) for user in USERS])
+        initialization = initialization()
+        await asyncio.wait([user.send(message, initialization) for user in USERS])
 
 async def register(websocket):
     USERS.add(websocket)
@@ -38,17 +55,17 @@ async def counter(websocket, path):
     #register(websocket) sends user_event() to websocket
     await register(websocket)
     try:
+        #Ontvangen
         await websocket.send(state_event())
         async for message in websocket:
-            data = json.loads(message)
-            #if data["action"] == "minus":
-                #STATE["value"] -= 1
-                #await notify_state()
-            #elif data["action"] == "plus":
-                #STATE["value"] += 1
-                #await notify_state()
-            #else:
-                #logging.error("unsupported event: {} ", data)
+            await websocket.recv(message)
+            decoded_message = json.loads(message)
+            message = decoded_message
+            print(f'Ik heb stoplicht met {message["id"]} gezet naar {message["state"]}')
+            await websocket.send(f'Ik heb stoplicht met {message["id"]} gezet naar {message["state"]}')
+
+        #Verzenden
+        #message = await websocket.send()
     finally:
         await unregister(websocket)
 
