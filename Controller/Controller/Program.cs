@@ -14,15 +14,15 @@ namespace Controller
 {
     class Program
     {
-        private const string serverAdress = "ws://127.0.0.1:6969";
         static async Task Main(string[] args)
         {
+            string ip = "ws://127.0.0.1:6969";
             do
             {
                 using (var socket = new ClientWebSocket())
                     try
                     {
-                        await socket.ConnectAsync(new Uri(serverAdress), CancellationToken.None);
+                        await socket.ConnectAsync(new Uri(ip), CancellationToken.None);
                         Console.WriteLine("connected");
                         //await Send(socket, "data");
                         Receive(socket);
@@ -46,8 +46,10 @@ namespace Controller
                     catch (Exception ex)
                     {
                         Console.WriteLine($"ERROR - {ex.Message}");
-                        Thread.Sleep(1000);
-
+                        Console.Write("Could not connect or something went wrong, type new ip or [Enter] for the same ip: ");
+                        string input = Console.ReadLine();
+                        if (input != "")
+                            ip = "ws://" + input + ":6969";
                     }
             } while (true);
         }
