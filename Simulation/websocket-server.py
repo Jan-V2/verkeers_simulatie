@@ -35,8 +35,8 @@ def initialization():
         "data":[
             {
                 "id": 5,
-                "crosses": "Zijn de crosses wel nodig?",
-                "clearing_time": 3
+                "crosses": [1, 2],
+                "clearing_time": 3.0
             }
         ]
     }
@@ -68,11 +68,6 @@ async def counter(websocket, path):
             decoded_message = json.loads(message)
             message = decoded_message
             print("MSG #{}".format(message["msg_id"]), "- Changed traffic light #{} to".format(message["data"][0]["id"]), message["data"][0]["state"])
-            #print(f'Ik heb stoplicht met {message["id"]} gezet naar {message["data"][]}')
-            #await websocket.send(f'Ik heb stoplicht met {message["id"]} gezet naar {message["state"]}')
-
-        #Verzenden
-        #message = await websocket.send()
     finally:
         await unregister(websocket)
 

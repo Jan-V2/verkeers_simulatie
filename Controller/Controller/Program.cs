@@ -40,8 +40,6 @@ namespace Controller
                             if (sw.ElapsedMilliseconds < 1000)
                                 Thread.Sleep(1000 - (int)sw.ElapsedMilliseconds);
                         }
-                        
-
                     }
                     catch (Exception ex)
                     {
