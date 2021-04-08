@@ -9,29 +9,36 @@ STATE = {"value": 0}
 
 USERS = set()
 
+message_id = 0
+
 def state_event():
     #Dumps is used to write a Python object into a JSON string
     return json.dumps({"type": "state", **STATE})
 
 def users_event():
-    return json.dumps({"msg_type": "users", "count": len(USERS)})
+    return json.dumps({"msg_id": new_messageid(), "msg_type": "users", "count": len(USERS)})
 
 async def notify_state():
     if USERS: #asyncio.wait doesn't accept an empty list
         message = state_event()
         await asyncio.wait([user.send(message) for user in USERS])
 
+def new_messageid():
+    global message_id
+    message_id = message_id + 1
+    return message_id
 
 def initialization():
     message = {
-        "msg_id": [0],
+        "msg_id": new_messageid(),
         "msg_type": "notify_state_change",
-        "data":
+        "data":[
             {
                 "id": 5,
-                "crosses": [2],
-                "clearing_time": [3]
+                "crosses": "Zijn de crosses wel nodig?",
+                "clearing_time": 3
             }
+        ]
     }
     return json.dumps(message)
 
@@ -43,7 +50,7 @@ async def notify_users():
 
 async def register(websocket):
     USERS.add(websocket)
-    await notify_users()
+    #await notify_users()
 
 async def unregister(websocket):
     USERS.remove(websocket)
@@ -56,12 +63,13 @@ async def counter(websocket, path):
         #Ontvangen
         await websocket.send(initialization())
         #await websocket.send(state_event())
-        async for message in websocket:
-            await websocket.recv(message)
+        while True:
+            message = await websocket.recv()
             decoded_message = json.loads(message)
             message = decoded_message
-            print(f'Ik heb stoplicht met {message["id"]} gezet naar {message["state"]}')
-            await websocket.send(f'Ik heb stoplicht met {message["id"]} gezet naar {message["state"]}')
+            print("MSG #{}".format(message["msg_id"]), "- Changed traffic light #{} to".format(message["data"][0]["id"]), message["data"][0]["state"])
+            #print(f'Ik heb stoplicht met {message["id"]} gezet naar {message["data"][]}')
+            #await websocket.send(f'Ik heb stoplicht met {message["id"]} gezet naar {message["state"]}')
 
         #Verzenden
         #message = await websocket.send()

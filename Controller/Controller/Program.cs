@@ -7,6 +7,8 @@ using System.Net.WebSockets;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace Controller
 {
@@ -23,7 +25,21 @@ namespace Controller
                         await socket.ConnectAsync(new Uri(serverAdress), CancellationToken.None);
                         Console.WriteLine("connected");
                         //await Send(socket, "data");
-                        await Receive(socket);
+                        Receive(socket);
+                        Stopwatch sw = new Stopwatch();
+                        bool tlcolor = true;
+                        while (true)
+                        {
+                            sw.Start(); //Voer dit uit aan het begin van de loop
+
+                            await Send(socket, "{\"msg_id\": 0, \"msg_type\": \"perform_change_state\", \"data\": [{\"id\": 0, \"state\":" + (tlcolor ? "\"green\"" : "\"red\"") + "}]}");
+                            tlcolor = !tlcolor;
+
+                            //Voer dit uit aan het einde van de loop
+                            sw.Stop();
+                            if (sw.ElapsedMilliseconds < 1000)
+                                Thread.Sleep(1000 - (int)sw.ElapsedMilliseconds);
+                        }
                         
 
                     }
@@ -62,9 +78,11 @@ namespace Controller
                         string jsonstring = await reader.ReadToEndAsync();
                         var details = JObject.Parse(jsonstring);
 
+                        Console.Write("MSG #" + details["msg_id"].ToString() + " - ");
+
                         if (details["msg_type"].ToString() == "notify_state_change")
                         {
-                            Console.WriteLine(details["data"]["id"]);
+                            Console.WriteLine("Received traffic light #" + details["data"][0]["id"].ToString() + " with clearing time of " + details["data"][0]["clearing_time"] + ".");
 
                         }
 
