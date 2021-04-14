@@ -4,14 +4,17 @@ class Coord:
         self.y = y
 
     def __sub__(self, other_coord):
-        self.x -= other_coord.x
-        self.y -= other_coord.y
-        return self
+        return Coord(self.x - other_coord.x,
+                     self.y - other_coord.y)
 
     def __add__(self, other_coord):
-        self.x += other_coord.x
-        self.y += other_coord.y
-        return self
+        return Coord(self.x + other_coord.x,
+                     self.y + other_coord.y)
+
+    def __eq__(self, other):
+        if not isinstance(other, Coord):
+            return NotImplemented
+        return self.x == other.x and self.y == other.y
 
     def translate(self, x, y):
         return Coord(self.x + x, self.y + y)
@@ -24,3 +27,4 @@ class Coord:
 
     def __str__(self):
         return "(x={}, y={})".format(self.x, self.y)
+
