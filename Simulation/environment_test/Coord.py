@@ -4,10 +4,14 @@ class Coord:
         self.y = y
 
     def __sub__(self, other_coord):
+        if not isinstance(other_coord, Coord):
+            return NotImplemented
         return Coord(self.x - other_coord.x,
                      self.y - other_coord.y)
 
     def __add__(self, other_coord):
+        if not isinstance(other_coord, Coord):
+            return NotImplemented
         return Coord(self.x + other_coord.x,
                      self.y + other_coord.y)
 

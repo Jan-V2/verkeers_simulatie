@@ -1,6 +1,8 @@
 # todo specify road with north/south road, and combine merge splits
 from copy import copy
 from enum import Enum, auto
+from functools import reduce
+from pprint import pprint
 
 from environment_test.Coord import Coord
 from dataclasses import dataclass
@@ -153,8 +155,21 @@ class Outgoing:
     id: int
 
 
+@dataclass
+class Traffic_Light:
+    id: int
+    ordinal_in: Ordinal
+    ordinals_out: []
+    coords_in: []
+    coords_out: []
+    collision_x_high: int
+    collision_x_low: int
+    collision_y_high: int
+    collision_y_low: int
+
+
 class Crossing:
-    # todo ondersteuning voor meerdere coords in een crossing
+    # er word ervan uitgegaan dat een kruispunt rechthoekig is
     def __init__(self, coord, _tile_array):
         self.incoming = []
         self.outgoing = []
@@ -163,7 +178,7 @@ class Crossing:
         self.x_lowest = coord.x
         self.y_lowest = coord.y
         self.contains = []
-        targets = []
+        self.traffic_lights = []
         self.__find_neighbours(_tile_array, [coord])
         for coord in self.contains:
             if coord.x > self.x_highest:
@@ -196,14 +211,26 @@ class Crossing:
         visited.append(_next)
         self.__find_neighbours(_tile_array, to_be_visited, visited)
 
+    def __direction_translator(self, in_ordinal, direction):
+        # translate handedness to ordinals
+        # straight ahead is 2
+        # left is + 1
+        # right is -1
+        in_val = in_ordinal.value + direction
+        if in_val < 0:
+            in_val = 4 - in_val
+        if in_val > 3:
+            in_val -= 4
+        for _ord in Ordinal:
+            if _ord.value == in_val:
+                return _ord
+
     def includes(self, coord):
+        # todo optimize
         for item in self.contains:
             if item == coord:
                 return True
         return False
-
-    def merge_crossings(self, crossing):
-        pass
 
     def add_road(self, road, _tile_map):
         if not isinstance(road, Road):
@@ -225,40 +252,91 @@ class Crossing:
         if in_from_ordinal is None:
             raise Exception("road does not appear to be connected to crossing")
 
-        def direction_translater(in_ordinal, direction):
-            # translate handedness to ordinals
-            # straight ahead is 2
-            # left is + 1
-            # right is -1
-            in_val = in_ordinal.value + direction
-            if in_val < -1:
-                in_val = 4 - in_val
-            if in_val > 3:
-                in_val -= 4
-            for ord in Ordinal:
-                if ord.value == in_val:
-                    return ord
-
         if road.is_incoming:
             # check each of the three directions
-            if in_type == Tile_Types.road:
-                dest_ordinals.append(direction_translater(in_from_ordinal, 2))
+            if in_type == Tile_Types.road or in_type == Tile_Types.straight:
+                dest_ordinals.append(self.__direction_translator(in_from_ordinal, 2))
             elif in_type == Tile_Types.left:
-                dest_ordinals.append(direction_translater(in_from_ordinal, 1))
+                dest_ordinals.append(self.__direction_translator(in_from_ordinal, 1))
             elif in_type == Tile_Types.right:
-                dest_ordinals.append(direction_translater(in_from_ordinal, -1))
+                dest_ordinals.append(self.__direction_translator(in_from_ordinal, -1))
             elif in_type == Tile_Types.left_straight:
-                dest_ordinals.append(direction_translater(in_from_ordinal, 2))
-                dest_ordinals.append(direction_translater(in_from_ordinal, 1))
+                dest_ordinals.append(self.__direction_translator(in_from_ordinal, 2))
+                dest_ordinals.append(self.__direction_translator(in_from_ordinal, 1))
             elif in_type == Tile_Types.right_straight:
-                dest_ordinals.append(direction_translater(in_from_ordinal, 2))
-                dest_ordinals.append(direction_translater(in_from_ordinal, -1))
+                dest_ordinals.append(self.__direction_translator(in_from_ordinal, 2))
+                dest_ordinals.append(self.__direction_translator(in_from_ordinal, -1))
+            else:
+                raise TypeError("tile type nog found")
             self.incoming.append(Incoming(road.get_last(), in_from_ordinal, dest_ordinals, road.id))
         else:
             self.outgoing.append(Outgoing(in_from, in_from_ordinal, road.id))
 
     def get_destinations(self, coord):
         pass
+
+    def create_traffic_lights(self):
+        def check_if_light_created(incoming_road):
+            for light in self.traffic_lights:
+                if light.ordinal_in == incoming_road.in_from_ord:
+                    if len(light.ordinals_out) == len(incoming_road.destination_ordinals):
+                        for ord in incoming_road.destination_ordinals:
+                            if ord not in light.ordinals_out:
+                                return None
+                        return light
+            return None
+
+        # checken of licht er al in zit
+        # licht toevoegen
+        light_id = 0
+        for in_road in self.incoming:
+            dest_light = check_if_light_created(in_road)
+            if dest_light == None:
+                out_roads = list(filter(lambda o: o.out_from_ord in in_road.destination_ordinals, self.outgoing))
+                # out_coords = list(map(lambda o: o.out_from, out_roads))
+                out_coords = []
+                for road in out_roads:
+                    out_coords.append(road.out_from)
+                self.traffic_lights.append(Traffic_Light(id=light_id,
+                                                         ordinal_in=in_road.in_from_ord,
+                                                         ordinals_out=in_road.destination_ordinals,
+                                                         coords_in=[in_road.in_from],
+                                                         coords_out=out_coords,
+                                                         collision_x_low=None,
+                                                         collision_x_high=None,
+                                                         collision_y_low=None,
+                                                         collision_y_high=None))
+                light_id += 1
+            else:
+                dest_light.coords_in.append(in_road.in_from)
+
+        # check if every road has been added to the crossing
+        # in_coords = list(map(lambda in_road: in_road.in_from, self.incoming))
+        # for out_road in self.outgoing
+        pass
+
+    def solve_collisions(self):
+        # todo check kruislinks
+        matrix = []
+        for light in self.traffic_lights:
+            row = []
+            light_ords = copy(light.ordinals_out)
+            light_ords.append(light.ordinal_in)
+            for opposing_light in self.traffic_lights:
+                if opposing_light.id == light.id:
+                    row.append(True)
+                else:
+                    can_cross = True
+                    for _ord in opposing_light.ordinals_out:
+                        if _ord in light_ords:
+                            can_cross = False
+                            break
+                    if opposing_light.ordinal_in in light.ordinals_out:
+                        can_cross = False
+
+                    row.append(can_cross)
+            matrix.append(row)
+        return matrix
 
 
 # merges en splits moeten als laatste geevalueerd worden.
@@ -277,67 +355,69 @@ class Merge(Road):
     def add_inflow(self, coord):
         self.banned_coords.append(coord)
 
-    def solve(self, _tile_array, found_direction_tile=False, banned_coords=()):
-        return super(Merge, self).solve(_tile_array, banned_coords=self.banned_coords)
+    def solve(self, _tile_array, found_direction_tile=False, banned_coords=(), prev_non_car_tile=None):
+        return super(Merge, self).solve(_tile_array, banned_coords=self.banned_coords,
+                                        prev_non_car_tile=prev_non_car_tile)
 
 
-# todo road generation
-# todo intersection connections
-tile_array = []
-route_components = []
-crossings = []
+if __name__ == '__main__':
+    tile_array = []
+    route_components = []
+    crossings = []
 
-with open("kruispunt3.txt", "r") as file:
-    map = file.read().split("\n")
-    # ruimt lege regel aan het einde van het bestand op
-    if map[len(map) - 1] == "":
-        map = map[:len(map) - 1]
+    with open("kruispunt3.txt", "r") as file:
+        char_map = file.read().split("\n")
+        # ruimt lege regel aan het einde van het bestand op
+        if char_map[len(char_map) - 1] == "":
+            char_map = char_map[:len(char_map) - 1]
 
-for y in range(len(map)):
-    new_row = []
-    for x in range(len(map[y])):
-        new_row.append(Tile(Coord(x, y), map[y][x]))
-    tile_array.append(new_row)
+    for y in range(len(char_map)):
+        new_row = []
+        for x in range(len(char_map[y])):
+            new_row.append(Tile(Coord(x, y), char_map[y][x]))
+        tile_array.append(new_row)
 
-# get starting points for road generation
-for row in tile_array:
-    for tile in row:
-        if tile.tile_type in starting_tiles:
-            if tile.tile_type == Tile_Types.despawn:
-                route_components.append(Road(tile.coord, False))
-            else:
-                route_components.append(Road(tile.coord, True))
+    # get starting points for road generation
+    for row in tile_array:
+        for tile in row:
+            if tile.tile_type in starting_tiles:
+                if tile.tile_type == Tile_Types.despawn:
+                    route_components.append(Road(tile.coord, False))
+                else:
+                    route_components.append(Road(tile.coord, True))
 
-while True:
-    all_finished = True
-    for component in route_components:
-        if not component.finished:
-            all_finished = False
+    while True:
+        all_finished = True
+        for component in route_components:
+            if not component.finished:
+                all_finished = False
+                break
+        if all_finished:
             break
-    if all_finished:
-        break
 
-    for component in route_components:
-        if not component.finished:
-            end_point = component.solve(tile_array)
-            if tile_array[end_point.y][end_point.x].tile_type == Tile_Types.crossing:
-                found_existing = False
-                for crossing in crossings:
-                    if crossing.includes(end_point):
-                        found_existing = True
-                        crossing.add_road(component, tile_array)
-                if not found_existing:
-                    cr = Crossing(end_point, tile_array)
-                    cr.add_road(component, tile_array)
+        for component in route_components:
+            if not component.finished:
+                end_point = component.solve(tile_array)
+                if tile_array[end_point.y][end_point.x].tile_type == Tile_Types.crossing:
+                    found_existing = False
+                    for crossing in crossings:
+                        if crossing.includes(end_point):
+                            found_existing = True
+                            crossing.add_road(component, tile_array)
+                    if not found_existing:
+                        cr = Crossing(end_point, tile_array)
+                        cr.add_road(component, tile_array)
 
-                    crossings.append(cr)
-            elif tile_array[end_point.y][end_point.x].tile_type == Tile_Types.merge:
-                found_existing = False
-                for comp in route_components:
-                    if end_point == comp.get_start():
-                        comp.add_inflow(component.get_last())
-                        found_existing = True
-                if not found_existing:
-                    route_components.append(Merge(end_point, component.is_incoming, component.get_last()))
+                        crossings.append(cr)
+                elif tile_array[end_point.y][end_point.x].tile_type == Tile_Types.merge:
+                    found_existing = False
+                    for comp in route_components:
+                        if end_point == comp.get_start():
+                            comp.add_inflow(component.get_last())
+                            found_existing = True
+                    if not found_existing:
+                        route_components.append(Merge(end_point, component.is_incoming, component.get_last()))
 
-print("test")
+    crossings[0].create_traffic_lights()
+    light_matrix = crossings[0].solve_collisions()
+    print("test")
