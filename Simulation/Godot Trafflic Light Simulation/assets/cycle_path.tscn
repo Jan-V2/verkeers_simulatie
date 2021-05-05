@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://imports/world/Road/White.material" type="Material" id=1]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.392157, 0.141176, 0.141176, 1 )
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 2 )
+
+[sub_resource type="CubeMesh" id=5]
+material = ExtResource( 1 )
+
+[node name="cycle_path" type="StaticBody"]
+transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 1, 0, -0.6, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1.01, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Road" type="MeshInstance" parent="."]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="White_line_1" type="MeshInstance" parent="."]
+transform = Transform( 0.04, 0, 0, 0, 0.01, 0, 0, 0, 1, 0.96, 1, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="White_line_3" type="MeshInstance" parent="."]
+transform = Transform( 0.04, 0, 0, 0, 0.01, 0, 0, 0, 1, 0.96, 1, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="White_line_2" type="MeshInstance" parent="."]
+transform = Transform( 0.04, 0, 0, 0, 0.01, 0, 0, 0, 1, -0.96, 1, 0 )
+mesh = SubResource( 5 )
+material/0 = null
