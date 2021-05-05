@@ -1,3 +1,4 @@
+from environment_test.Coord import Coord
 from environment_test.Types import *
 
 
@@ -7,28 +8,13 @@ def generate_obj_id():
         yield id
         id += 1
 
-
 id_generator = generate_obj_id()
 
 
 class Route_Component:
     def __init__(self):
+        # elk Route_Component heeft een uniek id
         self.id = next(id_generator)
-
-
-class Tile(Route_Component):
-    def __init__(self, coord, tile_char):
-        super().__init__()
-        self.coord = coord
-        if tile_char.isnumeric():
-            self.tile_type = Tile_Types.road
-            self.road_value = int(tile_char)
-        else:
-            for type in Tile_Types:
-                if type.value[0] is tile_char:
-                    self.tile_type = type
-                    return
-            raise TypeError("tile char not valid tile. char is " + tile_char)
 
 
 class Road(Route_Component):
@@ -38,12 +24,14 @@ class Road(Route_Component):
         self.finished = False
         self.is_incoming = is_incoming
         self.route_value = -1
-        self.end = None
 
     # noinspection PyDefaultArgument
-    def solve(self, _tile_array, found_direction_tile=False, banned_coords=[], prev_non_car_tile=None):
+    def solve(self, _tile_array, found_direction_tile=False, banned_coords=[]):
+        # een recursieve methode die zoek naar het eindpunt van de weg
         # stuurt terug volgende startpunt, als dat er is
         # er zou op een kloppende kaart altijd maar 1 mogelijke optie moten zijn, maar daar word niet voor gecheckt.
+        # GEEFT GEEN ERROR ALS ER MEERDERE EINDPUNTEN ZIJN
+        # wel als het eindpunt niet te vinden is
         if self.finished:
             return
         else:
@@ -66,14 +54,17 @@ class Road(Route_Component):
                             self.route.append(target)
                             self.route_value += 1
                             return self.solve(_tile_array)
-                # ga op zoek naar aan een voet/fiets pad
+                # ga op zoek naar aan een voet/fiets pad of sensor
                 for target in targets:
-                    if _tile_array[target.y][target.x].tile_type in non_car_tiles and \
-                            _tile_array[target.y][target.x].tile_type != prev_non_car_tile:
-                        self.route.append(target)
-                        self.route_value += 1
-
-                        return self.solve(_tile_array, prev_non_car_tile=_tile_array[target.y][target.x].tile_type)
+                    if _tile_array[target.y][target.x].tile_type in non_car_tiles:
+                        try:
+                            if _tile_array[target.y][target.x].road_value == self.route_value + 1:
+                                self.route.append(target)
+                                self.route_value += 1
+                                return self.solve(_tile_array)
+                        except AttributeError:
+                            # als de non car tile geen road_num heeft is het niet traversable
+                            pass
                 # ga op zoek naar een aan een kruispunt genzende tegel
                 for target in targets:
                     if _tile_array[target.y][target.x].tile_type in directioned_tiles:
@@ -82,13 +73,12 @@ class Road(Route_Component):
                 # ga op zoek naar merge/split punt
                 for target in targets:
                     if _tile_array[target.y][target.x].tile_type in merge_or_split:
-                        self.end = target
+                        self.route.append(target)
                         self.finished = True
                         return target
             # ga op zoek naar kruispunt
             for target in targets:
                 if _tile_array[target.y][target.x].tile_type == Tile_Types.crossing:
-                    self.end = target
                     self.finished = True
                     return target
         raise Exception("road found dead end at " + str(self.get_last()))
@@ -108,6 +98,7 @@ class Road(Route_Component):
 
 
 class Merge(Road):
+    # hetzelfde als een weg, alleen met meerdere inflow coordinaten
     def __init__(self, start_coord, is_incoming, inflow_coord):
         super().__init__(start_coord, is_incoming)
         self.banned_coords = [inflow_coord]

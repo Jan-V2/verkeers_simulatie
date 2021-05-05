@@ -116,7 +116,7 @@ class Crossing:
             if in_from.x < self.x_lowest:
                 in_from_ordinal = Ordinal.west
         if in_from_ordinal is None:
-            raise Exception("road does not appear to be connected to crossing")
+            raise Exception("road does not appear to be connected to crossing " + str(in_from) )
 
         if road.is_incoming:
             # check each of the three directions

@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class Tile_Types(Enum):
+    # een lijst van de verschillende tiles die in de map voor kunnen komen
     empty = 'X',  # leeg
     crossing = '*',  # kruispunt
     road = None,  # weg, als het grenst aan een kruispunt rechtdoorgaande weg
@@ -17,7 +18,16 @@ class Tile_Types(Enum):
     split = "U",  # voor uitvoegen
     merge = "I"  # voor invoegen
     straight = "W"  # rechtdoor
+    sensor = "O" # sensor
 
+# tiles die startpunten zijn
+starting_tiles = [Tile_Types.car_spawn, Tile_Types.b_spawn, Tile_Types.despawn]
+
+# verschillende types Tile elk met een andere functie in het zoeken naar een eindpunt
+directioned_tiles = [Tile_Types.left, Tile_Types.right, Tile_Types.left_straight,
+                     Tile_Types.right_straight, Tile_Types.straight]
+merge_or_split = [Tile_Types.merge, Tile_Types.split]
+non_car_tiles = [Tile_Types.b_lane, Tile_Types.sidewalk, Tile_Types.sensor]
 
 class Ordinal(Enum):
     north = 0
@@ -26,8 +36,3 @@ class Ordinal(Enum):
     west = 3
 
 
-directioned_tiles = [Tile_Types.left, Tile_Types.right, Tile_Types.left_straight,
-                     Tile_Types.right_straight, Tile_Types.straight]
-merge_or_split = [Tile_Types.merge, Tile_Types.split]
-starting_tiles = [Tile_Types.car_spawn, Tile_Types.b_spawn, Tile_Types.despawn]
-non_car_tiles = [Tile_Types.b_lane, Tile_Types.sidewalk]

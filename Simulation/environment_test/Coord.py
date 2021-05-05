@@ -1,5 +1,7 @@
 class Coord:
     def __init__(self, x, y):
+        if not isinstance(x, int) or not isinstance(y, int):
+            raise TypeError("coord may only contain ints")
         self.x = x
         self.y = y
 
