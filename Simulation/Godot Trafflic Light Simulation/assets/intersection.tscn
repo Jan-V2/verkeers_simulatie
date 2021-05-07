@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://imports/world/Road/roadTile_072.gltf" type="PackedScene" id=1]
 [ext_resource path="res://imports/world/Road/roadTile_059.gltf" type="PackedScene" id=2]
@@ -20,509 +20,695 @@
 [ext_resource path="res://assets/trafficlight.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/ambulance.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/zombie.tscn" type="PackedScene" id=20]
+[ext_resource path="res://imports/world/Nature/tree_oak.glb" type="PackedScene" id=21]
+[ext_resource path="res://imports/world/Nature/tree_default.glb" type="PackedScene" id=22]
+[ext_resource path="res://imports/world/Road/roadTile_028.gltf" type="PackedScene" id=23]
 
 [node name="Intersection" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.926154, 0.377146, 0, -0.377146, 0.926154, -16.6873, 7.09662, 38.8256 )
+transform = Transform( 1, 0, 0, 0, 0.926154, 0.377146, 0, -0.377146, 0.926154, 1.90356, 7.09662, 106.935 )
 
 [node name="cycle_path" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1.14044e-07, 0, 13, 0, 0.6, 0, -0.7, 0, -2.11797e-06, -14.5477, -0.599, 0.726751 )
+transform = Transform( -1.14044e-07, 0, 13, 0, 0.6, 0, -0.7, 0, -2.11797e-06, 4.04307, -0.599, 68.8365 )
 
 [node name="cycle_path7" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1.14044e-07, 0, 10.5, 0, 0.6, 0, -0.7, 0, -1.71067e-06, 10.2617, -0.599, -1.05355 )
+transform = Transform( -1.14044e-07, 0, 10.5, 0, 0.6, 0, -0.7, 0, -1.71067e-06, 28.8526, -0.599, 67.0562 )
 
 [node name="cycle_path4" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1.14044e-07, 0, 13, 0, 0.6, 0, -0.7, 0, -2.11797e-06, -14.5477, -0.599, 25.5338 )
+transform = Transform( -1.14044e-07, 0, 13, 0, 0.6, 0, -0.7, 0, -2.11797e-06, 4.04307, -0.599, 93.6436 )
 
 [node name="cycle_path9" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1.14044e-07, 0, 4, 0, 0.6, 0, -0.7, 0, -6.51683e-07, -32.8183, -0.599, 21.676 )
+transform = Transform( -1.14044e-07, 0, 4, 0, 0.6, 0, -0.7, 0, -6.51683e-07, -14.2274, -0.599, 89.7858 )
 
 [node name="cycle_path14" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1.14044e-07, 0, 4, 0, 0.6, 0, -0.7, 0, -6.51683e-07, -37.6559, -0.599, 21.676 )
+transform = Transform( -1.14044e-07, 0, 4, 0, 0.6, 0, -0.7, 0, -6.51683e-07, -19.065, -0.599, 89.7858 )
 
 [node name="cycle_path11" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1.14044e-07, 0, 4, 0, 0.6, 0, -0.7, 0, -6.51683e-07, 3.88054, -0.599, 25.5338 )
+transform = Transform( -1.14044e-07, 0, 4, 0, 0.6, 0, -0.7, 0, -6.51683e-07, 22.4714, -0.599, 93.6436 )
 
 [node name="cycle_path12" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1.14044e-07, 0, 4, 0, 0.6, 0, -0.7, 0, -6.51683e-07, 10.9829, -0.599, 25.5338 )
+transform = Transform( -1.14044e-07, 0, 4, 0, 0.6, 0, -0.7, 0, -6.51683e-07, 29.5738, -0.599, 93.6436 )
 
 [node name="cycle_path13" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1.14044e-07, 0, 3.5, 0, 0.6, 0, -0.7, 0, -5.70222e-07, 17.4438, -0.599, 25.5338 )
+transform = Transform( -1.14044e-07, 0, 3.5, 0, 0.6, 0, -0.7, 0, -5.70222e-07, 36.0347, -0.599, 93.6436 )
 
 [node name="cycle_path2" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 8, -28.1848, -0.599, 13.0303 )
+transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 8, -9.59391, -0.599, 81.14 )
 
 [node name="cycle_path17" parent="." instance=ExtResource( 7 )]
-transform = Transform( -0.7, 1.95505e-07, 0, -2.28089e-07, -0.6, 0, 0, 0, 8, -28.1844, -0.599, 24.583 )
+transform = Transform( -0.7, 1.95505e-07, 0, -2.28089e-07, -0.6, 0, 0, 0, 8, -9.59351, -0.599, 92.6927 )
 
 [node name="cycle_path18" parent="." instance=ExtResource( 7 )]
-transform = Transform( -0.7, 1.95505e-07, 0, -2.28089e-07, -0.6, 0, 0, 0, 8, -28.1844, -0.599, 2.93935 )
+transform = Transform( -0.7, 1.95505e-07, 0, -2.28089e-07, -0.6, 0, 0, 0, 8, -9.59351, -0.599, 71.0491 )
 
 [node name="cycle_path19" parent="." instance=ExtResource( 7 )]
-transform = Transform( -0.7, 1.95505e-07, 0, -2.28089e-07, -0.6, 0, 0, 0, 8, -0.83946, -0.599, 2.93935 )
+transform = Transform( -0.7, 1.95505e-07, 0, -2.28089e-07, -0.6, 0, 0, 0, 8, 17.7514, -0.599, 71.0491 )
 
 [node name="cycle_path20" parent="." instance=ExtResource( 7 )]
-transform = Transform( -0.7, 1.95505e-07, 0, -2.28089e-07, -0.6, 0, 0, 0, 8, -0.83946, -0.599, 24.8522 )
+transform = Transform( -0.7, 1.95505e-07, 0, -2.28089e-07, -0.6, 0, 0, 0, 8, 17.7514, -0.599, 92.9619 )
 
 [node name="cycle_path16" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 8, -28.1848, -0.599, -7.90315 )
+transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 8, -9.59391, -0.599, 60.2066 )
+
+[node name="cycle_path23" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 8, -9.59391, -0.599, 45.1239 )
+
+[node name="cycle_path24" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 8, -9.59391, -0.599, 31.531 )
+
+[node name="cycle_path25" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 8, -9.59391, -0.599, 15.5971 )
+
+[node name="cycle_path28" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.657785, 1.83714e-07, 2.73616, 2.28089e-07, -0.6, 0, 0.239414, 6.68666e-08, -7.51754, -7.47359, -0.599, 2.0109 )
 
 [node name="cycle_path8" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 6.8, -28.1848, -0.599, 33.0142 )
+transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 6.8, -9.59391, -0.599, 101.124 )
 
 [node name="cycle_path10" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 6.8, -0.886061, -0.599, 33.0142 )
+transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 6.8, 17.7048, -0.599, 101.124 )
 
 [node name="cycle_path5" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 11, -0.831459, -0.599, 12.9071 )
+transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 11, 17.7594, -0.599, 81.0168 )
 
 [node name="cycle_path6" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 12, -0.831459, -0.599, -13.7492 )
+transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 12, 17.7594, -0.599, 54.3605 )
 
 [node name="cycle_path22" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 12, -0.831459, -0.599, -22.4017 )
+transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 12, 17.7594, -0.599, 45.708 )
 
 [node name="cycle_path21" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 20, -0.831459, -0.599, -43.3604 )
+transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 20, 17.7594, -0.599, 24.7494 )
+
+[node name="cycle_path26" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.7, 0, 0, 0, 0.6, 0, 0, 0, 20, 17.7594, -0.599, -14.6952 )
 
 [node name="cycle_path3" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1.14044e-07, 0, 5, 0, 0.6, 0, -0.7, 0, -8.14603e-07, -33.7793, -0.599, 4.35595 )
+transform = Transform( -1.14044e-07, 0, 5, 0, 0.6, 0, -0.7, 0, -8.14603e-07, -15.1884, -0.599, 72.4657 )
 
 [node name="cycle_path15" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1.14044e-07, 0, 5, 0, 0.6, 0, -0.7, 0, -8.14603e-07, -36.6779, -0.599, 4.35595 )
+transform = Transform( -1.14044e-07, 0, 5, 0, 0.6, 0, -0.7, 0, -8.14603e-07, -18.087, -0.599, 72.4657 )
 
 [node name="pedestrian_path" parent="." instance=ExtResource( 8 )]
-transform = Transform( -1.62921e-07, 0, 10, 0, 0.6, 0, -1, 0, -1.62921e-06, -14.5477, -0.599, -2.13815 )
+transform = Transform( -1.62921e-07, 0, 10, 0, 0.6, 0, -1, 0, -1.62921e-06, 4.04307, -0.599, 65.9716 )
 
 [node name="pedestrian_path3" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 10, 2.07344, -0.599, 11.8837 )
+transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 10, 20.6643, -0.599, 79.9934 )
 
 [node name="pedestrian_path4" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 8, -31.1172, -0.599, 13.023 )
+transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 8, -12.5263, -0.599, 81.1327 )
 
 [node name="pedestrian_path2" parent="." instance=ExtResource( 8 )]
-transform = Transform( -1.62921e-07, 0, 10, 0, 0.6, 0, -1, 0, -1.62921e-06, -14.5477, -0.599, 28.2894 )
+transform = Transform( -1.62921e-07, 0, 10, 0, 0.6, 0, -1, 0, -1.62921e-06, 4.04307, -0.599, 96.3992 )
 
 [node name="grass" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1.13, 0, 0, 0, 0.5, 0, 0, 0, 20, -4.84939, -0.75, -3.56665 )
+transform = Transform( 1.08, 0, 0, 0, 0.5, 0, 0, 0, 20, 13.9106, -0.75, 64.5431 )
+
+[node name="grass20" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.08, 0, 0, 0, 0.5, 0, 0, 0, 20, 13.9106, -0.75, 25.2793 )
+
+[node name="grass22" parent="." instance=ExtResource( 3 )]
+transform = Transform( 7, 0, 0, 0, 0.5, 0, 0, 0, 34, 18.393, -0.75, 66.4215 )
+
+[node name="grass2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.25, 0, 0, 0, 0.5, 0, 0, 0, 18, -8.94471, -0.75, 64.5431 )
+
+[node name="grass23" parent="." instance=ExtResource( 3 )]
+transform = Transform( 2.6, 0, 0, 0, 0.5, 0, 0, 0, 2.8, -8.872, -0.75, 16.242 )
+
+[node name="grass24" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.939693, 0.00253391, 0.957551, 0, 0.499945, -0.0414885, -0.34202, -0.00696186, -2.63085, -2.26541, -0.75, -1.72659 )
+
+[node name="grass14" parent="." instance=ExtResource( 3 )]
+transform = Transform( 3.1, 0, 0, 0, 0.5, 0, 0, 0, 20, -22.9408, -0.75, 68.6048 )
+
+[node name="grass21" parent="." instance=ExtResource( 3 )]
+transform = Transform( 3.1, 0, 0, 0, 0.5, 0, 0, 0, 20, -22.9408, -0.75, 27.2221 )
 
 [node name="grass3" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.3, 0, -1.28507e-06, 0, 0.5, 0, 1.16824e-07, 0, -3.3, -15.8797, -0.75, 29.792 )
+transform = Transform( -0.3, 0, -1.28507e-06, 0, 0.5, 0, 1.16824e-07, 0, -3.3, 2.71107, -0.75, 97.9018 )
+
+[node name="grass16" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -1.55766e-06, 0, 0.5, 0, 3.89414e-07, 0, -4, 7.17961, -0.75, 4.21797 )
+
+[node name="grass15" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 20, 6.61419, -0.75, 64.5996 )
+
+[node name="grass17" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 2, 3.94668, -0.75, 10.5958 )
+
+[node name="grass18" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 2, 3.94668, -0.749999, 16.4748 )
+
+[node name="grass19" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.8, 0, 0, 0, 0.5, 0, 0, 0, 2, 4.52918, -0.749999, 10.0113 )
 
 [node name="grass13" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.88762e-08, 0, 3.1, 0, 0.5, 0, -0.3, 0, -5.05054e-07, -32.3597, -0.75, 12.1299 )
+transform = Transform( -4.88762e-08, 0, 3.1, 0, 0.5, 0, -0.3, 0, -5.05054e-07, -13.7689, -0.75, 80.2397 )
 
 [node name="grass4" parent="." instance=ExtResource( 3 )]
-transform = Transform( -1.25, 0, -1.28507e-06, 0, 0.5, 0, 4.86768e-07, 0, -3.3, -23.7999, -0.75, 29.8373 )
+transform = Transform( -1.25, 0, -1.28507e-06, 0, 0.5, 0, 4.86768e-07, 0, -3.3, -5.20901, -0.75, 97.9471 )
 
 [node name="grass7" parent="." instance=ExtResource( 3 )]
-transform = Transform( -3.2, 0, -1.84972e-06, 0, 0.5, 0, 1.24613e-06, 0, -4.75, -32.0837, -0.75, 25.5606 )
+transform = Transform( -3.2, 0, -1.84972e-06, 0, 0.5, 0, 1.24613e-06, 0, -4.75, -13.4928, -0.75, 93.6704 )
 
 [node name="grass5" parent="." instance=ExtResource( 3 )]
-transform = Transform( -1.04, 0, -1.28507e-06, 0, 0.5, 0, 4.04991e-07, 0, -3.3, -1.47736, -0.75, 29.7365 )
+transform = Transform( -1.04, 0, -1.28507e-06, 0, 0.5, 0, 4.04991e-07, 0, -3.3, 17.1135, -0.75, 97.8463 )
 
 [node name="grass8" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1.66, 3.24454, -0.75, 24.888 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1.66, 21.8354, -0.75, 92.9978 )
 
 [node name="grass12" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.00486938, 0, -2.9999, 0, 0.5, 0, 0.59998, 0, 0.0243469, 3.61204, -0.75, 21.5652 )
+transform = Transform( 0.00486938, 0, -2.9999, 0, 0.5, 0, 0.59998, 0, 0.0243469, 22.2029, -0.75, 89.6749 )
 
 [node name="grass9" parent="." instance=ExtResource( 3 )]
-transform = Transform( -9.77524e-08, 0, 5.2, 0, 0.5, 0, -0.6, 0, -8.47188e-07, 20.1729, -0.75, 24.888 )
+transform = Transform( -9.77524e-08, 0, 5.2, 0, 0.5, 0, -0.6, 0, -8.47188e-07, 38.7638, -0.75, 92.9978 )
 
 [node name="grass10" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.117598, 0, 5.09914, 0, 0.5, 0, -0.588363, 0, 1.01919, 20.1729, -0.75, 24.888 )
+transform = Transform( 0.117598, 0, 5.09914, 0, 0.5, 0, -0.588363, 0, 1.01919, 38.7638, -0.75, 92.9978 )
 
 [node name="grass11" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.117598, 0, 5.09914, 0, 0.5, 0, -0.588363, 0, 1.01919, 19.542, -0.75, 24.7074 )
+transform = Transform( 0.117598, 0, 5.09914, 0, 0.5, 0, -0.588363, 0, 1.01919, 38.1329, -0.75, 92.8171 )
 
 [node name="grass6" parent="." instance=ExtResource( 3 )]
-transform = Transform( -6, 0, -1.28507e-06, 0, 0.5, 0, 2.33649e-06, 0, -3.3, 21.0298, -0.75, 29.8373 )
+transform = Transform( -6, 0, -1.28507e-06, 0, 0.5, 0, 2.33649e-06, 0, -3.3, 39.6207, -0.75, 97.9471 )
 
 [node name="roadTile_1" parent="." instance=ExtResource( 5 )]
-transform = Transform( 7, 0, 0, 0, 1, 0, 0, 0, 28, -25.0645, -0.6, 20.3677 )
+transform = Transform( 7, 0, 0, 0, 1, 0, 0, 0, 23, -6.47361, -0.6, 88.4775 )
 
 [node name="roadTile_2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0645, -0.6, 7.43375 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.47361, -0.6, 75.5435 )
 
 [node name="roadTile_3" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -1.18, 0, 1, 0, 1, 0, -1.92246e-07, -27.52, -0.6, 4.43375 )
+transform = Transform( -1.62921e-07, 0, -1.18, 0, 1, 0, 1, 0, -1.92246e-07, -8.92911, -0.6, 72.5435 )
 
 [node name="roadTile_21" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -1.18, 0, 1, 0, 1, 0, -1.92246e-07, -27.52, -0.6, 11.6744 )
+transform = Transform( -1.62921e-07, 0, -1.18, 0, 1, 0, 1, 0, -1.92246e-07, -8.92911, -0.6, 79.7841 )
 
 [node name="roadTile_96" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -3, 0, 1, 0, 1, 0, -4.88762e-07, -41.6745, -0.6, 2.92595 )
+transform = Transform( -1.62921e-07, 0, -3, 0, 1, 0, 1, 0, -4.88762e-07, -23.0836, -0.6, 71.0357 )
 
 [node name="roadTile_99" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -3, 0, 1, 0, 1, 0, -4.88762e-07, -37.8984, -0.6, 2.92595 )
+transform = Transform( -1.62921e-07, 0, -3, 0, 1, 0, 1, 0, -4.88762e-07, -19.3075, -0.6, 71.0357 )
 
 [node name="roadTile_103" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -3, 0, 1, 0, 1, 0, -4.88762e-07, -37.8367, -0.6, 11.6679 )
+transform = Transform( -1.62921e-07, 0, -3, 0, 1, 0, 1, 0, -4.88762e-07, -19.2458, -0.6, 79.7776 )
 
 [node name="roadTile_38" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -0.95, 0, 1, 0, 1, 0, -1.54775e-07, -4.30999, -0.6, 15.0095 )
+transform = Transform( -1.62921e-07, 0, -0.95, 0, 1, 0, 1, 0, -1.54775e-07, 14.2808, -0.6, 83.1192 )
 
 [node name="roadTile_39" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -0.95, 0, 1, 0, 1, 0, -1.54775e-07, -4.30999, -0.6, 14.2891 )
+transform = Transform( -1.62921e-07, 0, -0.95, 0, 1, 0, 1, 0, -1.54775e-07, 14.2808, -0.6, 82.3988 )
 
 [node name="roadTile_111" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -1.25, 0, 1, 0, 1, 0, -2.03651e-07, -0.184559, -0.6, 14.2891 )
+transform = Transform( -1.62921e-07, 0, -1.25, 0, 1, 0, 1, 0, -2.03651e-07, 18.4063, -0.6, 82.3988 )
 
 [node name="roadTile_112" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -1.25, 0, 1, 0, 1, 0, -2.03651e-07, -0.184559, -0.6, 15.0391 )
+transform = Transform( -1.62921e-07, 0, -1.25, 0, 1, 0, 1, 0, -2.03651e-07, 18.4063, -0.6, 83.1488 )
 
 [node name="roadTile_85" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -2.6, 0, 1, 0, 1, 0, -4.23594e-07, 11.9719, -0.6, 14.9987 )
+transform = Transform( -1.62921e-07, 0, -2.6, 0, 1, 0, 1, 0, -4.23594e-07, 30.5628, -0.6, 83.1084 )
 
 [node name="roadTile_65" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -2.6, 0, 1, 0, 1, 0, -4.23594e-07, 11.9639, -0.600001, 14.3001 )
+transform = Transform( -1.62921e-07, 0, -2.6, 0, 1, 0, 1, 0, -4.23594e-07, 30.5548, -0.600001, 82.4098 )
 
 [node name="roadTile_41" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.30337e-07, -4.30999, -0.6, 19.2675 )
+transform = Transform( -1.62921e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.30337e-07, 14.2808, -0.6, 87.3773 )
 
 [node name="roadTile_108" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -1.6, 0, 1, 0, 1, 0, -2.60673e-07, -0.189859, -0.6, 19.2675 )
+transform = Transform( -1.62921e-07, 0, -1.6, 0, 1, 0, 1, 0, -2.60673e-07, 18.401, -0.6, 87.3773 )
 
 [node name="roadTile_80" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.199778, 0, 3.42944, 0, 1, 0, -0.979841, 0, 0.699224, 14.7316, -0.6, 22.0988 )
+transform = Transform( 0.199778, 0, 3.42944, 0, 1, 0, -0.979841, 0, 0.699224, 33.3225, -0.6, 90.2085 )
 
 [node name="roadTile_83" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.199778, 0, 3.42944, 0, 1, 0, -0.979841, 0, 0.699224, 20.1912, -0.6, 23.1941 )
+transform = Transform( 0.199778, 0, 3.42944, 0, 1, 0, -0.979841, 0, 0.699224, 38.7821, -0.6, 91.3039 )
 
 [node name="roadTile_4" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.833, 0, 0, 0, 1, 0, 0, 0, 1.33, -20.0644, -0.6, 8.43375 )
+transform = Transform( 0.833, 0, 0, 0, 1, 0, 0, 0, 1.33, -1.47363, -0.6, 76.5435 )
 
 [node name="roadTile_5" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.833, 0, 0, 0, 1, 0, 0, 0, 1.33, -17.5644, -0.6, 8.43375 )
+transform = Transform( 0.833, 0, 0, 0, 1, 0, 0, 0, 1.33, 1.02637, -0.6, 76.5435 )
 
 [node name="roadTile_6" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.833, 0, 0, 0, 1, 0, 0, 0, 1.33, -15.0648, -0.6, 8.43375 )
+transform = Transform( 0.833, 0, 0, 0, 1, 0, 0, 0, 1.33, 3.52597, -0.6, 76.5435 )
 
 [node name="roadTile_7" parent="." instance=ExtResource( 5 )]
-transform = Transform( -9, 0, -1.10321e-06, 0, 1, 0, 3.50473e-06, 0, -2.833, -6.04009, -0.6, 12.5146 )
+transform = Transform( -9, 0, -1.10321e-06, 0, 1, 0, 3.50473e-06, 0, -2.833, 12.5507, -0.6, 80.6243 )
 
 [node name="roadTile_26" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.5, -24.0645, -0.6, 30.6851 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.5, -5.47361, -0.6, 98.7949 )
 
 [node name="roadTile_107" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.5, -24.0645, -0.6, 0.0564499 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.5, -5.47361, -0.6, 68.1662 )
+
+[node name="roadTile_117" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 14.9, -5.47361, -0.6, 63.7484 )
 
 [node name="roadTile_105" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.1, -24.0645, -0.6, 24.8685 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.1, -5.47361, -0.6, 92.9782 )
 
 [node name="roadTile_106" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.1, -24.0645, -0.6, 4.58295 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.1, -5.47361, -0.6, 72.6927 )
 
 [node name="roadTile_73" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, -24.0645, -0.6, 39.666 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, -5.47361, -0.6, 107.776 )
 
 [node name="roadTile_29" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, -17.0613, -0.6, 30.6851 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, 1.52947, -0.6, 98.7949 )
 
 [node name="roadTile_71" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, -17.0613, -0.6, 39.6345 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, 1.52947, -0.6, 107.744 )
 
 [node name="roadTile_30" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, -16.331, -0.6, 30.6851 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, 2.25977, -0.6, 98.7949 )
 
 [node name="roadTile_70" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, -16.3313, -0.6, 39.6754 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, 2.25947, -0.6, 107.785 )
 
 [node name="roadTile_9" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1.166, 0, 0, 0, 1, 0, 0, 0, 1.05, -27.5369, -0.6, 4.43375 )
+transform = Transform( 1.166, 0, 0, 0, 1, 0, 0, 0, 1.05, -8.94601, -0.6, 72.5435 )
 
 [node name="roadTile_27" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1.166, 0, 0, 0, 1, 0, 0, 0, 1.05, -27.5369, -0.6, 24.8741 )
+transform = Transform( 1.166, 0, 0, 0, 1, 0, 0, 0, 1.05, -8.94601, -0.6, 92.9838 )
 
 [node name="roadTile_34" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.95, 0, 0, 0, 1, 0, 0, 0, 1.89, -4.31259, -0.6, 24.8984 )
+transform = Transform( 0.95, 0, 0, 0, 1, 0, 0, 0, 1.89, 14.2782, -0.6, 93.0082 )
 
 [node name="roadTile_77" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1.166, 0, 0, 0, 1, 0, 0, 0, 1.8, -0.18746, -0.6, 24.8947 )
+transform = Transform( 1.166, 0, 0, 0, 1, 0, 0, 0, 1.8, 18.4034, -0.6, 93.0045 )
 
 [node name="roadTile_10" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -14.5477, -0.6, 4.43375 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 4.04307, -0.6, 72.5435 )
+
+[node name="roadTile_120" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 4.41255, -0.599564, 1.46175 )
+
+[node name="roadTile_121" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 10.041, -0.599564, 4.45878 )
 
 [node name="roadTile_11" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -7.78829e-06, 0, 1, 0, 3.89414e-07, 0, -20, -11.5477, -0.6, -55.4787 )
+transform = Transform( -1, 0, -7.78829e-06, 0, 1, 0, 3.89414e-07, 0, -20, 7.04307, -0.6, 12.6312 )
+
+[node name="roadTile_32" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -3.91361e-06, 0, 1, 0, 3.89414e-07, 0, -10.05, 7.04307, -0.6, 4.39111 )
+
+[node name="roadTile_114" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.05, 3.66706, -0.6, 16.4921 )
+
+[node name="roadTile_115" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.7, 0, -1.54987e-06, 0, 1, 0, 2.7259e-07, 0, -3.98, -0.699, -0.62, 4.57 )
+
+[node name="roadTile_125" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.999836, 0.0180981, 0, -0.0180981, 0.999836, 0, 0, 0, 4, 5.468, -0.6, -19.6417 )
+
+[node name="roadTile_126" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.699885, 0.0180981, 0, -0.0126687, 0.999836, 0, 0, 0, 4, 9.69856, -0.6, -18.9349 )
+
+[node name="roadTile_127" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.484072, 0, -2.00318, 0, 1, 0, 0.125198, 0, 7.74515, 3.76424, -0.62, 4.1015 )
+
+[node name="roadTile_133" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.673296, 0, -2.32537, 0, 1, 0, 0.191501, 0, 8.17574, -1.24586, -0.62, 4.64738 )
+
+[node name="roadTile_128" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.484072, 0, -0.250397, 0, 1, 0, 0.125198, 0, 0.968143, 3.76463, -0.6, 4.10107 )
+
+[node name="roadTile_122" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 0.9, 0, 1, 0, -1, 0, -1.46629e-07, 7.05213, -0.6, 4.46234 )
 
 [node name="roadTile_12" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5477, -0.6, 7.43375 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04307, -0.6, 75.5435 )
 
 [node name="roadTile_13" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 20, -11.5477, -0.6, 4.43375 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 20, 7.04307, -0.6, 72.5435 )
+
+[node name="roadTile_22" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 20, 7.04307, -0.6, 64.459 )
 
 [node name="roadTile_14" parent="." instance=ExtResource( 5 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 5.67, -10.5478, -0.6, 12.4338 )
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 5.67, 8.04302, -0.6, 80.5435 )
 
 [node name="roadTile_15" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -7.29779, -0.6, 4.43375 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 11.293, -0.6, 72.5435 )
 
 [node name="roadTile_36" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -7.29779, -0.6, 15.0057 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 11.293, -0.6, 83.1154 )
 
 [node name="roadTile_64" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 9.02394, -0.6, 15.0057 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 27.6148, -0.6, 83.1154 )
 
 [node name="roadTile_37" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -4.31039, -0.6, 12.0306 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 14.2804, -0.6, 80.1403 )
 
 [node name="roadTile_84" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 12.0248, -0.6, 12.0306 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 30.6157, -0.6, 80.1403 )
 
 [node name="roadTile_40" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -4.29682, -0.6, 16.9966 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 14.294, -0.6, 85.1063 )
 
 [node name="roadTile_16" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.999972, 0, 0.0112829, 0, 1, 0, -0.00752191, 0, -1.49996, -4.29769, -0.6, -4.43125 )
+transform = Transform( -0.999972, 0, 0.0112829, 0, 1, 0, -0.00752191, 0, -1.49996, 14.2931, -0.6, 63.6785 )
 
 [node name="roadTile_55" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -4.28356e-07, 0, 1, 0, 3.89414e-07, 0, -1.1, -4.29769, -0.6, 1.32445 )
+transform = Transform( -1, 0, -4.28356e-07, 0, 1, 0, 3.89414e-07, 0, -1.1, 14.2931, -0.6, 69.4342 )
 
 [node name="roadTile_72" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -1.40189e-06, 0, 1, 0, 3.89414e-07, 0, -3.6, -4.29769, -0.6, 28.8357 )
+transform = Transform( -1, 0, -1.40189e-06, 0, 1, 0, 3.89414e-07, 0, -3.6, 14.2931, -0.6, 96.9455 )
 
 [node name="roadTile_109" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -1.40189e-06, 0, 1, 0, 3.89414e-07, 0, -3.6, -4.29769, -0.6, 26.1777 )
+transform = Transform( -1, 0, -1.40189e-06, 0, 1, 0, 3.89414e-07, 0, -3.6, 14.2931, -0.6, 94.2875 )
 
 [node name="roadTile_110" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -6.62004e-07, 0, 1, 0, 3.89414e-07, 0, -1.7, -4.29769, -0.6, 19.7943 )
+transform = Transform( -1, 0, -6.62004e-07, 0, 1, 0, 3.89414e-07, 0, -1.7, 14.2931, -0.6, 87.9041 )
 
 [node name="roadTile_18" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1.166, 0, 0, 0, 1, 0, 0, 0, 1.3, -27.5369, -0.6, 0.0422497 )
+transform = Transform( 1.166, 0, 0, 0, 1, 0, 0, 0, 1.3, -8.94601, -0.6, 68.152 )
 
 [node name="roadTile_46" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1.166, 0, 0, 0, 1, 0, 0, 0, 1.3, -27.5369, -0.6, 30.0715 )
+transform = Transform( 1.166, 0, 0, 0, 1, 0, 0, 0, 1.3, -8.94601, -0.6, 98.1813 )
 
 [node name="roadTile_92" parent="." instance=ExtResource( 6 )]
-transform = Transform( 3.8, 0, 0, 0, 1, 0, 0, 0, 1, -41.586, -0.6, 25.6087 )
+transform = Transform( 3.8, 0, 0, 0, 1, 0, 0, 0, 1, -22.9951, -0.6, 93.7185 )
 
 [node name="roadTile_102" parent="." instance=ExtResource( 6 )]
-transform = Transform( 3.8, 0, 0, 0, 1, 0, 0, 0, 1, -41.586, -0.6, 3.54815 )
+transform = Transform( 3.8, 0, 0, 0, 1, 0, 0, 0, 1, -22.9951, -0.6, 71.6579 )
 
 [node name="roadTile_75" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.95, 0, 0, 0, 1, 0, 0, 0, 1.3, -4.31239, -0.6, 30.0713 )
+transform = Transform( 0.95, 0, 0, 0, 1, 0, 0, 0, 1.3, 14.2784, -0.6, 98.1811 )
 
 [node name="roadTile_91" parent="." instance=ExtResource( 6 )]
-transform = Transform( 6.1, 0, 0, 0, 1, 0, 0, 0, 1.3, 2.98694, -0.6, 30.0713 )
+transform = Transform( 6.1, 0, 0, 0, 1, 0, 0, 0, 1.3, 21.5778, -0.6, 98.1811 )
 
 [node name="roadTile_74" parent="." instance=ExtResource( 6 )]
-transform = Transform( -1.166, 0, -2.20019e-06, 0, 1, 0, 4.54057e-07, 0, -5.65, -28.8147, -0.6, 22.8528 )
+transform = Transform( -1.166, 0, -2.20019e-06, 0, 1, 0, 4.54057e-07, 0, -5.65, -10.2238, -0.6, 90.9626 )
 
 [node name="roadTile_101" parent="." instance=ExtResource( 6 )]
-transform = Transform( -1.166, 0, -2.20019e-06, 0, 1, 0, 4.54057e-07, 0, -5.65, -28.8147, -0.6, -13.23 )
+transform = Transform( -1.166, 0, -2.20019e-06, 0, 1, 0, 4.54057e-07, 0, -5.65, -10.2238, -0.6, 54.8797 )
+
+[node name="roadTile_129" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1.166, 0, -2.20019e-06, 0, 1, 0, 4.54057e-07, 0, -5.65, -10.2238, -0.6, 38.7884 )
+
+[node name="roadTile_130" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1.166, 0, -2.20019e-06, 0, 1, 0, 4.54057e-07, 0, -5.65, -10.2238, -0.6, 22.7131 )
+
+[node name="roadTile_131" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1.166, 0, -2.20019e-06, 0, 1, 0, 4.54057e-07, 0, -5.65, -10.2238, -0.6, 8.60417 )
+
+[node name="roadTile_135" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1.09568, 0, 1.93241, 0, 1, 0, -0.398795, 0, -5.30926, -3.19395, -0.6, -11.8905 )
 
 [node name="roadTile_76" parent="." instance=ExtResource( 6 )]
-transform = Transform( -1.12, 0, -1.75236e-06, 0, 1, 0, 4.36144e-07, 0, -4.5, 3.11494, -0.6, 26.169 )
+transform = Transform( -1.12, 0, -1.75236e-06, 0, 1, 0, 4.36144e-07, 0, -4.5, 21.7058, -0.6, 94.2788 )
 
 [node name="roadTile_19" parent="." instance=ExtResource( 5 )]
-transform = Transform( -3, 0, -3.79931e-07, 0, 1, 0, 9.77524e-07, 0, -1.166, -24.0354, -0.6, 7.40415 )
+transform = Transform( -3, 0, -3.79931e-07, 0, 1, 0, 9.77524e-07, 0, -1.166, -5.44451, -0.6, 75.5139 )
 
 [node name="roadTile_20" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -21.0716, -0.6, 11.6988 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -2.48083, -0.6, 79.8085 )
 
 [node name="roadTile_78" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 6.55134, -0.6, 15.0421 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 25.1422, -0.6, 83.1518 )
 
 [node name="roadTile_25" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -21.0564, -0.6, 21.737 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -2.46563, -0.6, 89.8468 )
 
 [node name="roadTile_31" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -13.3337, -0.6, 21.737 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 5.25707, -0.6, 89.8468 )
 
 [node name="roadTile_28" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, -16.3076, -0.6, 18.7246 )
+transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 2.28317, -0.6, 86.8344 )
 
 [node name="roadTile_95" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -3, 0, 1, 0, 1, 0, -4.88762e-07, -41.6545, -0.6, 10.9651 )
+transform = Transform( -1.62921e-07, 0, -3, 0, 1, 0, 1, 0, -4.88762e-07, -23.0636, -0.6, 79.0748 )
 
 [node name="roadTile_24" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, 1.18, 0, 1, 0, -1, 0, -1.92246e-07, -23.9943, -0.6, 21.7375 )
+transform = Transform( -1.62921e-07, 0, 1.18, 0, 1, 0, -1, 0, -1.92246e-07, -5.40341, -0.6, 89.8473 )
 
 [node name="roadTile_33" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, 1.18, 0, 1, 0, -1, 0, -1.92246e-07, -23.9943, -0.6, 11.6906 )
+transform = Transform( -1.62921e-07, 0, 1.18, 0, 1, 0, -1, 0, -1.92246e-07, -5.40341, -0.6, 79.8003 )
 
 [node name="roadTile_93" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, 3, 0, 1, 0, -1, 0, -4.88762e-07, -32.6609, -0.6, 23.0499 )
+transform = Transform( -1.62921e-07, 0, 3, 0, 1, 0, -1, 0, -4.88762e-07, -14.07, -0.6, 91.1597 )
 
 [node name="roadTile_98" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, 3, 0, 1, 0, -1, 0, -4.88762e-07, -28.7872, -0.6, 23.0499 )
+transform = Transform( -1.62921e-07, 0, 3, 0, 1, 0, -1, 0, -4.88762e-07, -10.1963, -0.6, 91.1597 )
 
 [node name="roadTile_104" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, 3, 0, 1, 0, -1, 0, -4.88762e-07, -28.8619, -0.6, 11.7273 )
+transform = Transform( -1.62921e-07, 0, 3, 0, 1, 0, -1, 0, -4.88762e-07, -10.271, -0.6, 79.837 )
 
 [node name="roadTile_94" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -3, 0, 1, 0, 1, 0, -4.88762e-07, -41.6626, -0.6, 11.6869 )
+transform = Transform( -1.62921e-07, 0, -3, 0, 1, 0, 1, 0, -4.88762e-07, -23.0717, -0.6, 79.7966 )
 
 [node name="roadTile_23" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0947, -0.6, 14.6839 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.50381, -0.6, 82.7936 )
 
 [node name="roadTile_79" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.55174, -0.6, 18.0363 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1426, -0.6, 86.1461 )
 
 [node name="roadTile_35" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -0.96, 0, 1, 0, 1, 0, -1.56404e-07, -4.30999, -0.6, 4.43375 )
+transform = Transform( -1.62921e-07, 0, -0.96, 0, 1, 0, 1, 0, -1.56404e-07, 14.2808, -0.6, 72.5435 )
 
 [node name="roadTile_113" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.62921e-07, 0, -1.43, 0, 1, 0, 1, 0, -2.32977e-07, -0.181463, -0.6, 4.43375 )
+transform = Transform( -1.62921e-07, 0, -1.43, 0, 1, 0, 1, 0, -2.32977e-07, 18.4094, -0.6, 72.5435 )
 
 [node name="roadTile_42" parent="." instance=ExtResource( 5 )]
-transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 4, -22.6486, -0.6, 30.6879 )
+transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 4, -4.05781, -0.6, 98.7977 )
 
 [node name="roadTile_43" parent="." instance=ExtResource( 5 )]
-transform = Transform( 3.09509, 0, 0, 0, 1, 0, 0, 0, 2.67, -4.66129, -0.6, 14.3145 )
+transform = Transform( 3.09509, 0, 0, 0, 1, 0, 0, 0, 2.67, 13.9295, -0.6, 82.4242 )
 
 [node name="roadTile_44" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.88359, -0.6, 13.1907 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70722, -0.6, 81.3004 )
 
 [node name="roadTile_45" parent="." instance=ExtResource( 5 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 1, -4.36839, -0.6, 19.2769 )
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 1, 14.2224, -0.6, 87.3867 )
 
 [node name="roadTile_47" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.1, -4.44729, -0.6, 4.62675 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.1, 14.1435, -0.6, 72.7365 )
 
 [node name="roadTile_48" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.3, -4.44729, -0.6, 0.0681515 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.3, 14.1435, -0.6, 68.1779 )
 
 [node name="roadTile_49" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.8, 0, 0, 0, 1, 0, 0, 0, 1.67, 1.69604, -0.6, 4.58195 )
+transform = Transform( 0.8, 0, 0, 0, 1, 0, 0, 0, 1.67, 20.2869, -0.6, 72.6917 )
 
 [node name="roadTile_50" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1.2, 0, 0, 0, 1, 0, 0, 0, 1.7, -0.165859, -0.6, 4.66785 )
+transform = Transform( 1.2, 0, 0, 0, 1, 0, 0, 0, 1.7, 18.425, -0.6, 72.7776 )
 
 [node name="roadTile_51" parent="." instance=ExtResource( 9 )]
-transform = Transform( -1, 0, -7.78829e-07, 0, 1, 0, 3.89414e-07, 0, -2, -4.29859, -0.6, -9.52745 )
+transform = Transform( -1, 0, -7.78829e-07, 0, 1, 0, 3.89414e-07, 0, -2, 14.2922, -0.6, 58.5823 )
 
 [node name="roadTile_56" parent="." instance=ExtResource( 9 )]
-transform = Transform( -1.62921e-07, 0, 2, 0, 1, 0, -1, 0, -3.25841e-07, 15.0836, -0.6, 4.46535 )
+transform = Transform( -1.62921e-07, 0, 2, 0, 1, 0, -1, 0, -3.25841e-07, 33.6745, -0.6, 72.5751 )
 
 [node name="roadTile_88" parent="." instance=ExtResource( 9 )]
-transform = Transform( -1.62921e-07, 0, 2, 0, 1, 0, -1, 0, -3.25841e-07, 20.3681, -0.6, 4.46535 )
+transform = Transform( -1.62921e-07, 0, 2, 0, 1, 0, -1, 0, -3.25841e-07, 38.959, -0.6, 72.5751 )
 
 [node name="roadTile_87" parent="." instance=ExtResource( 9 )]
-transform = Transform( -1.62921e-07, 0, 2, 0, 1, 0, -1, 0, -3.25841e-07, 15.0836, -0.6, 4.46535 )
+transform = Transform( -1.62921e-07, 0, 2, 0, 1, 0, -1, 0, -3.25841e-07, 33.6745, -0.6, 72.5751 )
 
 [node name="roadTile_57" parent="." instance=ExtResource( 9 )]
-transform = Transform( -1.62921e-07, 0, -2, 0, 1, 0, 1, 0, -3.25841e-07, 9.04134, -0.6, 4.43385 )
+transform = Transform( -1.62921e-07, 0, -2, 0, 1, 0, 1, 0, -3.25841e-07, 27.6322, -0.6, 72.5436 )
 
 [node name="roadTile_86" parent="." instance=ExtResource( 9 )]
-transform = Transform( -1.62921e-07, 0, -2, 0, 1, 0, 1, 0, -3.25841e-07, 14.422, -0.6, 4.43385 )
+transform = Transform( -1.62921e-07, 0, -2, 0, 1, 0, 1, 0, -3.25841e-07, 33.0129, -0.6, 72.5436 )
 
 [node name="roadTile_52" parent="." instance=ExtResource( 9 )]
-transform = Transform( -1, 0, -7.78829e-07, 0, 1, 0, 3.89414e-07, 0, -2, -4.29859, -0.6, -15.5125 )
+transform = Transform( -1, 0, -7.78829e-07, 0, 1, 0, 3.89414e-07, 0, -2, 14.2922, -0.6, 52.5973 )
 
 [node name="roadTile_53" parent="." instance=ExtResource( 9 )]
-transform = Transform( -1, 0, -7.78829e-07, 0, 1, 0, 3.89414e-07, 0, -2, -4.29859, -0.6, -21.4316 )
+transform = Transform( -1, 0, -7.78829e-07, 0, 1, 0, 3.89414e-07, 0, -2, 14.2922, -0.6, 46.6781 )
 
 [node name="roadTile_54" parent="." instance=ExtResource( 9 )]
-transform = Transform( -1, 0, -7.78829e-06, 0, 1, 0, 3.89414e-07, 0, -20, -4.29859, -0.6, -63.438 )
+transform = Transform( -1, 0, -7.78829e-06, 0, 1, 0, 3.89414e-07, 0, -20, 14.2922, -0.6, 4.67185 )
+
+[node name="roadTile_132" parent="." instance=ExtResource( 9 )]
+transform = Transform( -1, 0, -7.78829e-06, 0, 1, 0, 3.89414e-07, 0, -20, 14.2922, -0.6, -22.0877 )
+
+[node name="roadTile_134" parent="." instance=ExtResource( 9 )]
+transform = Transform( -1, 0, -7.78829e-06, 0, 1, 0, 3.89414e-07, 0, -20, 14.2922, -0.6, -34.8192 )
 
 [node name="roadTile_58" parent="." instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 9.14544, -0.6, 1.45535 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 27.7363, -0.6, 69.5651 )
 
 [node name="roadTile_60" parent="." instance=ExtResource( 10 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 6.15144, -0.6, 4.44125 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 24.7423, -0.6, 72.551 )
 
 [node name="roadTile_59" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.73834, -0.6, 7.43315 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3292, -0.6, 75.5429 )
 
 [node name="roadTile_61" parent="." instance=ExtResource( 11 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 6.58304, -0.6, 1.82445 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 25.1739, -0.6, 69.9342 )
+
+[node name="roadTile_8" parent="." instance=ExtResource( 11 )]
+transform = Transform( -2.60673e-07, 0, 2, 0, 1, 0, -1.6, 0, -3.25841e-07, -1.10754, -0.6, 19.4773 )
+
+[node name="roadTile_116" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1.4, 0, 0, 0, 1, 0, 0, 0, 1.5, 3.66038, -0.6, 19.4851 )
 
 [node name="roadTile_62" parent="." instance=ExtResource( 11 )]
-transform = Transform( -0.532389, 0, 0.8465, 0, 1, 0, -0.8465, 0, -0.532389, 5.71444, -0.6, 3.41515 )
+transform = Transform( -0.532389, 0, 0.8465, 0, 1, 0, -0.8465, 0, -0.532389, 24.3053, -0.6, 71.5249 )
 
 [node name="roadTile_63" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72314, -0.6, 4.52885 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.314, -0.6, 72.6386 )
 
 [node name="roadTile_66" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.00784, -0.6, 5.99535 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5987, -0.6, 74.1051 )
 
 [node name="roadTile_67" parent="." instance=ExtResource( 2 )]
-transform = Transform( -8.14603e-08, 0, -2.87, 0, 1, 0, 0.5, 0, -4.67582e-07, 6.56134, -0.6, -0.404949 )
+transform = Transform( -8.14603e-08, 0, -2.87, 0, 1, 0, 0.5, 0, -4.67582e-07, 25.1522, -0.6, 67.7048 )
 
 [node name="roadTile_89" parent="." instance=ExtResource( 2 )]
-transform = Transform( -8.14603e-08, 0, -2.87, 0, 1, 0, 0.5, 0, -4.67582e-07, 11.6758, -0.6, -0.404949 )
+transform = Transform( -8.14603e-08, 0, -2.87, 0, 1, 0, 0.5, 0, -4.67582e-07, 30.2667, -0.6, 67.7048 )
 
 [node name="roadTile_68" parent="." instance=ExtResource( 5 )]
-transform = Transform( 2.9, 0, 0, 0, 1, 0, 0, 0, 1, 6.36584, -0.6, 3.52695 )
+transform = Transform( 2.9, 0, 0, 0, 1, 0, 0, 0, 1, 24.9567, -0.6, 71.6367 )
 
 [node name="roadTile_90" parent="." instance=ExtResource( 5 )]
-transform = Transform( 2.9, 0, 0, 0, 1, 0, 0, 0, 1, 11.5905, -0.6, 3.52695 )
+transform = Transform( 2.9, 0, 0, 0, 1, 0, 0, 0, 1, 30.1814, -0.6, 71.6367 )
 
 [node name="roadTile_69" parent="." instance=ExtResource( 5 )]
-transform = Transform( 5.5, 0, 0, 0, 1, 0, 0, 0, 3, 3.93394, -0.6, 16.1005 )
+transform = Transform( 5.5, 0, 0, 0, 1, 0, 0, 0, 3, 22.5248, -0.6, 84.2103 )
 
 [node name="roadTile_81" parent="." instance=ExtResource( 5 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 3, -21.2033, -0.6, 39.6964 )
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 3, -2.61253, -0.6, 107.806 )
 
 [node name="roadTile_82" parent="." instance=ExtResource( 5 )]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 1.1, 4.36874, -0.6, 19.2283 )
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 1.1, 22.9596, -0.6, 87.3381 )
 
 [node name="roadTile_97" parent="." instance=ExtResource( 5 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 14.4629, -0.6, 20.3946 )
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 33.0538, -0.6, 88.5043 )
 
 [node name="tree_cone" parent="." instance=ExtResource( 12 )]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 5.81394, 0, 23.1566 )
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 24.4048, 0, 91.2663 )
 
 [node name="roadTile_100" parent="." instance=ExtResource( 5 )]
-transform = Transform( -4.3, 0, -1.94707e-06, 0, 1, 0, 1.67448e-06, 0, -5, -28.7482, -0.6, 5.79965 )
+transform = Transform( -4.3, 0, -1.94707e-06, 0, 1, 0, 1.67448e-06, 0, -5, -10.1573, -0.6, 73.9094 )
 
 [node name="roadTile_17" parent="." instance=ExtResource( 13 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -37.5106, 0, 31.2437 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -18.9197, 0, 99.3535 )
+
+[node name="roadTile_119" parent="." instance=ExtResource( 13 )]
+transform = Transform( 3, 0, 0, 0, 2.7, 0, 0, 0, 3, 5.80807, 0, 43.3401 )
 
 [node name="ironFenceBorderColumn" parent="." instance=ExtResource( 14 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 4.12284, 0, 29.0633 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 22.7137, 0, 97.1731 )
 
 [node name="ironFenceBorderColumn2" parent="." instance=ExtResource( 14 )]
-transform = Transform( -3.25841e-07, 0, -2, 0, 2, 0, 2, 0, -3.25841e-07, 3.99004, 0, 30.9272 )
+transform = Transform( -3.25841e-07, 0, -2, 0, 2, 0, 2, 0, -3.25841e-07, 22.5809, 0, 99.037 )
 
 [node name="ironFenceBorder" parent="." instance=ExtResource( 15 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 6.10814, 0, 29.0623 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 24.699, 0, 97.1721 )
 
 [node name="ironFenceBorder5" parent="." instance=ExtResource( 15 )]
-transform = Transform( -3.25841e-07, 0, 2, 0, 2, 0, -2, 0, -3.25841e-07, 2.27054, 0, 32.7174 )
+transform = Transform( -3.25841e-07, 0, 2, 0, 2, 0, -2, 0, -3.25841e-07, 20.8614, 0, 100.827 )
 
 [node name="ironFenceBorder6" parent="." instance=ExtResource( 15 )]
-transform = Transform( -3.25841e-07, 0, 2, 0, 2, 0, -2, 0, -3.25841e-07, 2.27054, 0, 34.7118 )
+transform = Transform( -3.25841e-07, 0, 2, 0, 2, 0, -2, 0, -3.25841e-07, 20.8614, 0, 102.822 )
 
 [node name="ironFenceBorder7" parent="." instance=ExtResource( 15 )]
-transform = Transform( -3.25841e-07, 0, 2, 0, 2, 0, -2, 0, -3.25841e-07, 2.27054, 0, 36.7115 )
+transform = Transform( -3.25841e-07, 0, 2, 0, 2, 0, -2, 0, -3.25841e-07, 20.8614, 0, 104.821 )
 
 [node name="ironFenceBorder8" parent="." instance=ExtResource( 15 )]
-transform = Transform( -3.25841e-07, 0, 2, 0, 2, 0, -2, 0, -3.25841e-07, 2.27054, 0, 38.6798 )
+transform = Transform( -3.25841e-07, 0, 2, 0, 2, 0, -2, 0, -3.25841e-07, 20.8614, 0, 106.789 )
 
 [node name="ironFenceBorder2" parent="." instance=ExtResource( 15 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 8.10734, 0, 29.0623 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 26.6982, 0, 97.1721 )
 
 [node name="ironFenceBorder3" parent="." instance=ExtResource( 15 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 10.0943, 0, 29.0623 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 28.6852, 0, 97.1721 )
 
 [node name="ironFenceBorder4" parent="." instance=ExtResource( 15 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 12.0865, 0, 29.0623 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 30.6774, 0, 97.1721 )
 
 [node name="ironFenceBorder9" parent="." instance=ExtResource( 15 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 18.0697, 0, 29.0623 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 36.6606, 0, 97.1721 )
 
 [node name="ironFenceBorder10" parent="." instance=ExtResource( 15 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 20.0712, 0, 29.0623 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 38.6621, 0, 97.1721 )
 
 [node name="roadTile_020" parent="." instance=ExtResource( 16 )]
-transform = Transform( 2.99999, 0, -0.00696386, 0, 3, 0, 0.00696386, 0, 2.99999, 9.28904, 0, 25.3198 )
+transform = Transform( 2.99999, 0, -0.00696386, 0, 3, 0, 0.00696386, 0, 2.99999, 27.8799, 0, 93.4296 )
 
 [node name="ironFenceBorderGate" parent="." instance=ExtResource( 17 )]
-transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 2, 15.1824, 0, 29.062 )
+transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 2, 33.7733, 0, 97.1718 )
 
 [node name="trafficlight" parent="." instance=ExtResource( 18 )]
-transform = Transform( -5.70222e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -5.70222e-08, -16.3118, -0.5, 26.7939 )
+transform = Transform( -5.70222e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -5.70222e-08, 2.27905, -0.5, 94.9037 )
 
 [node name="trafficlight2" parent="." instance=ExtResource( 18 )]
-transform = Transform( -5.70222e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -5.70222e-08, -4.40176, -0.5, 26.7879 )
+transform = Transform( -5.70222e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -5.70222e-08, 14.1891, -0.5, 94.8977 )
 
 [node name="ambulance" parent="." instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2149, 0, 32.0395 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46832, 0, 12.8699 )
+
+[node name="ambulance2" parent="." instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33839, 0, 100.238 )
 
 [node name="zombie" parent="." instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -16.4298, 0, 28.2212 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 2.16103, 0, 96.3309 )
+
+[node name="line_1" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.0982349, 0, -0.823045, 0, 0.01, 0, 0.0187056, 0, 4.32234, 7.46678, 0, 24.6174 )
+
+[node name="line_2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 2.4, 9.93062, 0, 11.711 )
+
+[node name="line_11" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 2.4, 9.93062, 0, 4.63399 )
+
+[node name="line_12" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 2.4, 9.93062, 0, -2.26381 )
+
+[node name="line_13" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 2.4, 9.93062, 0, -9.26036 )
+
+[node name="line_14" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 2.4, 9.93062, 0, -11.9339 )
+
+[node name="line_3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.0446291, 0, -0.447444, 0, 0.01, 0, 0.0894888, 0, 0.223146, 7.26325, 0, 19.0753 )
+
+[node name="line_7" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.0446291, 0, -0.357955, 0, 0.01, 0, 0.0894888, 0, 0.178517, 7.26325, 0, 21.0569 )
+
+[node name="line_4" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.0446291, 0, -0.626421, 0, 0.01, 0, 0.0894888, 0, 0.312404, 7.24392, 0, 17.1678 )
+
+[node name="line_5" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.0446291, 0, -0.760655, 0, 0.01, 0, 0.0894888, 0, 0.379348, 7.24392, 0, 15.1151 )
+
+[node name="line_6" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.0446291, 0, -0.894888, 0, 0.01, 0, 0.0894888, 0, 0.446291, 7.24392, 0, 13.0282 )
+
+[node name="line_8" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.0446291, 0, -0.894888, 0, 0.01, 0, 0.0894888, 0, 0.446291, 7.24392, 0, 11.0013 )
+
+[node name="line_9" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.0446291, 0, -0.894888, 0, 0.01, 0, 0.0894888, 0, 0.446291, 7.24392, 0, 9.08931 )
+
+[node name="line_10" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.0446291, 0, -0.894888, 0, 0.01, 0, 0.0894888, 0, 0.446291, 7.24392, 0, 7.02402 )
+
+[node name="roadTile_118" parent="." instance=ExtResource( 5 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 14, -3.28236, -0.6, 19.7938 )
+
+[node name="tree_oak" parent="." instance=ExtResource( 21 )]
+transform = Transform( 2.81908, 0, 1.02606, 0, 3.5, 0, -1.02606, 0, 2.81908, 7.08199, 0, 50.1267 )
+
+[node name="tree_default" parent="." instance=ExtResource( 22 )]
+transform = Transform( 2.95442, 0, 0.520945, 0, 3.4, 0, -0.520945, 0, 2.95442, 7.09143, 0, 36.8895 )
+
+[node name="roadTile_123" parent="." instance=ExtResource( 23 )]
+transform = Transform( -3.25841e-08, 0, 0.2, 0, 0.5, 0, -0.2, 0, -3.25841e-08, 7.51588, -0.75, 4.60452 )
+
+[node name="roadTile_124" parent="." instance=ExtResource( 23 )]
+transform = Transform( -0.2, 0, -6.51683e-08, 0, 0.5, 0, 6.51683e-08, 0, -0.2, 4.55293, -0.75, 4.00875 )
+
+[node name="roadTile_034" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2344, -0.6, -19.0296 )
+
+[node name="roadTile_035" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75768, -0.6, -19.0296 )

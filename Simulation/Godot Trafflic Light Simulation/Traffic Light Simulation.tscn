@@ -1,15 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://assets/intersection.tscn" type="PackedScene" id=1]
-[ext_resource path="res://imports/world/trafficlight.glb" type="PackedScene" id=2]
 
 [node name="World" type="Spatial"]
 
 [node name="Intersection" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.446599, 0.204462, -0.230074 )
-
-[node name="trafficlight" parent="." instance=ExtResource( 2 )]
-transform = Transform( -8.14603e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -8.14603e-08, -16.244, 0, -3.61399 )
-
-[node name="trafficlight2" parent="." instance=ExtResource( 2 )]
-transform = Transform( -8.14603e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -8.14603e-08, -28.4059, 0, -3.61399 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2697, 0.204462, 54.3092 )
