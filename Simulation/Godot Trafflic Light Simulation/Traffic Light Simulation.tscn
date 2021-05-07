@@ -5,4 +5,4 @@
 [node name="World" type="Spatial"]
 
 [node name="Intersection" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2697, 0.204462, 54.3092 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.449306, 0.204462, 47.2055 )
