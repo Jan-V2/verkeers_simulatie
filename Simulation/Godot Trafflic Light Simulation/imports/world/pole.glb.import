@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/roadTile_020.gltf-d44ffad1c933bcaeeae79c42651ce4c3.scn"
+path="res://.import/pole.glb-20a07baf418b16ff80da46a6d10db7b8.scn"
 
 [deps]
 
-source_file="res://imports/world/Nature/roadTile_020.gltf"
-dest_files=[ "res://.import/roadTile_020.gltf-d44ffad1c933bcaeeae79c42651ce4c3.scn" ]
+source_file="res://imports/world/pole.glb"
+dest_files=[ "res://.import/pole.glb-20a07baf418b16ff80da46a6d10db7b8.scn" ]
 
 [params]
 

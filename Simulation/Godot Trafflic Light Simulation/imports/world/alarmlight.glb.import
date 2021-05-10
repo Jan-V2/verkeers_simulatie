@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/roadTile_020.gltf-d44ffad1c933bcaeeae79c42651ce4c3.scn"
+path="res://.import/alarmlight.glb-3d48b5be83e719691c6afaa27cd45537.scn"
 
 [deps]
 
-source_file="res://imports/world/Nature/roadTile_020.gltf"
-dest_files=[ "res://.import/roadTile_020.gltf-d44ffad1c933bcaeeae79c42651ce4c3.scn" ]
+source_file="res://imports/world/alarmlight.glb"
+dest_files=[ "res://.import/alarmlight.glb-3d48b5be83e719691c6afaa27cd45537.scn" ]
 
 [params]
 

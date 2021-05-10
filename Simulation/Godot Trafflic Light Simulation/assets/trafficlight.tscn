@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://imports/world/Material_007.material" type="Material" id=1]
 [ext_resource path="res://imports/world/Material_006.material" type="Material" id=2]
 [ext_resource path="res://imports/world/Material_001.material" type="Material" id=3]
 [ext_resource path="res://imports/world/Material_004.material" type="Material" id=4]
-[ext_resource path="res://assets/trafficlight.py" type="Script" id=5]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cylinder"
@@ -98,7 +97,6 @@ surfaces/0 = {
 
 [node name="trafficlight" type="Spatial"]
 transform = Transform( 0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0 )
-script = ExtResource( 5 )
 
 [node name="Cylinder" type="MeshInstance" parent="."]
 transform = Transform( 0.187271, 0, 0, 0, 2.5, 0, 0, 0, 0.187271, 0, 2.47425, 0 )
@@ -129,6 +127,3 @@ material/0 = null
 transform = Transform( 0.134624, 0, 0, 0, 0.134624, 0, 0, 0, 0.134624, 0.0264967, -0.0266838, 0.0138749 )
 mesh = SubResource( 6 )
 material/0 = null
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.034457, 0, -2.85694, 0, 2.85714, 0, 2.85694, 0, 0.034457, -7.2335, 5.21345, 0 )

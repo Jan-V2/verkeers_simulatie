@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/roadTile_020.gltf-d44ffad1c933bcaeeae79c42651ce4c3.scn"
+path="res://.import/pedestriantrafficlight.glb-0b28e693679dab00e78244be75094cba.scn"
 
 [deps]
 
-source_file="res://imports/world/Nature/roadTile_020.gltf"
-dest_files=[ "res://.import/roadTile_020.gltf-d44ffad1c933bcaeeae79c42651ce4c3.scn" ]
+source_file="res://imports/world/pedestriantrafficlight.glb"
+dest_files=[ "res://.import/pedestriantrafficlight.glb-0b28e693679dab00e78244be75094cba.scn" ]
 
 [params]
 
