@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://imports/world/Road/roadTile_002.gltf" type="PackedScene" id=1]
 [ext_resource path="res://imports/world/Road/roadTile_059.gltf" type="PackedScene" id=2]
@@ -30,33 +30,7 @@
 [ext_resource path="res://imports/world/bigtrafficlight.glb" type="PackedScene" id=28]
 [ext_resource path="res://imports/world/pedestriantrafficlight.glb" type="PackedScene" id=29]
 [ext_resource path="res://assets/bridge.tscn" type="PackedScene" id=30]
-[ext_resource path="res://assets/PathFollow.py" type="Script" id=31]
-[ext_resource path="res://assets/taxi.tscn" type="PackedScene" id=32]
 
-[sub_resource type="Curve3D" id=1]
-_data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.25087, 0, 159.351, 0, 0, 0, 0, 0, 0, -6.14079, 0, 150.159, 0, 0, 0, 0, 0, 0, -5.97567, 0, 145.04 ),
-"tilts": PoolRealArray( 0, 0, 0 )
-}
-
-[sub_resource type="Curve3D" id=2]
-_data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -5.70047, 0, 143.94, 0, 0, 0, 0, 0, 0, -5.59039, 0, 139.977, 0, 0, 0, 0, 0, 0, -5.59039, 0, 136.509, 0, 0, 0, 0, 0, 0, -7.07648, 0, 133.482, 0, 0, 0, 0, 0, 0, -9.66338, 0, 131.831, 0, 0, 0, 0, 0, 0, -11.3146, 0, 130.345, 0, 0, 0, 0, 0, 0, -13.4061, 0, 129.079, 0, 0, 0, 0, 0, 0, -16.5434, 0, 127.317, 0, 0, 0, 0, 0, 0, -18.9102, 0, 126.877 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 )
-}
-
-[sub_resource type="Curve3D" id=3]
-_data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -18.635, 0, 127.813, 0, 0, 0, 0, 0, 0, -32.1199, 0, 127.978 ),
-"tilts": PoolRealArray( 0, 0 )
-}
-
-[sub_resource type="BoxShape" id=4]
-
-[sub_resource type="CubeMesh" id=5]
-
-[sub_resource type="BoxShape" id=6]
-=======
 [sub_resource type="CubeMesh" id=2]
 
 [sub_resource type="BoxShape" id=5]
@@ -64,17 +38,11 @@ _data = {
 [sub_resource type="BoxShape" id=1]
 
 [sub_resource type="BoxShape" id=3]
->>>>>>> f8d8eddb402b532cd7707f34d13a42a4f1d1bbc3
 extents = Vector3( 30.8677, 0.0674698, 5.87511 )
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 30.8134, 1, 18.108 )
 
-<<<<<<< HEAD
-[sub_resource type="BoxShape" id=8]
-
-=======
->>>>>>> f8d8eddb402b532cd7707f34d13a42a4f1d1bbc3
 [node name="map" type="Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68281, 0, 13.9311 )
 
@@ -222,27 +190,6 @@ transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0
 [node name="pole6" parent="TrafficLightSet21a22ab23a" instance=ExtResource( 27 )]
 transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0.44313, 3.11028, 5.06527 )
 
-<<<<<<< HEAD
-[node name="paths" type="Node" parent="."]
-
-[node name="start" type="Path" parent="paths"]
-curve = SubResource( 1 )
-
-[node name="auto" type="PathFollow" parent="paths/start"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25087, 0, 159.351 )
-loop = false
-script = ExtResource( 31 )
-
-[node name="taxi" parent="paths/start/auto" instance=ExtResource( 32 )]
-
-[node name="kruis" type="Path" parent="paths"]
-curve = SubResource( 2 )
-
-[node name="uit" type="Path" parent="paths"]
-curve = SubResource( 3 )
-
-[node name="cycle_path" parent="." instance=ExtResource( 19 )]
-=======
 [node name="pole4" parent="TrafficLightSet21a22ab23a" instance=ExtResource( 27 )]
 transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0.44313, 3.11028, -2.96366 )
 
@@ -375,7 +322,6 @@ transform = Transform( -0.7, 0, -2.7259e-07, 0, 1, 0, 2.7259e-07, 0, -0.7, 0, -0
 [node name="Road and nature" type="Spatial" parent="."]
 
 [node name="cycle_path" parent="Road and nature" instance=ExtResource( 19 )]
->>>>>>> f8d8eddb402b532cd7707f34d13a42a4f1d1bbc3
 transform = Transform( -1.14044e-07, 0, 13, 0, 0.6, 0, -0.7, 0, -2.11797e-06, -5.61035, -0.599, 49.2391 )
 
 [node name="cycle_path33" parent="Road and nature" instance=ExtResource( 19 )]
@@ -1728,17 +1674,8 @@ transform = Transform( -3.09549e-07, 0, -3, 0, 1, 0, 1.9, 0, -4.88762e-07, 20.87
 [node name="border" parent="Road and nature" instance=ExtResource( 1 )]
 transform = Transform( 20.8, 0, 0, 0, 1, 0, 0, 0, 0.2, -32.6155, -0.4, -67.8306 )
 
-<<<<<<< HEAD
-[node name="border2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 20.8, 0, 0, 0, 1, 0, 0, 0, 0.2, -32.6155, -0.4, -79.5346 )
-
-[node name="CollisionShapeIntersection" type="CollisionShape" parent="."]
-transform = Transform( 32, 0, 0, 0, 1, 0, 0, 0, 78, -0.863276, -0.92023, 10.2623 )
-shape = SubResource( 4 )
-=======
 [node name="water" parent="Road and nature" instance=ExtResource( 23 )]
 transform = Transform( 20.8, 0, 0, 0, 1, 0, 0, 0, 4, -32.6134, -0.6, -68.0376 )
->>>>>>> f8d8eddb402b532cd7707f34d13a42a4f1d1bbc3
 
 [node name="border2" parent="Road and nature" instance=ExtResource( 1 )]
 transform = Transform( 20.8, 0, 0, 0, 1, 0, 0, 0, 0.2, -32.6155, -0.4, -79.5346 )
@@ -1766,298 +1703,74 @@ transform = Transform( 0.0241537, 0, -0.999708, 0, 1, 0, 0.999708, 0, 0.0241537,
 
 [node name="Border" type="MeshInstance" parent="Road and nature"]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 40, -32.3823, 0, -76.6209 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
 [node name="Border3" type="MeshInstance" parent="Road and nature"]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 40, -32.3823, 0, 3.0356 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
 [node name="Border4" type="MeshInstance" parent="Road and nature"]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 40, -32.3823, 0, 48.6937 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
 [node name="Border8" type="MeshInstance" parent="Road and nature"]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 40, 29.6283, 0, 48.6937 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
 [node name="Border11" type="MeshInstance" parent="Road and nature"]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 40, 29.6283, 0, -30.4429 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
 [node name="Border12" type="MeshInstance" parent="Road and nature"]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 40, 29.6283, 0, -76.707 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
 [node name="Border5" type="MeshInstance" parent="Road and nature"]
 transform = Transform( -8.14603e-08, 0, 10, 0, 1, 0, -0.5, 0, -1.62921e-06, -22.8854, 0, 88.5416 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
 [node name="Border6" type="MeshInstance" parent="Road and nature"]
 transform = Transform( -8.14603e-08, 0, 10, 0, 1, 0, -0.5, 0, -1.62921e-06, -3.12597, 0, 88.5416 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
 [node name="Border7" type="MeshInstance" parent="Road and nature"]
 transform = Transform( -8.14603e-08, 0, 10, 0, 1, 0, -0.5, 0, -1.62921e-06, 16.2888, 0, 88.5416 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
 [node name="Border10" type="MeshInstance" parent="Road and nature"]
 transform = Transform( -8.14603e-08, 0, 10, 0, 1, 0, -0.5, 0, -1.62921e-06, 19.332, 0, -116.198 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
 [node name="Border13" type="MeshInstance" parent="Road and nature"]
 transform = Transform( -8.14603e-08, 0, 10, 0, 1, 0, -0.5, 0, -1.62921e-06, 0.523928, 0, -116.198 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
 [node name="Border14" type="MeshInstance" parent="Road and nature"]
 transform = Transform( -8.14603e-08, 0, 10, 0, 1, 0, -0.5, 0, -1.62921e-06, -11.9359, 0, -116.198 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
 [node name="Border15" type="MeshInstance" parent="Road and nature"]
 transform = Transform( -8.14603e-08, 0, 10, 0, 1, 0, -0.5, 0, -1.62921e-06, -22.8812, 0, -116.198 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
 [node name="Border9" type="MeshInstance" parent="Road and nature"]
 transform = Transform( -8.14603e-08, 0, 10, 0, 1, 0, -0.5, 0, -1.62921e-06, 20.1367, 0, 88.5416 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = ExtResource( 26 )
 
-<<<<<<< HEAD
-[node name="CollisionShapeWater" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25617, -0.194761, -73.9695 )
-shape = SubResource( 6 )
-
-[node name="CollisionShapeRoundebout" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.249, -0.92, -97.987 )
-shape = SubResource( 7 )
-
-[node name="BigTrafficLightSet" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9344, 0, 58.202 )
-
-[node name="pole" parent="BigTrafficLightSet" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, 0.9, 0, 0, 0, 0.7, 0.454625, 0.871564, 5.37415 )
-
-[node name="pole3" parent="BigTrafficLightSet" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0.44313, 3.11028, 3.25459 )
-
-[node name="pole4" parent="BigTrafficLightSet" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0.44313, 3.11028, -2.96366 )
-
-[node name="pole5" parent="BigTrafficLightSet" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0.44313, 3.11028, 0.0131912 )
-
-[node name="pole2" parent="BigTrafficLightSet" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, 0.9, 0, 0, 0, 0.7, 0.454625, 0.871564, -5.07878 )
-
-[node name="bigtrafficlight" parent="BigTrafficLightSet" instance=ExtResource( 28 )]
-transform = Transform( -0.3, 0, -9.77524e-08, 0, 0.3, 0, 9.77524e-08, 0, -0.3, 0.594084, 2.40648, -2.98164 )
-
-[node name="bigtrafficlight2" parent="BigTrafficLightSet" instance=ExtResource( 28 )]
-transform = Transform( -0.3, 0, -9.77524e-08, 0, 0.3, 0, 9.77524e-08, 0, -0.3, 0.594084, 2.40648, -0.304859 )
-
-[node name="bigtrafficlight3" parent="BigTrafficLightSet" instance=ExtResource( 28 )]
-transform = Transform( -0.3, 0, -9.77524e-08, 0, 0.3, 0, 9.77524e-08, 0, -0.3, 0.594084, 2.40648, 2.71928 )
-
-[node name="BigTrafficLightSet2" type="Spatial" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -10.0012, 0, 51.1522 )
-
-[node name="pole" parent="BigTrafficLightSet2" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, 0.9, 0, 0, 0, 0.7, 0.454625, 0.871564, 7.1804 )
-
-[node name="pole3" parent="BigTrafficLightSet2" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0.44313, 3.11028, 3.25459 )
-
-[node name="pole6" parent="BigTrafficLightSet2" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0.44313, 3.11028, 5.06527 )
-
-[node name="pole4" parent="BigTrafficLightSet2" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0.44313, 3.11028, -2.96366 )
-
-[node name="pole5" parent="BigTrafficLightSet2" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0.44313, 3.11028, 0.0131912 )
-
-[node name="pole2" parent="BigTrafficLightSet2" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, 0.9, 0, 0, 0, 0.7, 0.454625, 0.871564, -5.07878 )
-
-[node name="bigtrafficlight" parent="BigTrafficLightSet2" instance=ExtResource( 28 )]
-transform = Transform( -0.3, 0, -9.77524e-08, 0, 0.3, 0, 9.77524e-08, 0, -0.3, 0.594084, 2.40648, -3.11374 )
-
-[node name="bigtrafficlight2" parent="BigTrafficLightSet2" instance=ExtResource( 28 )]
-transform = Transform( -0.3, 0, -9.77524e-08, 0, 0.3, 0, 9.77524e-08, 0, -0.3, 0.594084, 2.40648, -0.369319 )
-
-[node name="bigtrafficlight3" parent="BigTrafficLightSet2" instance=ExtResource( 28 )]
-transform = Transform( -0.3, 0, -9.77524e-08, 0, 0.3, 0, 9.77524e-08, 0, -0.3, 0.594084, 2.40648, 2.30861 )
-
-[node name="bigtrafficlight4" parent="BigTrafficLightSet2" instance=ExtResource( 28 )]
-transform = Transform( -0.3, 0, -9.77524e-08, 0, 0.3, 0, 9.77524e-08, 0, -0.3, 0.594083, 2.40648, 4.9075 )
-
-[node name="BigTrafficLightSet3" type="Spatial" parent="."]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -0.303404, 0, 71.9706 )
-
-[node name="pole" parent="BigTrafficLightSet3" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, 0.9, 0, 0, 0, 0.7, 0.454625, 0.871564, 7.1804 )
-
-[node name="pole3" parent="BigTrafficLightSet3" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0.44313, 3.11028, 3.25459 )
-
-[node name="pole6" parent="BigTrafficLightSet3" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0.44313, 3.11028, 5.06527 )
-
-[node name="pole4" parent="BigTrafficLightSet3" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0.44313, 3.11028, -2.96366 )
-
-[node name="pole5" parent="BigTrafficLightSet3" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, -1.46629e-07, -0.7, 0, 0.9, -1.14044e-07, 0.44313, 3.11028, 0.0131912 )
-
-[node name="pole2" parent="BigTrafficLightSet3" instance=ExtResource( 27 )]
-transform = Transform( 0.7, 0, 0, 0, 0.9, 0, 0, 0, 0.7, 0.454625, 0.871564, -5.07878 )
-
-[node name="bigtrafficlight" parent="BigTrafficLightSet3" instance=ExtResource( 28 )]
-transform = Transform( -0.3, 0, -9.77524e-08, 0, 0.3, 0, 9.77524e-08, 0, -0.3, 0.594084, 2.40648, -3.11374 )
-
-[node name="bigtrafficlight2" parent="BigTrafficLightSet3" instance=ExtResource( 28 )]
-transform = Transform( -0.3, 0, -9.77524e-08, 0, 0.3, 0, 9.77524e-08, 0, -0.3, 0.594084, 2.40648, -0.369319 )
-
-[node name="bigtrafficlight3" parent="BigTrafficLightSet3" instance=ExtResource( 28 )]
-transform = Transform( -0.3, 0, -9.77524e-08, 0, 0.3, 0, 9.77524e-08, 0, -0.3, 0.594084, 2.40648, 2.30861 )
-
-[node name="bigtrafficlight4" parent="BigTrafficLightSet3" instance=ExtResource( 28 )]
-transform = Transform( -0.3, 0, -9.77524e-08, 0, 0.3, 0, 9.77524e-08, 0, -0.3, 0.594083, 2.40648, 4.9075 )
-
-[node name="pedestriantrafficlight3" parent="." instance=ExtResource( 29 )]
-transform = Transform( 0.15, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 4.10467, 0.680248, 45.2696 )
-
-[node name="pole2" parent="." instance=ExtResource( 27 )]
-transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, 4.13576, 0, 45.2788 )
-
-[node name="pedestrianlight" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6505, 0, 47.9143 )
-
-[node name="pole3" parent="pedestrianlight" instance=ExtResource( 27 )]
-transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, -0.01511, 0, 0.0302315 )
-
-[node name="pedestriantrafficlight4" parent="pedestrianlight" instance=ExtResource( 29 )]
-transform = Transform( -0.15, 0, -1.16824e-07, 0, 0.3, 0, 5.84122e-08, 0, -0.3, 0.0274754, 0.680248, 0.0246162 )
-
-[node name="pedestrianlight4" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6505, 0, 78.0674 )
-
-[node name="pole3" parent="pedestrianlight4" instance=ExtResource( 27 )]
-transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, -0.01511, 0, 0.0302315 )
-
-[node name="pedestriantrafficlight4" parent="pedestrianlight4" instance=ExtResource( 29 )]
-transform = Transform( -0.15, 0, -1.16824e-07, 0, 0.3, 0, 5.84122e-08, 0, -0.3, 0.0274754, 0.680248, 0.0246162 )
-
-[node name="pedestrianlight5" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54716, 0, 74.9437 )
-
-[node name="pole3" parent="pedestrianlight5" instance=ExtResource( 27 )]
-transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, -0.01511, 0, 0.0302315 )
-
-[node name="pedestriantrafficlight4" parent="pedestrianlight5" instance=ExtResource( 29 )]
-transform = Transform( 0.15, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.0274754, 0.680248, 0.0246162 )
-
-[node name="pedestrianlight2" type="Spatial" parent="."]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -23.3812, 0, 51.9941 )
-
-[node name="pole3" parent="pedestrianlight2" instance=ExtResource( 27 )]
-transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, -0.01511, 0, 0.0302315 )
-
-[node name="pedestriantrafficlight4" parent="pedestrianlight2" instance=ExtResource( 29 )]
-transform = Transform( -0.15, 0, -1.16824e-07, 0, 0.3, 0, 5.84122e-08, 0, -0.3, 0.0274754, 0.680248, 0.0246162 )
-
-[node name="pedestrianlight6" type="Spatial" parent="."]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 9.22606, 0, 53.466 )
-
-[node name="pole3" parent="pedestrianlight6" instance=ExtResource( 27 )]
-transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, -0.01511, 0, 0.0302315 )
-
-[node name="pedestriantrafficlight4" parent="pedestrianlight6" instance=ExtResource( 29 )]
-transform = Transform( -0.15, 0, -1.16824e-07, 0, 0.3, 0, 5.84122e-08, 0, -0.3, 0.0274754, 0.680248, 0.0246162 )
-
-[node name="pedestrianlight7" type="Spatial" parent="."]
-transform = Transform( -1.62921e-07, 0.00101229, 0.999999, 1.64923e-10, 0.999999, -0.00101229, -1, 0, -1.62921e-07, 12.2341, 0, 68.234 )
-
-[node name="pole3" parent="pedestrianlight7" instance=ExtResource( 27 )]
-transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, -0.01511, 0, 0.0302315 )
-
-[node name="pedestriantrafficlight4" parent="pedestrianlight7" instance=ExtResource( 29 )]
-transform = Transform( -0.15, 0, -1.16824e-07, 0, 0.3, 0, 5.84122e-08, 0, -0.3, 0.0274754, 0.680248, 0.0246162 )
-
-[node name="pedestrianlight3" type="Spatial" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -20.328, 0, 71.0299 )
-
-[node name="pole3" parent="pedestrianlight3" instance=ExtResource( 27 )]
-transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, -0.01511, 0, 0.0302315 )
-
-[node name="pedestriantrafficlight4" parent="pedestrianlight3" instance=ExtResource( 29 )]
-transform = Transform( -0.15, 0, -1.16824e-07, 0, 0.3, 0, 5.84122e-08, 0, -0.3, 0.0817528, 0.680248, 0.0246162 )
-
-[node name="doublepedestrianlight" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92051, 0, 47.9051 )
-
-[node name="pole" parent="doublepedestrianlight" instance=ExtResource( 27 )]
-transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, 0.0568123, 0, 0.0118752 )
-
-[node name="pedestriantrafficlight2" parent="doublepedestrianlight" instance=ExtResource( 29 )]
-transform = Transform( -0.15, 0, -1.16824e-07, 0, 0.3, 0, 5.84122e-08, 0, -0.3, 0.128752, 0.680248, 0.0338707 )
-
-[node name="pedestriantrafficlight" parent="doublepedestrianlight" instance=ExtResource( 29 )]
-transform = Transform( 0.15, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0188866, 0.680248, 0.0338707 )
-
-[node name="doublepedestrianlight3" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44111, 0, 74.9793 )
-
-[node name="pole" parent="doublepedestrianlight3" instance=ExtResource( 27 )]
-transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, 0.0568123, 0, 0.0118752 )
-
-[node name="pedestriantrafficlight2" parent="doublepedestrianlight3" instance=ExtResource( 29 )]
-transform = Transform( -0.15, 0, -1.16824e-07, 0, 0.3, 0, 5.84122e-08, 0, -0.3, 0.128752, 0.680248, 0.0338707 )
-
-[node name="pedestriantrafficlight3" parent="doublepedestrianlight3" instance=ExtResource( 29 )]
-transform = Transform( -0.15, 0, -1.16824e-07, 0, 0.3, 0, 5.84122e-08, 0, -0.3, 0.128752, 0.680248, 26.9775 )
-
-[node name="pedestriantrafficlight" parent="doublepedestrianlight3" instance=ExtResource( 29 )]
-transform = Transform( 0.15, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0188866, 0.680248, 0.0338707 )
-
-[node name="doublepedestrianlight2" type="Spatial" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -20.3633, 0, 60.3216 )
-
-[node name="pole" parent="doublepedestrianlight2" instance=ExtResource( 27 )]
-transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, 0.0568123, 0, 0.0118752 )
-
-[node name="pedestriantrafficlight2" parent="doublepedestrianlight2" instance=ExtResource( 29 )]
-transform = Transform( -0.15, 0, -1.16824e-07, 0, 0.3, 0, 5.84122e-08, 0, -0.3, 0.128752, 0.680248, 0.0338707 )
-
-[node name="pedestriantrafficlight" parent="doublepedestrianlight2" instance=ExtResource( 29 )]
-transform = Transform( 0.15, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0188866, 0.680248, 0.0338707 )
-
-[node name="doublepedestrianlight4" type="Spatial" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 9.33568, 0, 63.6681 )
-
-[node name="pole" parent="doublepedestrianlight4" instance=ExtResource( 27 )]
-transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, 0.0568123, 0, 0.0118752 )
-
-[node name="pedestriantrafficlight2" parent="doublepedestrianlight4" instance=ExtResource( 29 )]
-transform = Transform( -0.15, 0, -1.16824e-07, 0, 0.3, 0, 5.84122e-08, 0, -0.3, 0.128752, 0.680248, 0.0338707 )
-
-[node name="pedestriantrafficlight" parent="doublepedestrianlight4" instance=ExtResource( 29 )]
-transform = Transform( 0.15, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0188866, 0.680248, 0.0338707 )
-
-=======
->>>>>>> f8d8eddb402b532cd7707f34d13a42a4f1d1bbc3
 [node name="alarmlightcomplete" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7626, 0, -97.7121 )
 
@@ -2117,16 +1830,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.70868, 0.408074, -79.6367 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 12, 0, 0, 0, 0.751754, 0.34202, 0, -0.273616, 0.939693, 0.177868, -0.6, -80.3073 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
 transform = Transform( 12, 0, 0, 0, 0.751754, -0.34202, 0, 0.273616, 0.939693, 0.177868, -0.599385, -67.5366 )
-<<<<<<< HEAD
-shape = SubResource( 8 )
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.761301, 0, 0.648399, 0, 1, 0, -0.648399, 0, -0.761301, -1.2517e-06, 6.77808, 28.7878 )
-=======
 shape = SubResource( 5 )
 
 [node name="CollisionShapeIntersection" type="CollisionShape" parent="."]
@@ -2140,4 +1847,3 @@ shape = SubResource( 3 )
 [node name="CollisionShapeRoundebout" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.249, -0.92, -97.987 )
 shape = SubResource( 4 )
->>>>>>> f8d8eddb402b532cd7707f34d13a42a4f1d1bbc3
