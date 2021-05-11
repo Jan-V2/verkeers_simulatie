@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://imports/world/Road/Asphalt.material" type="Material" id=1]
 [ext_resource path="res://imports/world/Road/Light_Asphalt.material" type="Material" id=2]
+[ext_resource path="res://imports/world/Road/Grey_Asphalt.material" type="Material" id=3]
+[ext_resource path="res://imports/world/pedestriantrafficlight.glb" type="PackedScene" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -9,6 +11,8 @@
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 11.8766, 0.0861927, 5.75974 )
+
+[sub_resource type="CubeMesh" id=4]
 
 [node name="bridge" type="KinematicBody"]
 
@@ -23,10 +27,32 @@ mesh = SubResource( 2 )
 material/0 = ExtResource( 2 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 4, 0, 0, 0, 0.09, 0, 0, 0, 5.7, -4, 0, 5.704 )
+transform = Transform( 4, 0, 0, 0, 0.09, 0, 0, 0, 5.7, -4, 0, 5.7 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.79342, 0, 5.67373 )
 shape = SubResource( 3 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 5.7, -8.07863, 0, 5.69279 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 3 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 5.7, 15.5974, 0, 5.69279 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 3 )
+
+[node name="trafficlight35a" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.3, -1.94707e-07, 8.51092e-15, 0, -2.18557e-08, -0.5, 1.16824e-07, -0.5, 2.18557e-08, 15.6727, -0.0969636, 4.45301 )
+
+[node name="trafficlight35b" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.3, -1.94707e-07, 8.51092e-15, 0, -2.18557e-08, -0.5, 1.16824e-07, -0.5, 2.18557e-08, 15.6727, -0.0969636, 9.60601 )
+
+[node name="trafficlight34a" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.3, 0, 0, 0, -8.14603e-08, -0.5, 0, 0.5, -8.14603e-08, -8.17235, -0.097, 7.17083 )
+
+[node name="trafficlight34b" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.3, 0, 0, 0, -8.14603e-08, -0.5, 0, 0.5, -8.14603e-08, -8.17235, -0.097, 2.22999 )
