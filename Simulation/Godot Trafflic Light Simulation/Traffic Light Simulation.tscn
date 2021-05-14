@@ -1,10 +1,56 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/PathFollow.py" type="Script" id=2]
+[ext_resource path="res://assets/firetruck.tscn" type="PackedScene" id=3]
+[ext_resource path="res://path.py" type="Script" id=4]
 
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -5.07277, 7.62939e-06, 141.538, 0, 0, 0, 0, 0, 0, -5.24326, 7.62939e-06, 133.184, 0, 0, 0, 0, 0, 0, -5.35692, 7.62939e-06, 126.365 ),
+"tilts": PoolRealArray( 0, 0, 0 )
+}
 
+[sub_resource type="Curve3D" id=2]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.96604, 0, 120.121, 0, 0, 0, 0, 0, 0, -5.19692, 0, 116.657, 0, 0, 0, 0, 0, 0, -5.10457, 0, 113.333, 0, 0, 0, 0, 0, 0, -6.35129, 0, 111.024, 0, 0, 0, 0, 0, 0, -8.03583, 0, 108.379, 0, 0, 0, 0, 0, 0, -9.67587, 0, 106.176, 0, 0, 0, 0, 0, 0, -10.9688, 0, 105.483, 0, 0, 0, 0, 0, 0, -13.5084, 0, 103.867, 0, 0, 0, 0, 0, 0, -16.6021, 0, 103.359 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=3]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -17.1686, 0, 103.408, 0, 0, 0, 0, 0, 0, -31.7429, 0, 103.785 ),
+"tilts": PoolRealArray( 0, 0 )
+}
 
 [node name="World" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139641, 0, 5.2427 )
 
 [node name="Intersection" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.449306, 0.204462, 47.2055 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178899, 0.204462, 48.4619 )
+
+[node name="paths" type="Node" parent="."]
+
+[node name="start" type="Path" parent="paths"]
+curve = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="cross" type="Path" parent="paths"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+curve = SubResource( 2 )
+
+[node name="out" type="Path" parent="paths"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+curve = SubResource( 3 )
+
+[node name="follows" type="Node" parent="paths"]
+
+[node name="truck" type="PathFollow" parent="paths/follows"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.08397, 7.62939e-06, 141.288 )
+loop = false
+script = ExtResource( 2 )
+
+[node name="firetruck" parent="paths/follows/truck" instance=ExtResource( 3 )]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.834377, 0, 0.551195, 0, 1, 0, -0.551195, 0, -0.834377, 16.6897, 6.30497, 92.2776 )
