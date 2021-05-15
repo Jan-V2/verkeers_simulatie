@@ -5,13 +5,13 @@ from godot import *
 @exposed
 class Vehicle(Node):
 
-    # member variables here, example:
-    a = export(int)
-    b = export(str, default='foo')
+	# member variables here, example:
+	a = export(int)
+	b = export(str, default='foo')
 
-    def _ready(self):
-        """
-        Called every time the node is added to the scene.
-        Initialization here.
-        """
-        pass
+	def _ready(self):
+		"""
+		Called every time the node is added to the scene.
+		Initialization here.
+		"""
+		pass

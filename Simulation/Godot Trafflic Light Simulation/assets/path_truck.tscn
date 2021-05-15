@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/firetruck.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/PathFollow.py" type="Script" id=2]
+
+[node name="Spatial" type="PathFollow"]
+loop = false
+script = ExtResource( 2 )
+
+[node name="firetruck" parent="." instance=ExtResource( 1 )]

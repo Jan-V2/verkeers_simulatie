@@ -1,4 +1,4 @@
-from godot import exposed, export
+from godot import exposed, export, ResourceLoader
 from godot import *
 
 
@@ -11,14 +11,15 @@ class path(Path):
 
 	def _ready(self):
 		self.time_passed = 0
-		
+		self.new_truck = ResourceLoader.load("res://assets/path_truck.tscn")
 		pass
 		
 	def _process(self, delta):
 		self.time_passed += delta
 		if self.time_passed > 1:
+			print("spawn")
 			self.time_passed = 0
-			truck = self.get_parent().get_node("follows").get_node("truck").duplicate()
+			truck = self.new_truck.instance()
 			self.add_child(truck)
 			truck.enabled = True
 
