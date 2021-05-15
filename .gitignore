@@ -590,3 +590,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+*.import
+*.pyc
+*.md5
