@@ -1,0 +1,37 @@
+kaart symbolen:
+  0 leeg
+  * kruispunt
+  W weg, als het grenst aan een kruispunt rechtdoorgaande weg
+  P fietspad, als het grenst aan een kruispunt rechtdoorgaande
+  A auto spawn punt
+  F fiets spawn punt
+  V voor despawn punt
+  L als het grenst aan een kruispunt linksafslaande weg
+  R als het grenst aan een kruispunt rechtsafslaande weg
+  E als het grenst aan een kruispunt linksafslaande en rechtdoor gaande weg
+  Q als het grenst aan een kruispunt rechtsafslaande en rechtdoor gaande weg
+
+
+nieuwe werking kaart:
+  ☐ cijfers 0-9 vormt een weg
+  ☐ wegen beginnen bij een spawn/despawn punt en stoppen bij een kruis/merge/split punt
+  ☐ bij het laden van de map word een boom gebouwd die gebruikt word voor de autos om te navigeren
+  ☐ de mogelijke nodes in de boom zijn
+
+todos:
+  ✔ merge fixen @done(2021-04-22 04:28) @project(todos)
+  ☐ splits fixen
+  ✔ kruispunt 2 werkend krijgen @done(2021-04-22 04:28) @project(todos
+  ✔ kruispunt 3 werkend krijgen @done(2021-04-22 04:28) @project(todos)
+  ✘ kruispunt route generatie @cancelled(2021-05-05 19:26) @project(todos)
+  ✔ stoplicht generatie @done(2021-05-04 12:51) @project(todos)
+  ✔ stoplicht matrix generatie @done(2021-05-05 19:26) @project(todos
+  ☐ stoplicht bug fixen
+  ✔ kaart aanpassen in voorbereiding op de sensors @done(2021-05-05 19:26) @project(todos)
+  ✔ sensors toevoegen @done(2021-05-05 19:26) @project(todos)
+  ☐ rotonde toevoegen
+  ☐ routes voetgangers en fietsers
+  ☐ voetgangers en fietsen stoplichten
+  ☐ bedenken hoe ik de brug moet simuleren
+
+road generation -> crossing routing -> traffic light matrix generation
