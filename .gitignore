@@ -593,3 +593,24 @@ FodyWeavers.xsd
 *.import
 *.pyc
 *.md5
+*.iml
+*.md5
+Simulation/environment_test/.idea/misc.xml
+Simulation/environment_test/.idea/modules.xml
+Simulation/Godot Trafflic Light Simulation/.import/roadTile_019.gltf-b8a09a3e56dc5236b9237ea5070ae44b.md5
+Simulation/Godot Trafflic Light Simulation/.import/roadTile_020.gltf-d44ffad1c933bcaeeae79c42651ce4c3.md5
+Simulation/Godot Trafflic Light Simulation/__pycache__/Carspawner.cpython-38.pyc
+Simulation/Godot Trafflic Light Simulation/addons/pythonscript/windows-64/lib/site-packages/godot/__pycache__/__init__.cpython-38.pyc
+Simulation/Godot Trafflic Light Simulation/addons/pythonscript/windows-64/lib/site-packages/godot/__pycache__/_version.cpython-38.pyc
+Simulation/Godot Trafflic Light Simulation/addons/pythonscript/windows-64/lib/site-packages/godot/_hazmat/__pycache__/__init__.cpython-38.pyc
+Simulation/Godot Trafflic Light Simulation/addons/pythonscript/windows-64/lib/site-packages/websockets/__pycache__/__init__.cpython-38.pyc
+Simulation/Godot Trafflic Light Simulation/addons/pythonscript/windows-64/lib/site-packages/websockets/__pycache__/imports.cpython-38.pyc
+Simulation/Godot Trafflic Light Simulation/addons/pythonscript/windows-64/lib/site-packages/websockets/__pycache__/version.cpython-38.pyc
+Simulation/Godot Trafflic Light Simulation/scripts/__pycache__/Vehicle.cpython-38.pyc
+Simulation/Godot Trafflic Light Simulation/scripts/__pycache__/Car.cpython-38.pyc
+Simulation/Godot Trafflic Light Simulation/imports/world/Nature/roadTile_020.gltf.import
+Simulation/Godot Trafflic Light Simulation/imports/world/Nature/roadTile_019.gltf.import
+Simulation/Godot Trafflic Light Simulation/imports/world/__pycache__/trafficlight.cpython-38.pyc
+Simulation/Godot Trafflic Light Simulation/assets/PathFollow.py
+Simulation/Godot Trafflic Light Simulation/assets/__pycache__/websocket_server.cpython-38.pyc
+Simulation/Godot Trafflic Light Simulation/assets/__pycache__/PathFollow.cpython-38.pyc
