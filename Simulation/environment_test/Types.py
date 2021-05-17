@@ -6,8 +6,8 @@ class Tile_Types(Enum):
     empty = 'X',  # leeg
     crossing = '*',  # kruispunt
     road = None,  # weg, als het grenst aan een kruispunt rechtdoorgaande weg
-    b_lane = 'P',  # fietspad
-    sidewalk = "S"  # voedgangerpad
+    b_lane = 'P',  # fiets + voet pad
+    bus_lane = "S"  # buslaan
     car_spawn = 'A',  # auto spawn punt
     b_spawn = 'F',  # fiets spawn punt
     despawn = "V",  # despawn punt
@@ -27,7 +27,7 @@ starting_tiles = [Tile_Types.car_spawn, Tile_Types.b_spawn, Tile_Types.despawn]
 directioned_tiles = [Tile_Types.left, Tile_Types.right, Tile_Types.left_straight,
                      Tile_Types.right_straight, Tile_Types.straight]
 merge_or_split = [Tile_Types.merge, Tile_Types.split]
-non_car_tiles = [Tile_Types.b_lane, Tile_Types.sidewalk, Tile_Types.sensor]
+non_car_tiles = [Tile_Types.b_lane, Tile_Types.bus_lane, Tile_Types.sensor]
 
 class Ordinal(Enum):
     north = 0

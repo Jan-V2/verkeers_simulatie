@@ -29,3 +29,5 @@ class PathFollow(PathFollow):
 					self.path_idx += 1
 			else:
 				self.set_offset(self.get_offset() + self.speed * delta)
+	
+

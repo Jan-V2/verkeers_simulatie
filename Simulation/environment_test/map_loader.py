@@ -37,7 +37,7 @@ class Tile():
             raise NotImplementedError
         for road in road_list:
             if road.is_incoming:
-                print(road.get_last())
+                #print(road.get_last())
                 if road.get_last() == self.target:
                     self.target_road = road
                     return
@@ -67,6 +67,31 @@ def create_tile_array():
             new_row.append(Tile(Coord(x, y), char_map[y][x]))
         ret.append(new_row)
     return ret
+
+
+def generate_path_nodes(_route_components, subresource_start):
+    subresource_str_start = "[sub_resource type=\"Curve3D\" id="
+    subresource_str_end = "]\n_data = {\n\"points\": PoolVector3Array(  ),\n\"tilts\": PoolRealArray(  )\n}\n\n"
+    node_str = \
+        """[node name="{}" type="Path" parent="paths"]\ncurve = SubResource( {} )\n\n"""
+
+    out_res = ""
+    out_node = ""
+    for road in _route_components:
+        name = "{},{}|{},{}".format(road.get_start().x,road.get_start().y, road.get_last().x, road.get_last().y)
+        out_res+= subresource_str_start + str(subresource_start) + subresource_str_end
+        out_node += node_str.format(name, subresource_start)
+        subresource_start += 1
+
+    print(out_res)
+
+def generate_sensor_nodes(_sensors):
+    node_str = "[node name=\"{}\" type=\"Area\" parent=\"sensor_coming\"]\n\n[node name=\"CollisionShape\" type=\"CollisionShape\" parent=\"sensor_coming/{}\"]\ntransform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )\nshape = SubResource( 4 )\n\n"
+    out = ""
+    for sens in _sensors:
+        name = "target={},{}".format(sens.target.x, sens.target.y)
+        out += node_str.format(name, name)
+    print(out)
 
 
 if __name__ == '__main__':
@@ -139,4 +164,7 @@ if __name__ == '__main__':
     light_matrix = crossings[0].solve_collisions()
     for sensor in sensors:
         sensor.find_target_road(route_components)
+
+    generate_sensor_nodes(sensors)
+    #generate_path_nodes(route_components, 4)
     print("done")

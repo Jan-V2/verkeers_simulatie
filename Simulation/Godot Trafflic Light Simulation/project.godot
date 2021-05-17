@@ -10,13 +10,12 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
 
 config/name="Godot Trafflic Light Simulation"
-run/main_scene="res://assets/map.tscn"
+run/main_scene="res://Traffic Light Simulation.tscn"
 config/icon="res://icon.png"
 
 [gdnative]

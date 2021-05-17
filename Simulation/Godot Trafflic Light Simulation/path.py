@@ -17,9 +17,10 @@ class path(Path):
 	def _process(self, delta):
 		self.time_passed += delta
 		if self.time_passed > 1:
-			print("spawn")
 			self.time_passed = 0
 			truck = self.new_truck.instance()
 			self.add_child(truck)
 			truck.enabled = True
-
+	
+	def _on_Area_body_entered(one, two):
+		print("entered area")
