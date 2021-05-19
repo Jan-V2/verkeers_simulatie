@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/websocket_server.py" type="Script" id=2]
 [ext_resource path="res://path.py" type="Script" id=3]
-[ext_resource path="res://sensor_helper.py" type="Script" id=4]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -35,7 +34,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139641, 0, 5.2427 )
 script = ExtResource( 2 )
 
 [node name="sensor_helper" type="Node" parent="."]
-script = ExtResource( 4 )
 
 [node name="Intersection" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.91023, 0.208225, 46.6862 )
@@ -353,7 +351,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.26648, 0, 81.8399 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s33"]
 shape = SubResource( 5 )
-
 [connection signal="body_shape_entered" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_entered"]
 [connection signal="body_shape_exited" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_exited"]
 [connection signal="body_shape_entered" from="sensors/s2" to="websocket_server" method="_on_target919_body_shape_entered"]

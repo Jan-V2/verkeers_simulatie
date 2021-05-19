@@ -30,4 +30,11 @@ class PathFollow(PathFollow):
 			else:
 				self.set_offset(self.get_offset() + self.speed * delta)
 	
+	def _on_Area_body_entered(self, body):
+		self.speed = 0
+		print('entered')
+		
+	def _on_Area_body_exited(self, body):
+		self.speed = 10
+		print('exited')
 
