@@ -180,7 +180,7 @@ class websocket_server(Node):
 	def ready_actual_lights(self):
 		self.actual_lights = []
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight1"))
+		templist.append(self.get_parent().find_node("trafficlight1"))
 		self.actual_lights.append(templist)
 		templist = []
 		templist.append(self.find_parent("map").find_node("trafficlight2"))

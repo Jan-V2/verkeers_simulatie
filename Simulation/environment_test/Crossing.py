@@ -138,8 +138,33 @@ class Crossing:
         else:
             self.outgoing.append(Outgoing(in_from, in_from_ordinal, road.id))
 
-    def get_destinations(self, coord):
-        pass
+    def get_destinations(self, road_in):
+        coord = road_in.get_last()
+        destinations = []
+        routes_ords = []
+        dest_ords = []
+        for road in self.incoming:
+            if road.in_from == coord:
+                for dest in road.destination_ordinals:
+                    routes_ords.append((road.in_from_ord, dest))
+                dest_ords = road.destination_ordinals
+                break
+
+        for ord in dest_ords:
+            outs = []
+            for out_road in self.outgoing:
+                if out_road.out_from_ord == ord:
+                    outs.append(out_road.out_from)
+            if len(outs) > 0:
+                destinations.append(outs)
+
+
+        if len(destinations) < 1:
+            raise Exception("road not found in crossing")
+
+        return destinations, routes_ords
+
+
 
     def create_traffic_lights(self):
         def check_if_light_created(incoming_road):
