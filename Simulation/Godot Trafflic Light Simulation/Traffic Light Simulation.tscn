@@ -6,13 +6,13 @@
 
 [sub_resource type="Curve3D" id=1]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -5.70374, 0.000511169, 141.083, 0, 0, 0, 0, 0, 0, -5.27114, 0.000457764, 127.323 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 2.86951, 0.00214863, 139.227, 0, 0, 0, 0, 0, 0, 2.79341, 0.000748634, 127.086 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
 [sub_resource type="Curve3D" id=2]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -5.32976, 0.000450134, 125.333, 0, 0, 0, 0, 0, 0, -5.66332, 0.000442505, 122.887, 0, 0, 0, 0, 0, 0, -5.60773, 0.000434875, 119.329, 0, 0, 0, 0, 0, 0, -6.66403, 0.000419617, 115.882, 0, 0, 0, 0, 0, 0, -7.33116, 0.000411987, 113.214, 0, 0, 0, 0, 0, 0, -10.778, 0.000404358, 110.879, 0, 0, 0, 0, 0, 0, -14.5585, 0.000396729, 109.322, 0, 0, 0, 0, 0, 0, -18.6725, 0.000396729, 108.655 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 2.79238, -0.00107574, 127.248, 0, 0, 0, 0, 0, 0, 2.75734, 0.00174809, 121.337, 0, 0, 0, 0, 0, 0, 2.40904, 0.00166225, 117.865, 0, 0, 0, 0, 0, 0, 1.63529, 0.00224972, 113.666, 0, 0, 0, 0, 0, 0, -0.682234, 0.00284958, 110.221, 0, 0, 0, 0, 0, 0, -5.1823, 0.00212669, 108.779, 0, 0, 0, 0, 0, 0, -11.3863, 0.00151157, 107.894, 0, 0, 0, 0, 0, 0, -18.8256, 0.000938416, 107.958 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
@@ -108,11 +108,19 @@ _data = {
 
 [sub_resource type="BoxShape" id=37]
 
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.974016, 1, 1 )
+
 [node name="World" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139641, 0, 5.2427 )
 
+[node name="websocket_server" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="sensor_helper" type="Node" parent="."]
+
 [node name="Intersection" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1789, 0.204462, 46.4619 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.91023, 0.208225, 46.6862 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -0.834377, 0, 0.551195, 0, 1, 0, -0.551195, 0, -0.834377, 16.6897, 6.30497, 92.2776 )
@@ -175,99 +183,345 @@ curve = SubResource( 50 )
 [node name="W->N" type="Path" parent="paths"]
 curve = SubResource( 51 )
 
-[node name="sensor_coming" type="Node" parent="."]
+[node name="sensors" type="Node" parent="."]
 
-[node name="Area" type="Area" parent="sensor_coming"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139641, 0, 5.2427 )
-script = ExtResource( 2 )
+[node name="s1" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91975, 0.275764, 125.996 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 129 )
-shape = SubResource( 37 )
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.2696 )
+shape = SubResource( 4 )
 
-[node name="target=8,19" type="Area" parent="sensor_coming"]
+[node name="s2" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.96942, 0, 128.432 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=8,19"]
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 37 )
 
-[node name="target=9,19" type="Area" parent="sensor_coming"]
+[node name="s3" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.92, 0, 128.29 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=9,19"]
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 37 )
 
-[node name="target=10,19" type="Area" parent="sensor_coming"]
+[node name="s4" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347595, 0, 128.43 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=10,19"]
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 37 )
 
-[node name="target=11,19" type="Area" parent="sensor_coming"]
+[node name="s5" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389979, 0, 128.472 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=11,19"]
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 37 )
 
-[node name="target=15,20" type="Area" parent="sensor_coming"]
+[node name="s6" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8319, 0, 120.908 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=15,20"]
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s6"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 37 )
 
-[node name="target=15,21" type="Area" parent="sensor_coming"]
+[node name="s7" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9027, 0, 120.673 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=15,21"]
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s7"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 37 )
 
-[node name="target=15,22" type="Area" parent="sensor_coming"]
+[node name="s8" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1004, 0, 104.456 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=15,22"]
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s8"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 37 )
 
-[node name="target=7,23" type="Area" parent="sensor_coming"]
+[node name="s9" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9056, 0, 115.335 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=7,23"]
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s9"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 37 )
 
-[node name="target=7,24" type="Area" parent="sensor_coming"]
+[node name="s10" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.961, 0, 115.359 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=7,24"]
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s10"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 37 )
 
-[node name="target=7,25" type="Area" parent="sensor_coming"]
+[node name="s11" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5751, 0, 101.288 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=7,25"]
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s11"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 37 )
 
-[node name="target=11,26" type="Area" parent="sensor_coming"]
+[node name="s12" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3309, 0, 98.337 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=11,26"]
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s12"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 37 )
 
-[node name="target=12,26" type="Area" parent="sensor_coming"]
+[node name="s13" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72995, 0, 97.7888 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=12,26"]
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s13"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 37 )
 
-[node name="target=13,26" type="Area" parent="sensor_coming"]
+[node name="s14" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64246, 0, 98.5006 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=13,26"]
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s14"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 37 )
 
-[node name="target=14,26" type="Area" parent="sensor_coming"]
+[node name="s15" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.14119, 0, 98.3036 )
 
-[node name="CollisionShape" type="CollisionShape" parent="sensor_coming/target=14,26"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 37 )
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s15"]
+shape = SubResource( 5 )
 
-[connection signal="body_entered" from="sensor_coming/Area" to="sensor_coming/Area" method="_on_Area_body_entered"]
-[connection signal="body_entered" from="sensor_coming/Area" to="paths/start" method="_on_Area_body_entered"]
+[node name="s16" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.102, 0, 103.156 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s16"]
+shape = SubResource( 5 )
+
+[node name="s17" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7711, 0, 103.136 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s17"]
+shape = SubResource( 5 )
+
+[node name="s18" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1453, 0, 123.816 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s18"]
+shape = SubResource( 5 )
+
+[node name="s19" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.224, 0, 112.303 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s19"]
+shape = SubResource( 5 )
+
+[node name="s20" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3254, 0, 111.948 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s20"]
+shape = SubResource( 5 )
+
+[node name="s21" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57518, 0, 131.656 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s21"]
+shape = SubResource( 5 )
+
+[node name="s21c" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55503, 0, 135.104 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s21c"]
+shape = SubResource( 5 )
+
+[node name="s22wa" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.60491, 0, 131.651 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s22wa"]
+shape = SubResource( 5 )
+
+[node name="s22c" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.57462, 0, 135.134 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s22c"]
+shape = SubResource( 5 )
+
+[node name="s22wb" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55306, 0, 138.09 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s22wb"]
+shape = SubResource( 5 )
+
+[node name="s23" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.95247, 0, 131.932 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s23"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.867886, 0, -0.387329 )
+shape = SubResource( 5 )
+
+[node name="s23c" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8651, 0, 135.168 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s23c"]
+shape = SubResource( 5 )
+
+[node name="s24" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4378, 0, 112.419 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s24"]
+shape = SubResource( 5 )
+
+[node name="s24c" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5453, 0, 112.457 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s24c"]
+shape = SubResource( 5 )
+
+[node name="s25wa" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.481, 0, 108.461 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s25wa"]
+shape = SubResource( 5 )
+
+[node name="s25c" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.52, 0, 108.448 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s25c"]
+shape = SubResource( 5 )
+
+[node name="s25wb" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.729, 0, 108.449 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s25wb"]
+shape = SubResource( 5 )
+
+[node name="s26wa" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0902, 0, 102.194 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s26wa"]
+shape = SubResource( 5 )
+
+[node name="s26wb" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.4469, 0, 101.963 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s26wb"]
+shape = SubResource( 5 )
+
+[node name="s28wa" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88217, 0, 94.821 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s28wa"]
+shape = SubResource( 5 )
+
+[node name="s28wb" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.412192, 0, 94.8071 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s28wb"]
+shape = SubResource( 5 )
+
+[node name="s31" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8539, 0.0037632, 117.461 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s31"]
+shape = SubResource( 5 )
+
+[node name="s31c" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1254, 0, 117.457 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s31c"]
+shape = SubResource( 5 )
+
+[node name="s32" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8655, 0, 120.014 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s32"]
+shape = SubResource( 5 )
+
+[node name="s32c" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0559, 0, 120.035 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s32c"]
+shape = SubResource( 5 )
+
+[node name="s33" type="Area" parent="sensors"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.26648, 0, 81.8399 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sensors/s33"]
+shape = SubResource( 5 )
+[connection signal="body_shape_entered" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s2" to="websocket_server" method="_on_target919_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s2" to="websocket_server" method="_on_target919_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s3" to="websocket_server" method="_on_target1019_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s3" to="websocket_server" method="_on_target1019_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s4" to="websocket_server" method="_on_target1119_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s4" to="websocket_server" method="_on_target1119_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s5" to="websocket_server" method="_on_target1520_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s5" to="websocket_server" method="_on_target1520_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s6" to="websocket_server" method="_on_target1521_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s6" to="websocket_server" method="_on_target1521_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s7" to="websocket_server" method="_on_target1522_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s7" to="websocket_server" method="_on_target1522_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s8" to="websocket_server" method="_on_target723_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s8" to="websocket_server" method="_on_target723_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s9" to="websocket_server" method="_on_target724_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s9" to="websocket_server" method="_on_target724_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s10" to="websocket_server" method="_on_target725_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s10" to="websocket_server" method="_on_target725_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s11" to="websocket_server" method="_on_target1126_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s11" to="websocket_server" method="_on_target1126_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s12" to="websocket_server" method="_on_target1226_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s12" to="websocket_server" method="_on_target1226_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s13" to="websocket_server" method="_on_target1326_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s13" to="websocket_server" method="_on_target1326_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s14" to="websocket_server" method="_on_target1426_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s14" to="websocket_server" method="_on_target1426_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s15" to="websocket_server" method="_on_s15_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s15" to="websocket_server" method="_on_s15_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s16" to="websocket_server" method="_on_s16_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s16" to="websocket_server" method="_on_s16_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s17" to="websocket_server" method="_on_s17_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s17" to="websocket_server" method="_on_s17_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s18" to="websocket_server" method="_on_s18_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s18" to="websocket_server" method="_on_s18_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s19" to="websocket_server" method="_on_s19_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s19" to="websocket_server" method="_on_s19_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s20" to="websocket_server" method="_on_s20_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s20" to="websocket_server" method="_on_s20_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s21" to="websocket_server" method="_on_s21_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s21" to="websocket_server" method="_on_s21_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s21c" to="websocket_server" method="_on_s21c_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s21c" to="websocket_server" method="_on_s21c_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s22wa" to="websocket_server" method="_on_s22_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s22wa" to="websocket_server" method="_on_s22_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s22c" to="websocket_server" method="_on_s22c_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s22c" to="websocket_server" method="_on_s22c_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s22wb" to="websocket_server" method="_on_s22_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s22wb" to="websocket_server" method="_on_s22_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s23" to="websocket_server" method="_on_s23_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s23" to="websocket_server" method="_on_s23_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s23c" to="websocket_server" method="_on_s23c_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s23c" to="websocket_server" method="_on_s23c_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s24" to="websocket_server" method="_on_s24_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s24" to="websocket_server" method="_on_s24_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s24c" to="websocket_server" method="_on_s24c_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s24c" to="websocket_server" method="_on_s24c_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s25wa" to="websocket_server" method="_on_s25_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s25wa" to="websocket_server" method="_on_s25_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s25c" to="websocket_server" method="_on_s25c_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s25c" to="websocket_server" method="_on_s25c_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s25wb" to="websocket_server" method="_on_s25_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s25wb" to="websocket_server" method="_on_s25_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s26wa" to="websocket_server" method="_on_s26_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s26wa" to="websocket_server" method="_on_s26_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s26wb" to="websocket_server" method="_on_s26_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s26wb" to="websocket_server" method="_on_s26_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s28wa" to="websocket_server" method="_on_s28_body_shape_entered"]
+[connection signal="body_shape_entered" from="sensors/s28wb" to="websocket_server" method="_on_s28_body_shape_entered"]
+[connection signal="body_shape_entered" from="sensors/s31" to="websocket_server" method="_on_s31_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s31" to="websocket_server" method="_on_s31_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s31c" to="websocket_server" method="_on_s31c_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s31c" to="websocket_server" method="_on_s31c_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s32" to="websocket_server" method="_on_s32_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s32" to="websocket_server" method="_on_s32_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s32c" to="websocket_server" method="_on_s32c_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s32c" to="websocket_server" method="_on_s32c_body_shape_exited"]
+[connection signal="body_shape_entered" from="sensors/s33" to="websocket_server" method="_on_s33_body_shape_entered"]
+[connection signal="body_shape_exited" from="sensors/s33" to="websocket_server" method="_on_s33_body_shape_exited"]

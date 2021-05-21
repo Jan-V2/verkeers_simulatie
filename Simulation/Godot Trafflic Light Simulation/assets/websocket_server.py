@@ -27,22 +27,15 @@ class websocket_server(Node):
 
 	sensors = []
 
-	oldsensors = []
-
 	debug = False
 	
 	async def main_loop(self, websocket):
-		global oldsensors
 		while True:
 			await asyncio.sleep(1)
 			#await websocket.send("{\"msg_type\": \"test\", \"msg_id\": 5")
 			#message = '{{"msg_type": "test", "msg_id": {0}}}'.format(new_messageid())
 			#print(message)
 			#await Send(websocket, message)
-			for sensor in self.sensors:
-				if (sensor.vehicles_coming or sensor.vehicles_waiting) and (traffic_light_by_id(sensor.id).state == "green"):
-					sensor.vehicles_coming = False
-					sensor.vehicles_waiting = False
 			message = {
 				"msg_id": self.new_messageid(),
 				"msg_type": "notify_sensor_change",
@@ -87,6 +80,12 @@ class websocket_server(Node):
 			if tl.id == id:
 				return tl
 		return self.TrafficLight(746, [], 746.0)
+		
+	def sensor_by_id(self, id):
+		for sensor in self.sensors:
+			if sensor.id == id:
+				return sensor
+		return self.Sensor(746)
 
 	def new_messageid(self):
 		global message_id
@@ -102,7 +101,7 @@ class websocket_server(Node):
 				if crossingsstringlist[tlnr][x] == '1':
 					crosses.append(x + 1)
 			self.traffic_lights.append(self.TrafficLight(tlnr + 1, crosses, 4.0))
-		for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 31, 32, 33]:
+		for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 31, 32, 33]:
 			self.sensors.append(self.Sensor(i))
 		if self.debug:
 			for sensor in self.sensors:
@@ -183,111 +182,417 @@ class websocket_server(Node):
 		templist.append(self.get_parent().find_node("trafficlight1"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight2"))
+		templist.append(self.get_parent().find_node("trafficlight2"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight3"))
+		templist.append(self.get_parent().find_node("trafficlight3"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight4"))
+		templist.append(self.get_parent().find_node("trafficlight4"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight5"))
+		templist.append(self.get_parent().find_node("trafficlight5"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight6"))
+		templist.append(self.get_parent().find_node("trafficlight6"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight7"))
+		templist.append(self.get_parent().find_node("trafficlight7"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight8"))
+		templist.append(self.get_parent().find_node("trafficlight8"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight9"))
+		templist.append(self.get_parent().find_node("trafficlight9"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight10"))
+		templist.append(self.get_parent().find_node("trafficlight10"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight11"))
+		templist.append(self.get_parent().find_node("trafficlight11"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight2"))
+		templist.append(self.get_parent().find_node("trafficlight2"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight13"))
+		templist.append(self.get_parent().find_node("trafficlight13"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight14"))
+		templist.append(self.get_parent().find_node("trafficlight14"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight15"))
+		templist.append(self.get_parent().find_node("trafficlight15"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight16"))
+		templist.append(self.get_parent().find_node("trafficlight16"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight17"))
+		templist.append(self.get_parent().find_node("trafficlight17"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight18"))
+		templist.append(self.get_parent().find_node("trafficlight18"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight19"))
+		templist.append(self.get_parent().find_node("trafficlight19"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight20"))
+		templist.append(self.get_parent().find_node("trafficlight20"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight21a"))
-		templist.append(self.find_parent("map").find_node("trafficlight21b"))
+		templist.append(self.get_parent().find_node("trafficlight21a"))
+		templist.append(self.get_parent().find_node("trafficlight21b"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight22a"))
-		templist.append(self.find_parent("map").find_node("trafficlight22b"))
+		templist.append(self.get_parent().find_node("trafficlight22a"))
+		templist.append(self.get_parent().find_node("trafficlight22b"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight23a"))
-		templist.append(self.find_parent("map").find_node("trafficlight23b"))
+		templist.append(self.get_parent().find_node("trafficlight23a"))
+		templist.append(self.get_parent().find_node("trafficlight23b"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight24a"))
-		templist.append(self.find_parent("map").find_node("trafficlight24b"))
+		templist.append(self.get_parent().find_node("trafficlight24a"))
+		templist.append(self.get_parent().find_node("trafficlight24b"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight25a"))
-		templist.append(self.find_parent("map").find_node("trafficlight25b"))
+		templist.append(self.get_parent().find_node("trafficlight25a"))
+		templist.append(self.get_parent().find_node("trafficlight25b"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight26a"))
-		templist.append(self.find_parent("map").find_node("trafficlight26b"))
+		templist.append(self.get_parent().find_node("trafficlight26a"))
+		templist.append(self.get_parent().find_node("trafficlight26b"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight27a"))
-		templist.append(self.find_parent("map").find_node("trafficlight27b"))
+		templist.append(self.get_parent().find_node("trafficlight27a"))
+		templist.append(self.get_parent().find_node("trafficlight27b"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight28a"))
-		templist.append(self.find_parent("map").find_node("trafficlight28b"))
+		templist.append(self.get_parent().find_node("trafficlight28a"))
+		templist.append(self.get_parent().find_node("trafficlight28b"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight29a"))
-		templist.append(self.find_parent("map").find_node("trafficlight29b"))
+		templist.append(self.get_parent().find_node("trafficlight29a"))
+		templist.append(self.get_parent().find_node("trafficlight29b"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight30"))
+		templist.append(self.get_parent().find_node("trafficlight30"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight31"))
+		templist.append(self.get_parent().find_node("trafficlight31"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight32"))
+		templist.append(self.get_parent().find_node("trafficlight32"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.find_parent("map").find_node("trafficlight33a"))
-		templist.append(self.find_parent("map").find_node("trafficlight33b"))
+		templist.append(self.get_parent().find_node("trafficlight33a"))
+		templist.append(self.get_parent().find_node("trafficlight33b"))
 		self.actual_lights.append(templist)
+		
+	def _on_target819_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 1
+		self.sensor_by_id(1).vehicles_waiting = True
+		
+	def _on_target819_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 1
+		self.sensor_by_id(1).vehicles_waiting = False
+		
+	def _on_target919_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 2
+		self.sensor_by_id(2).vehicles_waiting = True
+		
+	def _on_target919_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 2
+		self.sensor_by_id(2).vehicles_waiting = False
+		
+	def _on_target1019_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 3
+		self.sensor_by_id(3).vehicles_waiting = True
+		
+	def _on_target1019_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 3
+		self.sensor_by_id(3).vehicles_waiting = False
+		
+	def _on_target1119_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 4
+		self.sensor_by_id(4).vehicles_waiting = True
+		
+	def _on_target1119_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 4
+		self.sensor_by_id(4).vehicles_waiting = False
+		
+	def _on_target1520_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 5
+		self.sensor_by_id(5).vehicles_waiting = True
+		
+	def _on_target1520_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 5
+		self.sensor_by_id(5).vehicles_waiting = False
+		
+	def _on_target1521_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 6
+		self.sensor_by_id(6).vehicles_waiting = True
+		
+	def _on_target1521_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 6
+		self.sensor_by_id(6).vehicles_waiting = False
+		
+	def _on_target1522_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 7
+		self.sensor_by_id(7).vehicles_waiting = True
+		
+	def _on_target1522_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 7
+		self.sensor_by_id(7).vehicles_waiting = False
+		
+	def _on_target723_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 8
+		self.sensor_by_id(8).vehicles_waiting = True
+		
+	def _on_target723_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 8
+		self.sensor_by_id(8).vehicles_waiting = False
+		
+	def _on_target724_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 9
+		self.sensor_by_id(9).vehicles_waiting = True
+		
+	def _on_target724_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 9
+		self.sensor_by_id(9).vehicles_waiting = False
+		
+	def _on_target725_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 10
+		self.sensor_by_id(10).vehicles_waiting = True
+		
+	def _on_target725_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 10
+		self.sensor_by_id(10).vehicles_waiting = False
+		
+	def _on_target1126_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 11
+		self.sensor_by_id(11).vehicles_waiting = True
+		
+	def _on_target1126_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 11
+		self.sensor_by_id(11).vehicles_waiting = False
+		
+	def _on_target1226_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 12
+		self.sensor_by_id(12).vehicles_waiting = True
+		
+	def _on_target1226_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 12
+		self.sensor_by_id(12).vehicles_waiting = False
+		
+	def _on_target1326_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 13
+		self.sensor_by_id(13).vehicles_waiting = True
+		
+	def _on_target1326_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 13
+		self.sensor_by_id(13).vehicles_waiting = False
+		
+	def _on_target1426_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 14
+		self.sensor_by_id(14).vehicles_waiting = True
+		
+	def _on_target1426_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 14
+		self.sensor_by_id(14).vehicles_waiting = False
+		
+	def _on_s15_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 15
+		self.sensor_by_id(15).vehicles_waiting = True
+		
+	def _on_s15_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 15
+		self.sensor_by_id(15).vehicles_waiting = False
+		
+	def _on_s16_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 16
+		self.sensor_by_id(16).vehicles_waiting = True
+		
+	def _on_s16_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 16
+		self.sensor_by_id(16).vehicles_waiting = False
+		
+	def _on_s17_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 17
+		self.sensor_by_id(17).vehicles_waiting = True
+		
+	def _on_s17_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 17
+		self.sensor_by_id(17).vehicles_waiting = False
+		
+	def _on_s18_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 18
+		self.sensor_by_id(18).vehicles_waiting = True
+		
+	def _on_s18_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 18
+		self.sensor_by_id(18).vehicles_waiting = False
+		
+	def _on_s19_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 19
+		self.sensor_by_id(19).vehicles_waiting = True
+		
+	def _on_s19_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 19
+		self.sensor_by_id(19).vehicles_waiting = False
+		
+	def _on_s20_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 20
+		self.sensor_by_id(20).vehicles_waiting = True
+		
+	def _on_s20_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 20
+		self.sensor_by_id(20).vehicles_waiting = False
+		
+	def _on_s21_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 21
+		self.sensor_by_id(21).vehicles_waiting = True
+		
+	def _on_s21_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 21
+		self.sensor_by_id(21).vehicles_waiting = False
+		
+	def _on_s21c_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 21
+		self.sensor_by_id(21).vehicles_coming = True
+		
+	def _on_s21c_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 21
+		self.sensor_by_id(21).vehicles_coming = False
+		
+	def _on_s22wa_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 22
+		self.sensor_by_id(22).vehicles_waiting = True
+		
+	def _on_s22wa_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 22
+		self.sensor_by_id(22).vehicles_waiting = False
+		
+	def _on_s22c_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 22
+		self.sensor_by_id(22).vehicles_coming = True
+		
+	def _on_s22c_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 22
+		self.sensor_by_id(22).vehicles_coming = False
+		
+	def _on_s22wb_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 22
+		self.sensor_by_id(22).vehicles_waiting = True
+		
+	def _on_s22wb_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 22
+		self.sensor_by_id(22).vehicles_waiting = False
+		
+	def _on_s23_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 23
+		self.sensor_by_id(23).vehicles_waiting = True
+		
+	def _on_s23_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 23
+		self.sensor_by_id(23).vehicles_waiting = False
+		
+	def _on_s23c_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 23
+		self.sensor_by_id(23).vehicles_coming = True
+		
+	def _on_s23c_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 23
+		self.sensor_by_id(23).vehicles_coming = False
+		
+	def _on_s24_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 24
+		self.sensor_by_id(24).vehicles_waiting = True
+		
+	def _on_s24_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 24
+		self.sensor_by_id(24).vehicles_waiting = False
+		
+	def _on_s24c_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 24
+		self.sensor_by_id(24).vehicles_coming = True
+		
+	def _on_s24c_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 24
+		self.sensor_by_id(24).vehicles_coming = False
+		
+	def _on_s25_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 25
+		self.sensor_by_id(25).vehicles_waiting = True
+		
+	def _on_s25_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 25
+		self.sensor_by_id(25).vehicles_waiting = False
+		
+	def _on_s25c_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 25
+		self.sensor_by_id(25).vehicles_coming = True
+		
+	def _on_s25c_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 25
+		self.sensor_by_id(25).vehicles_coming = False
+		
+	def _on_s26_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 26
+		self.sensor_by_id(26).vehicles_waiting = True
+		self.sensor_by_id(26).public_transport = True
+		
+	def _on_s26_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 26
+		self.sensor_by_id(26).vehicles_waiting = False
+		self.sensor_by_id(26).public_transport = False
+		
+	def _on_s28_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 28
+		self.sensor_by_id(28).vehicles_waiting = True
+		
+	def _on_s28_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 28
+		self.sensor_by_id(28).vehicles_waiting = False
+		
+	def _on_s31_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 31
+		self.sensor_by_id(31).vehicles_waiting = True
+		
+	def _on_s31_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 31
+		self.sensor_by_id(31).vehicles_waiting = False
+		
+	def _on_s31c_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 31
+		self.sensor_by_id(31).vehicles_coming = True
+		
+	def _on_s31c_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 31
+		self.sensor_by_id(31).vehicles_coming = False
+		
+	def _on_s32_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 32
+		self.sensor_by_id(32).vehicles_waiting = True
+		
+	def _on_s32_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 32
+		self.sensor_by_id(32).vehicles_waiting = False
+		
+	def _on_s32c_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 32
+		self.sensor_by_id(32).vehicles_coming = True
+		
+	def _on_s32c_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 32
+		self.sensor_by_id(32).vehicles_coming = False
+		
+	def _on_s33_body_shape_entered(self, arg1, arg2, arg3, arg4):
+		#sensor 33
+		self.sensor_by_id(33).vehicles_blocking = False
+		
+	def _on_s33_body_shape_exited(self, arg1, arg2, arg3, arg4):
+		#sensor 33
+		self.sensor_by_id(33).vehicles_blocking = False
 	
 	def loopable(self):
 		#wrapper around the even loop's create_server() method. It creates and starts a Server, then it wraps the server in a websocketserver and returns the websocketserver
@@ -309,4 +614,4 @@ class websocket_server(Node):
 	
 	def _process(self, delta):
 		pass
-		#self.find_parent("map").get_node("tree_oak").visible = not self.find_parent("map").get_node("tree_oak").visible
+		#self.get_parent().get_node("tree_oak").visible = not self.get_parent().get_node("tree_oak").visible
