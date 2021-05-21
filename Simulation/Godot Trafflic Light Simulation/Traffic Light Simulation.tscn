@@ -533,10 +533,6 @@ transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, -15.9
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea32"]
 shape = SubResource( 22 )
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 [connection signal="body_shape_entered" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_entered"]
 [connection signal="body_shape_exited" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_exited"]
 [connection signal="body_shape_entered" from="sensors/s2" to="websocket_server" method="_on_target919_body_shape_entered"]
