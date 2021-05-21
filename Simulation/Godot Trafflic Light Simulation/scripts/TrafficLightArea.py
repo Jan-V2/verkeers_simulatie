@@ -14,7 +14,7 @@ class TrafficLightArea(Node):
 	
 	def _on_TrafficLightArea21_body_entered(self, body):
 		vehicles_waiting21 = []
-		body.getparent() = car
+		car = body.get_parent()
 		greenlight = self.find_parent("World").find_node("trafficlight21a").get_node("GreenLight").visible
 		
 		while greenlight != True:
@@ -27,7 +27,7 @@ class TrafficLightArea(Node):
 	
 	def _on_TrafficLightArea22_body_entered(self, body):
 		vehicles_waiting22 = []
-		body.getparent() = car
+		car = body.get_parent()
 		greenlight = self.find_parent("World").find_node("trafficlight22a").get_node("GreenLight").visible
 		
 		while greenlight != True:
@@ -40,7 +40,7 @@ class TrafficLightArea(Node):
 	
 	def _on_TrafficLightArea23_body_entered(self, body):
 		vehicles_waiting23 = []
-		body.getparent() = car
+		car = body.get_parent()
 		greenlight = self.find_parent("World").find_node("trafficlight23a").get_node("GreenLight").visible
 		
 		while greenlight != True:
@@ -53,7 +53,7 @@ class TrafficLightArea(Node):
 	
 	def _on_TrafficLightArea24_body_entered(self, body):
 		vehicles_waiting24 = []
-		body.getparent() = car
+		car = body.get_parent()
 		greenlight = self.find_parent("World").find_node("trafficlight24a").get_node("GreenLight").visible
 		
 		while greenlight != True:
@@ -66,7 +66,7 @@ class TrafficLightArea(Node):
 	
 	def _on_TrafficLightArea25_body_entered(self, body):
 		vehicles_waiting25 = []
-		body.getparent() = car
+		car = body.get_parent()
 		greenlight = self.find_parent("World").find_node("trafficlight25a").get_node("GreenLight").visible
 		
 		while greenlight != True:
@@ -79,7 +79,7 @@ class TrafficLightArea(Node):
 				
 	def _on_TrafficLightArea26_body_entered(self, body):
 		vehicles_waiting26 = []
-		body.getparent() = car
+		car = body.get_parent()
 		greenlight = self.find_parent("World").find_node("trafficlight26a").get_node("GreenLight").visible
 		
 		while greenlight != True:
@@ -92,7 +92,7 @@ class TrafficLightArea(Node):
 	
 	def _on_TrafficLightArea27_body_entered(self, body):
 		vehicles_waiting27 = []
-		body.getparent() = car
+		car = body.get_parent()
 		greenlight = self.find_parent("World").find_node("trafficlight27a").get_node("GreenLight").visible
 		
 		while greenlight != True:
@@ -105,7 +105,7 @@ class TrafficLightArea(Node):
 	
 	def _on_TrafficLightArea28_body_entered(self, body):
 		vehicles_waiting28 = []
-		body.getparent() = car
+		car = body.get_parent()
 		greenlight = self.find_parent("World").find_node("trafficlight28a").get_node("GreenLight").visible
 		
 		while greenlight != True:
@@ -118,7 +118,7 @@ class TrafficLightArea(Node):
 	
 	def _on_TrafficLightArea29_body_entered(self, body):
 		vehicles_waiting29 = []
-		body.getparent() = car
+		car = body.get_parent()
 		greenlight = self.find_parent("World").find_node("trafficlight29a").get_node("GreenLight").visible
 		
 		while greenlight != True:
@@ -131,7 +131,7 @@ class TrafficLightArea(Node):
 	
 	def _on_TrafficLightArea30_body_entered(self, body):
 		vehicles_waiting30 = []
-		body.getparent() = car
+		car = body.get_parent()
 		greenlight = self.find_parent("World").find_node("trafficlight30").get_node("GreenLight").visible
 		
 		while greenlight != True:
@@ -144,7 +144,7 @@ class TrafficLightArea(Node):
 	
 	def _on_TrafficLightArea31_body_entered(self, body):
 		vehicles_waiting31 = []
-		body.getparent() = car
+		car = body.get_parent()
 		greenlight = self.find_parent("World").find_node("trafficlight31").get_node("GreenLight").visible
 		
 		while greenlight != True:
@@ -157,7 +157,7 @@ class TrafficLightArea(Node):
 	
 	def _on_TrafficLightArea32_body_entered(self, body):
 		vehicles_waiting32 = []
-		body.getparent() = car
+		car = body.get_parent()
 		greenlight = self.find_parent("World").find_node("trafficlight32").get_node("GreenLight").visible
 		
 		while greenlight != True:
