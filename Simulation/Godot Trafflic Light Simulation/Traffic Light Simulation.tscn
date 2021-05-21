@@ -533,7 +533,10 @@ transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, -15.9
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea32"]
 shape = SubResource( 22 )
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 [connection signal="body_shape_entered" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_entered"]
 [connection signal="body_shape_exited" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_exited"]
 [connection signal="body_shape_entered" from="sensors/s2" to="websocket_server" method="_on_target919_body_shape_entered"]
@@ -615,3 +618,14 @@ shape = SubResource( 22 )
 [connection signal="body_shape_entered" from="sensors/s33" to="websocket_server" method="_on_s33_body_shape_entered"]
 [connection signal="body_shape_exited" from="sensors/s33" to="websocket_server" method="_on_s33_body_shape_exited"]
 [connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea21" to="NodeTrafficLightArea" method="_on_TrafficLightArea21_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea22" to="NodeTrafficLightArea" method="_on_TrafficLightArea22_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea23" to="NodeTrafficLightArea" method="_on_TrafficLightArea23_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea24" to="NodeTrafficLightArea" method="_on_TrafficLightArea24_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea25" to="NodeTrafficLightArea" method="_on_TrafficLightArea25_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea26" to="NodeTrafficLightArea" method="_on_TrafficLightArea26_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea27" to="NodeTrafficLightArea" method="_on_TrafficLightArea27_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea28" to="NodeTrafficLightArea" method="_on_TrafficLightArea28_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea29" to="NodeTrafficLightArea" method="_on_TrafficLightArea29_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea30" to="NodeTrafficLightArea" method="_on_TrafficLightArea30_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea31" to="NodeTrafficLightArea" method="_on_TrafficLightArea31_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea32" to="NodeTrafficLightArea" method="_on_TrafficLightArea32_body_entered"]
