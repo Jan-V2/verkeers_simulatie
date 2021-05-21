@@ -195,7 +195,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91975, 0.275764, 125.996 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.2696 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s2" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.96942, 0, 128.432 )
