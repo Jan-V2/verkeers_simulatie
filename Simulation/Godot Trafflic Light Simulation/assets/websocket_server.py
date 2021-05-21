@@ -464,11 +464,11 @@ class websocket_server(Node):
 		#sensor 21
 		self.sensor_by_id(21).vehicles_coming = False
 		
-	def _on_s22wa_body_shape_entered(self, arg1, arg2, arg3, arg4):
+	def _on_s22_body_shape_entered(self, arg1, arg2, arg3, arg4):
 		#sensor 22
 		self.sensor_by_id(22).vehicles_waiting = True
 		
-	def _on_s22wa_body_shape_exited(self, arg1, arg2, arg3, arg4):
+	def _on_s22_body_shape_exited(self, arg1, arg2, arg3, arg4):
 		#sensor 22
 		self.sensor_by_id(22).vehicles_waiting = False
 		
@@ -479,14 +479,6 @@ class websocket_server(Node):
 	def _on_s22c_body_shape_exited(self, arg1, arg2, arg3, arg4):
 		#sensor 22
 		self.sensor_by_id(22).vehicles_coming = False
-		
-	def _on_s22wb_body_shape_entered(self, arg1, arg2, arg3, arg4):
-		#sensor 22
-		self.sensor_by_id(22).vehicles_waiting = True
-		
-	def _on_s22wb_body_shape_exited(self, arg1, arg2, arg3, arg4):
-		#sensor 22
-		self.sensor_by_id(22).vehicles_waiting = False
 		
 	def _on_s23_body_shape_entered(self, arg1, arg2, arg3, arg4):
 		#sensor 23
@@ -588,11 +580,15 @@ class websocket_server(Node):
 		
 	def _on_s33_body_shape_entered(self, arg1, arg2, arg3, arg4):
 		#sensor 33
-		self.sensor_by_id(33).vehicles_blocking = False
+		self.sensor_by_id(22).vehicles_blocking = True
+		self.sensor_by_id(25).vehicles_blocking = True
+		self.sensor_by_id(30).vehicles_blocking = True
 		
 	def _on_s33_body_shape_exited(self, arg1, arg2, arg3, arg4):
 		#sensor 33
-		self.sensor_by_id(33).vehicles_blocking = False
+		self.sensor_by_id(22).vehicles_blocking = False
+		self.sensor_by_id(25).vehicles_blocking = False
+		self.sensor_by_id(30).vehicles_blocking = False
 	
 	def loopable(self):
 		#wrapper around the even loop's create_server() method. It creates and starts a Server, then it wraps the server in a websocketserver and returns the websocketserver

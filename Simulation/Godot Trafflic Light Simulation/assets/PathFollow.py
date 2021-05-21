@@ -30,10 +30,8 @@ class PathFollow(PathFollow):
 	
 	def _on_Area_body_entered(self, body):
 		self.speed = 0
-		print('entered')
 		
 	def _on_Area_body_exited(self, body):
 		self.speed = 10
-		print('exited')
 
 
