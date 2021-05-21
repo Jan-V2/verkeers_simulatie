@@ -48,23 +48,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\emmap\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Aviana\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\emmap\\Documents\\verkeers_simulatie\\Controller\\Controller\\Controller.csproj",
+      "projectUniqueName": "C:\\Users\\Aviana\\Documents\\GitHub\\verkeers_simulatie\\Controller\\Controller\\Controller.csproj",
       "projectName": "Controller",
-      "projectPath": "C:\\Users\\emmap\\Documents\\verkeers_simulatie\\Controller\\Controller\\Controller.csproj",
-      "packagesPath": "C:\\Users\\emmap\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\emmap\\Documents\\verkeers_simulatie\\Controller\\Controller\\obj\\",
+      "projectPath": "C:\\Users\\Aviana\\Documents\\GitHub\\verkeers_simulatie\\Controller\\Controller\\Controller.csproj",
+      "packagesPath": "C:\\Users\\Aviana\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Aviana\\Documents\\GitHub\\verkeers_simulatie\\Controller\\Controller\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\emmap\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Aviana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -111,7 +114,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -456,7 +456,7 @@ class websocket_server(Node):
 		#sensor 21
 		self.sensor_by_id(21).vehicles_waiting = False
 		
-	def _on_s21c_body_shape_exited(self, arg1, arg2, arg3, arg4):
+	def _on_s21c_body_shape_entered(self, arg1, arg2, arg3, arg4):
 		#sensor 21
 		self.sensor_by_id(21).vehicles_coming = True
 		

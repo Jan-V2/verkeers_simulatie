@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/websocket_server.py" type="Script" id=2]
 [ext_resource path="res://path.py" type="Script" id=3]
+[ext_resource path="res://scripts/TrafficLightArea.py" type="Script" id=4]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -27,6 +28,10 @@ _data = {
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 0.974016, 1, 1 )
 
+[sub_resource type="BoxShape" id=7]
+
+[sub_resource type="BoxShape" id=6]
+
 [node name="World" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139641, 0, 5.2427 )
 
@@ -36,7 +41,7 @@ script = ExtResource( 2 )
 [node name="sensor_helper" type="Node" parent="."]
 
 [node name="Intersection" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.91023, 0.208225, 46.6862 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.92058, 0.208225, 46.6862 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -0.834377, 0, 0.551195, 0, 1, 0, -0.551195, 0, -0.834377, 16.6897, 6.30497, 92.2776 )
@@ -113,14 +118,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 4 )
 
 [node name="s4" type="Area" parent="sensors"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347595, 0, 128.43 )
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0.307073, 0, 128.43 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 4 )
 
 [node name="s5" type="Area" parent="sensors"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389979, 0, 128.472 )
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0.96742, 0, 128.472 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
@@ -351,6 +356,82 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.26648, 0, 81.8399 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s33"]
 shape = SubResource( 5 )
+
+[node name="NodeTrafficLightArea" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="TrafficLightArea21" type="Area" parent="NodeTrafficLightArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 2.97108, 0, 130.127 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea21"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.335138, 0, 0.692612 )
+shape = SubResource( 7 )
+
+[node name="TrafficLightArea22" type="Area" parent="NodeTrafficLightArea"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 0.5, 6.61174, 0, 130.506 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea22"]
+shape = SubResource( 6 )
+
+[node name="TrafficLightArea23" type="Area" parent="NodeTrafficLightArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 10.537, 0, 130.505 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea23"]
+shape = SubResource( 6 )
+
+[node name="TrafficLightArea24" type="Area" parent="NodeTrafficLightArea"]
+transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, 29.3379, 0, 113.146 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea24"]
+shape = SubResource( 6 )
+
+[node name="TrafficLightArea25" type="Area" parent="NodeTrafficLightArea"]
+transform = Transform( -3.25841e-07, 0, 0.5, 0, 1, 0, -2, 0, -8.14603e-08, 29.326, 0, 108.842 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea25"]
+shape = SubResource( 6 )
+
+[node name="TrafficLightArea26" type="Area" parent="NodeTrafficLightArea"]
+transform = Transform( -1.87939, 0, 0.17101, 0, 1, 0, -0.68404, 0, -0.469846, 23.4761, 0, 103.641 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea26"]
+shape = SubResource( 6 )
+
+[node name="TrafficLightArea27" type="Area" parent="NodeTrafficLightArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 3.06967, 0, 96.3836 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea27"]
+shape = SubResource( 6 )
+
+[node name="TrafficLightArea28" type="Area" parent="NodeTrafficLightArea"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 0.5, -0.844889, 0, 96.369 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea28"]
+shape = SubResource( 6 )
+
+[node name="TrafficLightArea29" type="Area" parent="NodeTrafficLightArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -4.73106, 0, 96.4206 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea29"]
+shape = SubResource( 6 )
+
+[node name="TrafficLightArea30" type="Area" parent="NodeTrafficLightArea"]
+transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, -15.9409, 0, 114.697 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea30"]
+shape = SubResource( 6 )
+
+[node name="TrafficLightArea31" type="Area" parent="NodeTrafficLightArea"]
+transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, -15.958, 0, 117.499 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea31"]
+shape = SubResource( 6 )
+
+[node name="TrafficLightArea32" type="Area" parent="NodeTrafficLightArea"]
+transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, -15.9553, 0, 120.052 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea32"]
+shape = SubResource( 6 )
 [connection signal="body_shape_entered" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_entered"]
 [connection signal="body_shape_exited" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_exited"]
 [connection signal="body_shape_entered" from="sensors/s2" to="websocket_server" method="_on_target919_body_shape_entered"]
@@ -431,3 +512,4 @@ shape = SubResource( 5 )
 [connection signal="body_shape_exited" from="sensors/s32c" to="websocket_server" method="_on_s32c_body_shape_exited"]
 [connection signal="body_shape_entered" from="sensors/s33" to="websocket_server" method="_on_s33_body_shape_entered"]
 [connection signal="body_shape_exited" from="sensors/s33" to="websocket_server" method="_on_s33_body_shape_exited"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea21" to="NodeTrafficLightArea" method="_on_TrafficLightArea21_body_entered"]

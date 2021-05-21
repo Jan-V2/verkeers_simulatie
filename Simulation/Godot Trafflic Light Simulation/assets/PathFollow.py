@@ -7,11 +7,11 @@ class PathFollow(PathFollow):
 
 	# member variables here, example:
 	enabled = export(bool, default=False)
+	speed = export(int, default=10)
 
 	def _ready(self):
 		self.path_idx = 0;
 		self.paths =["cross", "out"]
-		self.speed = 10
 		self.visible = False
 		
 	def _process(self, delta):
