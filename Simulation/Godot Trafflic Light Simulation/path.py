@@ -19,7 +19,7 @@ class path(Path):
 		
 	def _process(self, delta):
 		self.time_passed += delta
-		if self.time_passed > 0.5:
+		if self.time_passed > 2:
 			self.time_passed = 0
 			truck = self.new_truck.instance()
 			path = choice(self.paths2)

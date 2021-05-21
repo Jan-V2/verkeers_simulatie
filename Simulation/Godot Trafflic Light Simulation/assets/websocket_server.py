@@ -287,6 +287,14 @@ class websocket_server(Node):
 		templist.append(self.get_parent().find_node("trafficlight33a"))
 		templist.append(self.get_parent().find_node("trafficlight33b"))
 		self.actual_lights.append(templist)
+		templist = []
+		templist.append(self.get_parent().find_node("trafficlight34a"))
+		templist.append(self.get_parent().find_node("trafficlight34b"))
+		self.actual_lights.append(templist)
+		templist = []
+		templist.append(self.get_parent().find_node("trafficlight35a"))
+		templist.append(self.get_parent().find_node("trafficlight35b"))
+		self.actual_lights.append(templist)
 		
 	def _on_target819_body_shape_entered(self, arg1, arg2, arg3, arg4):
 		#sensor 1
