@@ -1,7 +1,8 @@
 [gd_scene load_steps=12 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/map.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/websocket_server.py" type="Script" id=2]
+[ext_resource path="res://Area.py" type="Script" id=2]
 [ext_resource path="res://path.py" type="Script" id=3]
 [ext_resource path="res://scripts/TrafficLightArea.py" type="Script" id=4]
 
@@ -19,11 +20,95 @@ _data = {
 
 [sub_resource type="Curve3D" id=3]
 _data = {
-"points": PoolVector3Array(  ),
-"tilts": PoolRealArray(  )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -20.4282, 0, 114.187, 0, 0, 0, 0, 0, 0, -11.5971, 0, 114.362, 0, 0, 0, 0, 0, 0, -5.60321, 0, 113.843, 0, 0, 0, 0, 0, 0, 1.61379, 0, 109.534, 0, 0, 0, 0, 0, 0, 2.90638, 0, 104.795 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="Curve3D" id=38]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.83449, 0.000183105, 48.6563, 0, 0, 0, 0, 0, 0, -1.42993, 0.000183105, 51.4275, 0, 0, 0, 0, 0, 0, -1.94507, 0.00038147, 105.075, 0, 0, 0, 0, 0, 0, -0.874667, 0.000411987, 113.965, 0, 0, 0, 0, 0, 0, 2.44996, 0.000427246, 117.567, 0, 0, 0, 0, 0, 0, 8.45275, 0.000427246, 117.659, 0, 0, 0, 0, 0, 0, 32.3716, 0.000427246, 117.567 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=39]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.05218, 0.000183105, 48.7823, 0, 0, 0, 0, 0, 0, -6.60408, 0.00038147, 105.537, 0, 0, 0, 0, 0, 0, -9.51246, 0.000411987, 113.616, 0, 0, 0, 0, 0, 0, -10.3153, 0.000442505, 121.419, 0, 0, 0, 0, 0, 0, -9.88443, 0.00050354, 139.731 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=40]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.52127, 0.000183105, 48.8361, 0, 0, 0, 0, 0, 0, -7.139, 0.00038147, 105.336, 0, 0, 0, 0, 0, 0, -9.53154, 0.000442505, 121.087, 0, 0, 0, 0, 0, 0, -9.33216, 0.00050354, 140.028 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=41]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32.3313, 0.000411987, 112.779, 0, 0, 0, 0, 0, 0, 7.55618, 0.000411987, 112.421, 0, 0, 0, 0, 0, 0, -2.28395, 0.000411987, 111.974, 0, 0, 0, 0, 0, 0, -3.76156, 0.000411987, 113.821, 0, 0, 0, 0, 0, 0, -5.42388, 0.000411987, 115.669, 0, 0, 0, 0, 0, 0, -6.25503, 0.000442505, 121.487, 0, 0, 0, 0, 0, 0, -6.68165, 0.00050354, 139.443 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=42]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32.3969, 0.000411987, 113.457, 0, 0, 0, 0, 0, 0, 7.25351, 0.000411987, 113.136, 0, 0, 0, 0, 0, 0, -1.25541, 0.000396729, 111.281, 0, 0, 0, 0, 0, 0, -11.1949, 0.000396729, 110.136, 0, 0, 0, 0, 0, 0, -28.588, 0.000396729, 109.959 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=43]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32.4415, 0.00038147, 106.82, 0, 0, 0, 0, 0, 0, 7.60102, 0.00038147, 107.125, 0, 0, 0, 0, 0, 0, 6.19673, 0.00038147, 105.5, 0, 0, 0, 0, 0, 0, 5.6125, 0.00038147, 103.417, 0, 0, 0, 0, 0, 0, 5.29638, 0.000198364, 56.7322 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=44]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32.3071, 0.000396729, 109.239, 0, 0, 0, 0, 0, 0, 7.90875, 0.000396729, 109.488, 0, 0, 0, 0, 0, 0, 4.28312, 0.000396729, 108.211, 0, 0, 0, 0, 0, 0, 2.98338, 0.00038147, 105.167, 0, 0, 0, 0, 0, 0, 2.74069, 0.000198364, 56.6657 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=45]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -2.3541, 0.00050354, 139.498, 0, 0, 0, 0, 0, 0, -1.52294, 0.000442505, 121.767, 0, 0, 0, 0, 0, 0, -1.99636, 0.000396729, 109.041, 0, 0, 0, 0, 0, 0, -7.35273, 0.00038147, 107.009, 0, 0, 0, 0, 0, 0, -11.3238, 0.00038147, 106.547, 0, 0, 0, 0, 0, 0, -28.7423, 0.00038147, 106.563 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=46]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0875022, 0.00050354, 139.756, 0, 0, 0, 0, 0, 0, 0.179854, 0.000442505, 121.563, 0, 0, 0, 0, 0, 0, 2.9071, 0.000396729, 111.084, 0, 0, 0, 0, 0, 0, 2.5377, 0.00038147, 105.451, 0, 0, 0, 0, 0, 0, 3.21587, 0.000198364, 56.4578 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=47]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.455791, 0.00050354, 139.492, 0, 0, 0, 0, 0, 0, 0.211504, 0.000442505, 121.328, 0, 0, 0, 0, 0, 0, 3.88301, 0.00038147, 105.851, 0, 0, 0, 0, 0, 0, 3.54746, 0.000213623, 56.9788 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=48]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 5.9873, 0.00050354, 139.686, 0, 0, 0, 0, 0, 0, 5.17185, 0.000427246, 119.733, 0, 0, 0, 0, 0, 0, 6.3937, 0.000427246, 118.24, 0, 0, 0, 0, 0, 0, 7.75132, 0.000427246, 116.746, 0, 0, 0, 0, 0, 0, 32.2539, 0.000427246, 116.932 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=49]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -28.4967, 0.000427246, 119.87, 0, 0, 0, 0, 0, 0, -11.3947, 0.000427246, 119.632, 0, 0, 0, 0, 0, 0, -9.25691, 0.000442505, 122.008, 0, 0, 0, 0, 0, 0, -9.75856, 0.00050354, 139.889 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=50]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -28.6773, 0.000427246, 116.769, 0, 0, 0, 0, 0, 0, -11.1794, 0.000427246, 116.848, 0, 0, 0, 0, 0, 0, 32.1974, 0.000427246, 117.098 ),
+"tilts": PoolRealArray( 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=51]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -28.6557, 0.000411987, 114.291, 0, 0, 0, 0, 0, 0, -11.4744, 0.000411987, 114.925, 0, 0, 0, 0, 0, 0, -0.253693, 0.000411987, 113.678, 0, 0, 0, 0, 0, 0, 1.96325, 0.000396729, 109.957, 0, 0, 0, 0, 0, 0, 2.59665, 0.00038147, 105.285, 0, 0, 0, 0, 0, 0, 3.02478, 0.000198364, 56.3002 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="BoxShape" id=37]
 
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 0.974016, 1, 1 )
@@ -59,40 +144,50 @@ curve = SubResource( 2 )
 curve = SubResource( 3 )
 
 [node name="N->W" type="Path" parent="paths"]
-curve = SubResource( 3 )
 
 [node name="N->E" type="Path" parent="paths"]
-curve = SubResource( 3 )
+curve = SubResource( 38 )
 
-[node name="N->S" type="Path" parent="paths"]
-curve = SubResource( 3 )
+[node name="N->S1" type="Path" parent="paths"]
+curve = SubResource( 39 )
+
+[node name="N->S2" type="Path" parent="paths"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0 )
+curve = SubResource( 40 )
 
 [node name="E->S" type="Path" parent="paths"]
-curve = SubResource( 3 )
+curve = SubResource( 41 )
 
 [node name="E->W" type="Path" parent="paths"]
-curve = SubResource( 3 )
+curve = SubResource( 42 )
 
-[node name="E->N" type="Path" parent="paths"]
-curve = SubResource( 3 )
+[node name="E->N1" type="Path" parent="paths"]
+curve = SubResource( 43 )
+
+[node name="E->N2" type="Path" parent="paths"]
+curve = SubResource( 44 )
 
 [node name="S->W" type="Path" parent="paths"]
-curve = SubResource( 3 )
+curve = SubResource( 45 )
 
-[node name="S->N" type="Path" parent="paths"]
-curve = SubResource( 3 )
+[node name="S->N1" type="Path" parent="paths"]
+curve = SubResource( 46 )
+
+[node name="S->N2" type="Path" parent="paths"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+curve = SubResource( 47 )
 
 [node name="S->E" type="Path" parent="paths"]
-curve = SubResource( 3 )
+curve = SubResource( 48 )
 
 [node name="W->S" type="Path" parent="paths"]
-curve = SubResource( 3 )
+curve = SubResource( 49 )
 
 [node name="W->E" type="Path" parent="paths"]
-curve = SubResource( 3 )
+curve = SubResource( 50 )
 
 [node name="W->N" type="Path" parent="paths"]
-curve = SubResource( 3 )
+curve = SubResource( 51 )
 
 [node name="sensors" type="Node" parent="."]
 
@@ -108,91 +203,91 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.96942, 0, 128.432 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s3" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.92, 0, 128.29 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s4" type="Area" parent="sensors"]
 transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0.307073, 0, 128.43 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s5" type="Area" parent="sensors"]
 transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0.96742, 0, 128.472 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s6" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8319, 0, 120.908 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s6"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s7" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9027, 0, 120.673 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s7"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s8" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1004, 0, 104.456 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s8"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s9" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9056, 0, 115.335 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s9"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s10" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.961, 0, 115.359 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s10"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s11" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5751, 0, 101.288 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s11"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s12" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3309, 0, 98.337 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s12"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s13" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72995, 0, 97.7888 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s13"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s14" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64246, 0, 98.5006 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s14"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 37 )
 
 [node name="s15" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.14119, 0, 98.3036 )

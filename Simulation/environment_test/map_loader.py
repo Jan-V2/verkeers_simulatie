@@ -94,6 +94,44 @@ def generate_sensor_nodes(_sensors):
     print(out)
 
 
+def generate_path_tree(destination_coords, crossing_routes, road, _route_components):
+
+    def ord_to_letter(ord):
+        if ord is Ordinal.north:
+            return "N"
+        elif ord is Ordinal.west:
+            return "W"
+        elif ord is Ordinal.south:
+            return "S"
+        elif ord is Ordinal.east:
+            return "E"
+        raise TypeError("invalid ordinal")
+
+    get_road_name = lambda r: "{},{}|{},{}".format(r.get_start().x, r.get_start().y, r.get_last().x, r.get_last().y)
+
+    destination_roads = []
+    crossing_route_names = []
+
+    for lst in destination_coords:
+        coord_names = []
+        for coord in lst:
+            for _comp in _route_components:
+                if _comp.get_last() == coord:
+                    coord_names.append(get_road_name(_comp))
+        destination_roads.append(coord_names)
+
+    for route in crossing_routes:
+        crossing_route_names.append("{}->{}".format(ord_to_letter(route[0]), ord_to_letter(route[1])))
+
+    ret = [get_road_name(road), []]
+
+    for i in range(len(destination_roads)):
+        ret[1].append(crossing_route_names[i])
+        ret[1].append(destination_roads[i])
+    return crossing_route_names
+
+
+
 if __name__ == '__main__':
     # in deze methode word de data opgebouwd, de volgorde is hierbij belangrijk.
     # je kan bijvoorbeeld geen stoplichten generen als het kruispunt niet af is.
@@ -165,6 +203,35 @@ if __name__ == '__main__':
     for sensor in sensors:
         sensor.find_target_road(route_components)
 
-    generate_sensor_nodes(sensors)
-    #generate_path_nodes(route_components, 4)
+    #generate_sensor_nodes(sensors)
+    #generate_path_nodes(route_components, 26)
+
+    # genereerd paths
+    print("paths =[")
+    for road in route_components:
+        if road.is_incoming is True:
+            destination_coords, crossing_routes= crossings[0].get_destinations(road)
+            routes = generate_path_tree(destination_coords, crossing_routes, road, route_components)
+            print("{},".format(routes))
+    print("]\n")
+
     print("done")
+
+paths =[
+    ['8,15|8,19', ['N->E', '22,25|15,25']],
+    ['9,15|9,19', ['N->S1', '8,31|8,26']],
+    ['10,15|10,19', ['N->S2', '9,31|9,26']],
+    ['11,15|11,19', ['N->E', '22,25|15,25']],
+    ['22,20|15,20', ['E->N1', '14,15|14,19']],
+    ['22,21|15,21', ['E->N2', '13,15|13,19']],
+    ['22,22|15,22', ['E->W', '0,21|7,21'], ['E->S', '9,31|9,26']],
+    ['0,23|7,23', ['W->N', '13,15|13,19']],
+    ['0,24|7,24', ['W->E', '22,25|15,25']],
+    ['0,25|7,25', ['W->S', '8,31|8,26']],
+    ['11,31|11,26', ['S->W',  '0,21|7,21']],
+    ['12,31|12,26', ['S->N1', '13,15|13,19']],
+    ['13,31|13,26', ['S->N2', '14,15|14,19']],
+    ['14,31|14,26', ['S->E', '22,25|15,25']],
+]
+
+paths2 =['N->E','N->S','N->S','N->E','E->N','E->N','E->W','E->S','W->N','W->E','W->S','S->W','S->N','S->N','S->E',]

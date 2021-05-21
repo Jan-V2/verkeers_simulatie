@@ -91,10 +91,17 @@ class Road(Route_Component):
 
 # merges en splits moeten als laatste geevalueerd worden.
 
-# class Split(Road):
-#    # a sort of wrapper class that manages 2 or 3 internal road classes
-#    def __init__(self, start_coord, is_incoming):
-#        super().__init__(start_coord, is_incoming)
+#class Split(Road):
+# a sort of wrapper class that manages 2 or 3 internal road classes
+#   def __init__(self, start_coord, is_incoming):
+#
+#       super().__init__(start_coord, is_incoming)
+
+
+#    def solve(self, _tile_array, found_direction_tile=False, banned_coords=(), prev_non_car_tile=None):
+#        return super(Merge, self).solve(_tile_array, banned_coords=self.banned_coords,
+#                                    prev_non_car_tile=prev_non_car_tile)
+
 
 
 class Merge(Road):

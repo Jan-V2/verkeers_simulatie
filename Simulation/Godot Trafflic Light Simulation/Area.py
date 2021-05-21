@@ -16,5 +16,11 @@ class Area(Area):
 		"""
 		pass
 	
-	def _on_Area_body_entered(self):
+	def body_entered(self):
 		print("entered")
+		
+	def _on_Area_body_entered(one, two):
+		print("entered area2")
+
+	def _on_Area_body_exited(one, two):
+		print("entered area2")
