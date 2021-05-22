@@ -13,7 +13,7 @@ class bridge(Spatial):
 	down = Vector3(0, 0, 0)
 	
 	time_passed=0
-	going_up=export(bool, default=True)
+	going_up=export(bool, default=False)
 	rotation_speed=0.1
 	
 
@@ -29,4 +29,3 @@ class bridge(Spatial):
 			self.set_rotation_degrees(self.up.linear_interpolate(self.down, self.time_passed * self.rotation_speed))
 		else:
 			self.time_passed = 0
-			self.going_up = False
