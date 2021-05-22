@@ -260,7 +260,7 @@ surfaces/1 = {
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 0.272702, 0.397126, 0.144346 )
 
-[node name="vampire" type="StaticBody"]
+[node name="vampire" type="KinematicBody"]
 
 [node name="tmpParent" type="Spatial" parent="."]
 

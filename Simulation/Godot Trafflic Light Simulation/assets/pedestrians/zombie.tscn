@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://imports/characters/metal.material" type="Material" id=1]
 [ext_resource path="res://imports/characters/wood.material" type="Material" id=2]
@@ -192,7 +192,10 @@ surfaces/1 = {
 "vertex_count": 54
 }
 
-[node name="zombie" type="Spatial"]
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.243743, 0.405218, 0.130659 )
+
+[node name="zombie" type="KinematicBody"]
 
 [node name="tmpParent" type="Spatial" parent="."]
 
@@ -236,3 +239,7 @@ transform = Transform( 0.8584, 0, 0, 0, 0.8584, 0, 0, 0, 0.8584, 0.13, 0.223184,
 mesh = SubResource( 6 )
 material/0 = null
 material/1 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500727, 0.405845, -0.0209674 )
+shape = SubResource( 7 )

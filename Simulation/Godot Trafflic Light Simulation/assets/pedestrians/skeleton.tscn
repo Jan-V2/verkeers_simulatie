@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://imports/characters/woodDark.material" type="Material" id=1]
 [ext_resource path="res://imports/characters/wax.material" type="Material" id=2]
+[ext_resource path="res://assets/bike.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "armLeft"
@@ -109,6 +110,7 @@ surfaces/0 = {
 extents = Vector3( 0.214966, 0.37307, 0.129913 )
 
 [node name="skeleton" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0523342, 0.16975, 0 )
 
 [node name="tmpParent" type="Spatial" parent="."]
 
@@ -116,12 +118,12 @@ extents = Vector3( 0.214966, 0.37307, 0.129913 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 0, -0.02 )
 
 [node name="armLeft" type="MeshInstance" parent="tmpParent/skeleton"]
-transform = Transform( 0.8584, 0, 0, 0, 0.8584, 0, 0, 0, 0.8584, -0.13, 0.473184, 0 )
+transform = Transform( 0.8584, 0, 0, 0, 0.4292, -0.743396, 0, 0.743396, 0.4292, -0.13, 0.473184, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="armRight" type="MeshInstance" parent="tmpParent/skeleton"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13, 0.473184, 0 )
+transform = Transform( 1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0.13, 0.473184, 0 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -137,15 +139,17 @@ material/0 = null
 material/1 = null
 
 [node name="legLeft" type="MeshInstance" parent="tmpParent/skeleton"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13, 0.223184, 0 )
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.13, 0.223184, 0 )
 mesh = SubResource( 5 )
 material/0 = null
 
 [node name="legRight" type="MeshInstance" parent="tmpParent/skeleton"]
-transform = Transform( 0.8584, 0, 0, 0, 0.8584, 0, 0, 0, 0.8584, 0.13, 0.223184, 0 )
+transform = Transform( 0.8584, 0, 0, 0, 0.806632, -0.29359, 0, 0.29359, 0.806632, 0.13, 0.223184, 0 )
 mesh = SubResource( 6 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0481129, 0.375282, -0.0192447 )
 shape = SubResource( 7 )
+
+[node name="bike" parent="." instance=ExtResource( 3 )]
