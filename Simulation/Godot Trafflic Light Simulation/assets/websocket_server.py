@@ -101,7 +101,9 @@ class websocket_server(Node):
 				if crossingsstringlist[tlnr][x] == '1':
 					crosses.append(x + 1)
 			self.traffic_lights.append(self.TrafficLight(tlnr + 1, crosses, 4.0))
-		for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 31, 32, 33]:
+			self.traffic_light_by_id(34).clearing_time = 12
+			self.traffic_light_by_id(35).clearing_time = 12
+		for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 31, 32]:
 			self.sensors.append(self.Sensor(i))
 		if self.debug:
 			for sensor in self.sensors:
@@ -175,6 +177,11 @@ class websocket_server(Node):
 					if actual_light.get_node_or_null("OrangeLight") != None:
 						actual_light.get_node("OrangeLight").visible = False
 					actual_light.get_node("RedLight").visible = True
+		if id == 34 or id == 35:
+			if newstate == "green":
+				self.get_parent().find_node("bridge").going_up = True
+			elif newstate == "orange":
+				self.get_parent().find_node("bridge").going_up = False
 	
 	def ready_actual_lights(self):
 		self.actual_lights = []
