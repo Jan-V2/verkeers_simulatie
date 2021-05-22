@@ -160,19 +160,19 @@ class websocket_server(Node):
 			for actual_light in self.actual_lights[id - 1]:
 				if(newstate == "green"):
 					actual_light.get_node("GreenLight").visible = True
-					if actual_light.get_node("OrangeLight") != None:
+					if actual_light.get_node_or_null("OrangeLight") != None:
 						actual_light.get_node("OrangeLight").visible = False
 					actual_light.get_node("RedLight").visible = False
 				elif(newstate == "orange"):
 					actual_light.get_node("GreenLight").visible = False
-					if actual_light.get_node("OrangeLight") != None:
+					if actual_light.get_node_or_null("OrangeLight") != None:
 						actual_light.get_node("OrangeLight").visible = True
 						actual_light.get_node("RedLight").visible = False
 					else:
 						actual_light.get_node("RedLight").visible = True
 				elif(newstate == "red"):
 					actual_light.get_node("GreenLight").visible = False
-					if actual_light.get_node("OrangeLight") != None:
+					if actual_light.get_node_or_null("OrangeLight") != None:
 						actual_light.get_node("OrangeLight").visible = False
 					actual_light.get_node("RedLight").visible = True
 	
