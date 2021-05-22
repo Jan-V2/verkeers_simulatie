@@ -6,7 +6,7 @@ from random import choice
 class path(Path):
 	def _ready(self):
 		self.time_passed = 0
-		self.new_bus = ResourceLoader.load("res://assets/path_truck.tscn")
+		self.new_bus = ResourceLoader.load("res://assets/path_van.tscn")
 		self.new_truck = ResourceLoader.load("res://assets/path_truck.tscn")
 		self.paths =['N->W','N->E','N->S1','N->S2','N->E','E->N1','E->N2','E->W','E->S', "E->E",'W->N','W->E','W->S','S->W','S->N1','S->N2','S->E',]
 		self.path_idx = 0
@@ -14,7 +14,7 @@ class path(Path):
 
 	def _process(self, delta):
 		self.time_passed += delta
-		if self.time_passed > 0.5:
+		if self.time_passed > 2:
 			self.time_passed = 0
 			path = self.paths[self.path_idx]
 			if path == 'E->E':
