@@ -7,7 +7,7 @@
 [ext_resource path="res://imports/characters/stone.material" type="Material" id=5]
 [ext_resource path="res://imports/characters/wood.material" type="Material" id=6]
 [ext_resource path="res://imports/characters/skin.material" type="Material" id=7]
-[ext_resource path="res://assets/bike.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/bikers/bike.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "armLeft"
@@ -261,7 +261,8 @@ surfaces/1 = {
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 0.248153, 0.484633, 0.428428 )
 
-[node name="vampire" type="KinematicBody"]
+[node name="bikervampire" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.163571, 0 )
 
 [node name="tmpParent" type="Spatial" parent="."]
 

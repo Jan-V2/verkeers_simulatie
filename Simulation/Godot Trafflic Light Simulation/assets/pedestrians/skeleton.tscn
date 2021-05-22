@@ -2,7 +2,7 @@
 
 [ext_resource path="res://imports/characters/woodDark.material" type="Material" id=1]
 [ext_resource path="res://imports/characters/wax.material" type="Material" id=2]
-[ext_resource path="res://assets/bike.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/bikers/bike.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "armLeft"

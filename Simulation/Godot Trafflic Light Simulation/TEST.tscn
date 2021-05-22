@@ -7,10 +7,11 @@
 [ext_resource path="res://imports/world/Road/asphalt.material" type="Material" id=5]
 [ext_resource path="res://imports/world/Road/road_curveBarrier.glb" type="PackedScene" id=6]
 [ext_resource path="res://imports/world/trafficlight.glb" type="PackedScene" id=7]
-[ext_resource path="res://assets/sedan.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/cars/sedan.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sedan.py" type="Script" id=9]
 [ext_resource path="res://imports/world/trafficlight.py" type="Script" id=10]
 [ext_resource path="res://Carspawner.py" type="Script" id=11]
+
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "road_crossroadPath"
