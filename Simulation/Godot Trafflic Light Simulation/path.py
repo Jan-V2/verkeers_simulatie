@@ -27,7 +27,7 @@ class path(Path):
 				truck.enabled = True
 		self.path_idx += 1
 		if not self.path_idx < len(self.paths):
-					self.path_idx = 0
+			self.path_idx = 0
 
 	def _on_Area_body_entered(one, two):
 		print("entered area")

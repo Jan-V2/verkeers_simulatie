@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://imports/cars/_defaultMat.material" type="Material" id=1]
-[ext_resource path="res://imports/cars/paintGreen.material" type="Material" id=2]
-[ext_resource path="res://imports/cars/carTire.material" type="Material" id=3]
-[ext_resource path="res://imports/cars/lightFront.material" type="Material" id=4]
-[ext_resource path="res://imports/cars/lightBack.material" type="Material" id=5]
-[ext_resource path="res://imports/cars/window.material" type="Material" id=6]
+[ext_resource path="res://imports/cars/paintGreen.material" type="Material" id=1]
+[ext_resource path="res://imports/cars/window.material" type="Material" id=2]
+[ext_resource path="res://imports/cars/_defaultMat.material" type="Material" id=3]
+[ext_resource path="res://imports/cars/carTire.material" type="Material" id=4]
+[ext_resource path="res://imports/cars/lightFront.material" type="Material" id=5]
+[ext_resource path="res://imports/cars/lightBack.material" type="Material" id=6]
 [ext_resource path="res://imports/cars/plastic.material" type="Material" id=7]
 
 [sub_resource type="ArrayMesh" id=1]
@@ -29,7 +29,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 426,
-"material": ExtResource( 2 ),
+"material": ExtResource( 1 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 1210
@@ -41,7 +41,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 12,
-"material": ExtResource( 4 ),
+"material": ExtResource( 5 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 1210
@@ -53,7 +53,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 12,
-"material": ExtResource( 1 ),
+"material": ExtResource( 3 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 1210
@@ -65,7 +65,7 @@ surfaces/4 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 30,
-"material": ExtResource( 6 ),
+"material": ExtResource( 2 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 1210
@@ -77,7 +77,7 @@ surfaces/5 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 12,
-"material": ExtResource( 5 ),
+"material": ExtResource( 6 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 1210
@@ -92,7 +92,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 498,
-"material": ExtResource( 3 ),
+"material": ExtResource( 4 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 617
@@ -104,7 +104,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 354,
-"material": ExtResource( 1 ),
+"material": ExtResource( 3 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 617
