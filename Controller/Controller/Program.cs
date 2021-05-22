@@ -45,37 +45,131 @@ namespace Controller
                             sw.Start();
 
                             {
-                                /*while (true)
+                                foreach(TrafficLight tl in trafficLights)
                                 {
-                                    message_id++;
-                                    await Send(socket, "{\"msg_id\": " + message_id.ToString() + ", \"msg_type\": \"test\", \"data\": [1, 2]}");
-                                    Console.WriteLine(socket.State.ToString());
-                                    Thread.Sleep(2000);
+                                    if (tl.state == "green" && CurrentTime() - tl.statechangetime > 10)
+                                    {
+                                        tl.state = "orange";
+                                        tl.statechangetime = CurrentTime();
+                                    }
+                                    else if(tl.state == "orange" && CurrentTime() - tl.statechangetime > 4)
+                                    {
+                                        tl.state = "red";
+                                        tl.statechangetime = CurrentTime();
+                                    }
+                                    else if(tl.state == "red" && CurrentTime() - tl.statechangetime > tl.clearing_time)
+                                    {
+                                        currentWorkingLights.Remove(tl.id);
+                                    }
+                                }
+
+                                foreach(Sensor sensor in sensors)
+                                {
+                                    if (sensor.public_transport && evaluate_trafficlight_compatibility(sensor.id, currentWorkingLights) && !currentWorkingLights.Contains(sensor.id))
+                                    {
+                                        TrafficLight tl = TrafficLightByID(sensor.id);
+                                        tl.state = "green";
+                                        tl.statechangetime = CurrentTime();
+                                        tl.Touch();
+                                        currentWorkingLights.Add(sensor.id);
+                                    }
+                                }
+
+                                List<int> nonsensorlist = new List<int>();
+                                for(int i = 1; i <= 36; i++)
+                                {
+                                    nonsensorlist.Add(i);
+                                }
+
+                                foreach (Sensor sensor in sensors)
+                                {
+                                    nonsensorlist.Remove(sensor.id);
+                                    if(!sensor.vehicles_blocking && (sensor.vehicles_waiting || sensor.vehicles_coming) && evaluate_trafficlight_compatibility(sensor.id, currentWorkingLights) && !currentWorkingLights.Contains(sensor.id))
+                                    {
+                                        TrafficLight tl = TrafficLightByID(sensor.id);
+                                        tl.state = "green";
+                                        tl.statechangetime = CurrentTime();
+                                        tl.Touch();
+                                        currentWorkingLights.Add(sensor.id);
+                                    }
+                                }
+
+                                foreach(int id in nonsensorlist)
+                                {
+                                    TrafficLight tl = TrafficLightByID(id);
+                                    if(tl.lastupdated < (CurrentTime() - 60) && evaluate_trafficlight_compatibility(id, currentWorkingLights))
+                                    {
+                                        tl.state = "green";
+                                        tl.statechangetime = CurrentTime();
+                                        tl.Touch();
+                                        currentWorkingLights.Add(id);
+                                    }
+                                }
+
+
+                                message_id++;
+                                string jsonstring = "{\"msg_id\": " + message_id + ", \"msg_type\": \"notify_traffic_light_change\", \"data\": [";
+                                for (int c = 0; c < trafficLights.Count; c++)
+                                {
+                                    jsonstring = jsonstring + "{\"id\": " + trafficLights[c].id + ", \"state\": \"" + trafficLights[c].state + "\"" + "}";
+                                    if ((c + 1) != trafficLights.Count)
+                                        jsonstring = jsonstring + ", ";
+                                }
+                                jsonstring = jsonstring + "]}";
+                                await Send(socket, jsonstring);
+                                /*foreach(Sensor sensor in sensors)
+                                {
+                                    if(trafficLights[sensor.id].state == "green" && CurrentTime() - trafficLights[sensor.id].statechangetime > 10)
+                                    {
+                                        trafficLights[sensor.id].state = "orange";
+                                        trafficLights[sensor.id].statechangetime = CurrentTime();
+                                    }else if(trafficLights[sensor.id].state == "orange" && CurrentTime() - trafficLights[sensor.id].statechangetime > 4)
+                                    {
+                                        trafficLights[sensor.id].state = "red";
+                                        currentWorkingLights.Remove(sensor.id);
+                                        trafficLights[sensor.id].statechangetime = CurrentTime();
+                                    }else if(trafficLights[sensor.id].state == "red" && ((sensor.vehicles_waiting || sensor.vehicles_coming) && !sensor.vehicles_blocking) && trafficLights[sensor.id].statechangetime > trafficLights[sensor.id].clearing_time && evaluate_trafficlight_compatibility(sensor.id, currentWorkingLights))
+                                    {
+                                        trafficLights[sensor.id].state = "green";
+                                        currentWorkingLights.Add(sensor.id);
+                                        trafficLights[sensor.id].statechangetime = CurrentTime();
+                                    }
+
+
                                 }*/
-                                string jsonstring;
+
+                                /*string jsonstring;
                                 switch (cycle_state)
                                 {
                                     case "red":
-                                        cycle_state = "green";
-                                        currentWorkingLights.Clear();
-                                        cycle_state_time = CurrentTime();
-                                        cycle_state_fresh = true;
-                                        /*message_id++;
-                                        jsonstring = "{\"msg_id\": " + message_id + ", \"msg_type\": \"notify_traffic_light_state\", \"data\": [";
-                                        for (int c = 0; c < trafficLights.Count; c++)
-                                        {
-                                            jsonstring = jsonstring + "{\"id\": " + trafficLights[c].id + ", \"state\": \"red\"}";
-                                            if ((c + 1) != trafficLights.Count)
-                                                jsonstring = jsonstring + ", ";
-                                        }
-                                        jsonstring = jsonstring + "]}";
-                                        await Send(socket, jsonstring);*/
-                                        break;
-                                    case "orange":
                                         double longest_clearing_time = 0;
                                         foreach (int i in currentWorkingLights)
                                             if (TrafficLightByID(i).clearing_time > longest_clearing_time)
                                                 longest_clearing_time = TrafficLightByID(i).clearing_time;
+
+                                        if (cycle_state_fresh)
+                                        {
+                                            message_id++;
+                                            jsonstring = "{\"msg_id\": " + message_id + ", \"msg_type\": \"notify_traffic_light_change\", \"data\": [";
+                                            for (int c = 0; c < trafficLights.Count; c++)
+                                            {
+                                                jsonstring = jsonstring + "{\"id\": " + trafficLights[c].id + ", \"state\": \"red\"" + "}";
+                                                if ((c + 1) != trafficLights.Count)
+                                                    jsonstring = jsonstring + ", ";
+                                            }
+                                            jsonstring = jsonstring + "]}";
+                                            await Send(socket, jsonstring);
+                                            cycle_state_fresh = false;
+                                        }
+                                        else if ((CurrentTime() - cycle_state_time) > longest_clearing_time)
+                                        {
+                                            cycle_state = "green";
+                                            currentWorkingLights.Clear();
+                                            cycle_state_time = CurrentTime();
+                                            cycle_state_fresh = true;
+                                        }
+                                        break;
+                                    case "orange":
 
                                         if (cycle_state_fresh)
                                         {
@@ -90,7 +184,7 @@ namespace Controller
                                             jsonstring = jsonstring + "]}";
                                             await Send(socket, jsonstring);
                                             cycle_state_fresh = false;
-                                        }else if((CurrentTime() - cycle_state_time) > longest_clearing_time)
+                                        }else if((CurrentTime() - cycle_state_time) > 4)
                                         {
                                             cycle_state = "red";
                                             cycle_state_fresh = true;
@@ -111,10 +205,11 @@ namespace Controller
                                             if(debug)
                                                 Console.WriteLine("Longest waiting time: " + longesttimesinceupdate);
 
-                                            currentWorkingLights.Add(oldestid);
+                                            if(evaluate_trafficlight_compatibility(oldestid, currentWorkingLights))
+                                                currentWorkingLights.Add(oldestid);
 
                                             foreach (Sensor sensor in sensors)
-                                                if (sensor.isOn)
+                                                if ((sensor.vehicles_waiting || sensor.vehicles_coming) && !sensor.vehicles_blocking)
                                                     if (!currentWorkingLights.Contains(sensor.id) && evaluate_trafficlight_compatibility(sensor.id, currentWorkingLights))
                                                         currentWorkingLights.Add(sensor.id);
 
@@ -144,7 +239,7 @@ namespace Controller
                                             cycle_state_time = CurrentTime();
                                         }
                                         break;
-                                }
+                                }*/
                             }
 
                             //Voer dit uit aan het einde van de loop
@@ -218,7 +313,27 @@ namespace Controller
                                 {
                                     if (!SensorExists(sensor["id"].ToObject<int>()))
                                         sensors.Add(new Sensor(sensor["id"].ToObject<int>()));
-                                    ChangeSensor(sensor["id"].ToObject<int>(), sensor["vehicles_coming"].ToObject<bool>() || sensor["vehicles_waiting"].ToObject<bool>());
+                                    int id = sensor["id"].ToObject<int>();
+                                    if (sensor["vehicles_waiting"] != null)
+                                    {
+                                        ChangeSensor(id, "waiting", sensor["vehicles_waiting"].ToObject<bool>());
+                                    }
+                                    if (sensor["vehicles_coming"] != null)
+                                    {
+                                        ChangeSensor(id, "coming", sensor["vehicles_coming"].ToObject<bool>());
+                                    }
+                                    if (sensor["vehicles_blocking"] != null)
+                                    {
+                                        ChangeSensor(id, "blocking", sensor["vehicles_blocking"].ToObject<bool>());
+                                    }
+                                    if (sensor["emergency_vehicle"] != null)
+                                    {
+                                        ChangeSensor(id, "emergency", sensor["emergency_vehicle"].ToObject<bool>());
+                                    }
+                                    if (sensor["public_transport"] != null)
+                                    {
+                                        ChangeSensor(id, "public", sensor["public_transport"].ToObject<bool>());
+                                    }
                                 }
                                 break;
                         }
@@ -235,12 +350,33 @@ namespace Controller
 
             return false;
         }
-        
-        static void ChangeSensor(int sensorid, bool state)
+
+        static void ChangeSensor(int sensorid, string flagtype, bool value)
         {
             foreach (Sensor sensor in sensors)
+            {
                 if (sensor.id == sensorid)
-                    sensor.isOn = state;
+                {
+                    switch (flagtype)
+                    {
+                        case "waiting":
+                            sensor.vehicles_waiting = value;
+                            break;
+                        case "coming":
+                            sensor.vehicles_coming = value;
+                            break;
+                        case "blocking":
+                            sensor.vehicles_blocking = value;
+                            break;
+                        case "emergency":
+                            sensor.emergency_vehicle = value;
+                            break;
+                        case "public":
+                            sensor.public_transport = value;
+                            break;
+                    }
+                }
+            }
         }
 
         static long CurrentTime()
@@ -290,12 +426,14 @@ namespace Controller
         public double clearing_time;
         public string state;
         public long lastupdated;
+        public long statechangetime;
         public TrafficLight(int id, List<int> crosses, double clearing_time)
         {
             this.id = id;
             this.crosses = crosses;
             this.clearing_time = clearing_time;
             lastupdated = DateTimeOffset.Now.ToUnixTimeSeconds();
+            statechangetime = DateTimeOffset.Now.ToUnixTimeSeconds();
             state = "red";
         }
 
@@ -308,12 +446,20 @@ namespace Controller
     class Sensor
     {
         public int id;
-        public bool isOn;
+        public bool vehicles_waiting;
+        public bool vehicles_coming;
+        public bool vehicles_blocking;
+        public bool emergency_vehicle;
+        public bool public_transport;
 
         public Sensor(int id)
         {
             this.id = id;
-            this.isOn = false;
+            this.vehicles_waiting = false;
+            this.vehicles_coming = false;
+            this.vehicles_blocking = false;
+            this.emergency_vehicle = false;
+            this.public_transport = false;
         }
     }
 }
