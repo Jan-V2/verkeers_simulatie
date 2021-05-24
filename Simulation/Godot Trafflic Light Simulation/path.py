@@ -8,7 +8,7 @@ class path(Path):
 		self.time_passed_car = 0
 		self.time_passed_boat = 0
 		self.new_bus = ResourceLoader.load("res://assets/path_van.tscn")
-		self.new_truck = ResourceLoader.load("res://assets/path_truck.tscn")
+		self.new_truck = ResourceLoader.load("res://assets/path_firetruck.tscn")
 		self.paths =['N->W','N->E','N->S1','N->S2','N->E','E->N1','E->N2','E->W','E->S', "E->E",'W->N','W->E','W->S','S->W','S->N1','S->N2','S->E',]
 		self.path_idx = 0
 		
