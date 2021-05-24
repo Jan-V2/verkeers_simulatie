@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/websocket_server.py" type="Script" id=2]
@@ -174,6 +174,36 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
 }
 
+[sub_resource type="Curve3D" id=32]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -28.8357, 0.000442505, 123.552, 0, 0, 0, 0, 0, 0, -19.0357, 0.000442505, 123.552, 0, 0, 0, 0, 0, 0, -19.0029, 0.000366211, 102.091, 0, 0, 0, 0, 0, 0, -28.2354, 0.000366211, 101.945 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=33]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -18.43, 0.00050354, 139.57, 0, 0, 0, 0, 0, 0, -18, 0, 128, 0, 0, 0, 0, 0, 0, 13, 0, 128, 0, 0, 0, 0, 0, 0, 13, 0, 140 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=34]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32.3045, 0.000457764, 127.937, 0, 0, 0, 0, 0, 0, 13.5618, 0.000457764, 126.644, 0, 0, 0, 0, 0, 0, 14, 0, 98, 0, 0, 0, 0, 0, 0, 32.231, 0.000350952, 97.8786 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=35]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32.5293, -0.000137329, -36.5786, 0, 0, 0, 0, 0, 0, 13.8088, -0.000137329, -36.0761, 0, 0, 0, 0, 0, 0, 12.9837, 0.000350952, 95.9926, 0, 0, 0, 0, 0, 0, 10.3709, 0.000350952, 97.2594, 0, 0, 0, 0, 0, 0, 7.63187, 0.000350952, 98.0255, 0, 0, 0, 0, 0, 0, -12.3132, 0.000350952, 97.9836, 0, 0, 0, 0, 0, 0, -18.4097, 0.000350952, 97.5085, 0, 0, 0, 0, 0, 0, -18.8847, 0.000366211, 101.23, 0, 0, 0, 0, 0, 0, -28.5441, 0.000366211, 101.23 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=36]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.81585, -0.000228882, -64.1104, 0, 0, 0, 0, 0, 0, -7.10194, 3.05176e-05, 7.05449, 0, 0, 0, 0, 0, 0, -18.0383, 0.000137329, 38.6499, 0, 0, 0, 0, 0, 0, -18.3405, 0.000366211, 100.837, 0, 0, 0, 0, 0, 0, -28.892, 0.000366211, 101.13 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
 [sub_resource type="BoxShape" id=29]
 
 [sub_resource type="BoxShape" id=30]
@@ -288,6 +318,30 @@ curve = SubResource( 27 )
 [node name="fiets5" type="Path" parent="paths"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
 curve = SubResource( 28 )
+
+[node name="voet0" type="Path" parent="paths"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
+curve = SubResource( 32 )
+
+[node name="voet1" type="Path" parent="paths"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
+curve = SubResource( 33 )
+
+[node name="voet2" type="Path" parent="paths"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
+curve = SubResource( 34 )
+
+[node name="voet3" type="Path" parent="paths"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
+curve = SubResource( 35 )
+
+[node name="voet4" type="Path" parent="paths"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
+curve = SubResource( 32 )
+
+[node name="voet5" type="Path" parent="paths"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
+curve = SubResource( 36 )
 
 [node name="sensors" type="Node" parent="."]
 
