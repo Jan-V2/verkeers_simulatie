@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://imports/boats/Dark_metal.material" type="Material" id=1]
 [ext_resource path="res://imports/boats/Cloth.material" type="Material" id=2]
@@ -83,11 +83,22 @@ surfaces/5 = {
 "vertex_count": 356
 }
 
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.33849, 0.488497, 2.32952 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.978538, 1, 1.4358 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 1.33766, 1, 0.372831 )
+
 [node name="watercraftPack_026" type="PathFollow"]
 loop = false
 script = ExtResource( 7 )
 
-[node name="Mesh1 Group1 Model" type="MeshInstance" parent="."]
+[node name="KinematicBody" type="KinematicBody" parent="."]
+
+[node name="Mesh1 Group1 Model" type="MeshInstance" parent="KinematicBody"]
 mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
@@ -95,3 +106,19 @@ material/2 = null
 material/3 = null
 material/4 = null
 material/5 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.509561, 0.644751 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40106, 0.478776 )
+shape = SubResource( 3 )
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02314, 3.3506 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 4 )
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

@@ -136,13 +136,13 @@ surfaces/4 = {
 [sub_resource type="BoxShape" id=6]
 extents = Vector3( 1.85058, 0.693576, 5.28361 )
 
-[sub_resource type="BoxShape" id=8]
+[sub_resource type="BoxShape" id=7]
 extents = Vector3( 1.39191, 0.871034, 4.33222 )
 
-[sub_resource type="BoxShape" id=9]
+[sub_resource type="BoxShape" id=8]
 extents = Vector3( 1, 1, 0.416663 )
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=9]
 extents = Vector3( 1.8485, 1, 0.41728 )
 
 [node name="watercraftPack_006" type="PathFollow"]
@@ -181,16 +181,16 @@ shape = SubResource( 6 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="boat3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5542, 0.741972 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="boat3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.38995, 3.98324 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="Area" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.93147 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00288, 6.93147 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
