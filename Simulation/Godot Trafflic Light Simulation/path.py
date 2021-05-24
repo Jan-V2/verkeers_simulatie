@@ -21,7 +21,7 @@ class path(Path):
 		
 	def _process(self, delta):
 		self.time_passed_car += delta
-		if self.time_passed_car > 2:
+		if self.time_passed_car > .5:
 			self.time_passed_car = 0
 			path = self.paths[self.path_idx]
 			if path == 'E->E':
