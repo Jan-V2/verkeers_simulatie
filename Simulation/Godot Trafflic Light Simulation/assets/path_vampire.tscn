@@ -16,5 +16,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0488442, 0.459828, -0.19845
 shape = SubResource( 1 )
 
 [node name="vampire" parent="." instance=ExtResource( 1 )]
+
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

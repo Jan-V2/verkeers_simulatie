@@ -5,10 +5,21 @@ from random import choice
 @exposed
 class path(Path):
 	def _ready(self):
+		self.testing_lights = True
+		
 		self.time_passed_car = 0
 		self.time_passed_boat = 0
-		self.new_bus = ResourceLoader.load("res://assets/path_van.tscn")
-		self.new_truck = ResourceLoader.load("res://assets/path_firetruck.tscn")
+		self.new_bus = ResourceLoader.load("res://assets/path_schoolbus.tscn")
+		self.test_car = ResourceLoader.load("res://assets/path_firetruck.tscn")
+		self.new_cars = [ResourceLoader.load("res://assets/path_delivery.tscn"),
+			ResourceLoader.load("res://assets/path_deliveryFlat.tscn"),
+			ResourceLoader.load("res://assets/path_garbageTruck.tscn"),
+			ResourceLoader.load("res://assets/path_sedan.tscn"),
+			ResourceLoader.load("res://assets/path_SUV.tscn"),
+			ResourceLoader.load("res://assets/path_taxi.tscn"),
+			ResourceLoader.load("res://assets/path_tractor.tscn"),
+			ResourceLoader.load("res://assets/path_van.tscn"),
+			]
 		self.paths =['N->W','N->E','N->S1','N->S2','N->E','E->N1','E->N2','E->W','E->S', "E->E",'W->N','W->E','W->S','S->W','S->N1','S->N2','S->E',]
 		self.path_idx = 0
 		
@@ -38,7 +49,7 @@ class path(Path):
 		
 	def _process(self, delta):
 		self.time_passed_car += delta
-		if self.time_passed_car > .5:
+		if self.time_passed_car > 3:
 			self.time_passed_car = 0
 			path = self.paths[self.path_idx]
 			if path == 'E->E':
@@ -46,8 +57,12 @@ class path(Path):
 				self.get_parent().get_node(path).add_child(car)
 				car.enabled = True
 			else:
-				truck = self.new_truck.instance()
+				if not self.testing_lights:
+					truck = choice(self.new_cars).instance()
+				else:
+					truck = self.test_car.instance()
 				self.get_parent().get_node(self.paths[self.path_idx]).add_child(truck)
+				#self.get_parent().get_node("N->S1").add_child(truck)
 				truck.enabled = True
 			self.path_idx += 1
 			if not self.path_idx < len(self.paths):
@@ -71,7 +86,7 @@ class path(Path):
 				self.boat_idx = 0;
 		
 		self.time_passed_fiets += delta
-		if self.time_passed_fiets > .5:
+		if self.time_passed_fiets > 2:
 			self.time_passed_fiets = 0
 			fiets = choice(self.fietsers).instance()
 			self.get_parent().get_node("fiets{}".format(self.fiets_idx)).add_child(fiets)
@@ -82,7 +97,7 @@ class path(Path):
 				self.fiets_idx = 0;
 				
 		self.time_passed_voet += delta
-		if self.time_passed_voet > .5:
+		if self.time_passed_voet > 2:
 			self.time_passed_voet = 0
 			voet = choice(self.voeters).instance()
 			self.get_parent().get_node("voet{}".format(self.voet_idx)).add_child(voet)
