@@ -37,7 +37,7 @@ class path(Path):
 				self.path_idx = 0
 		
 		self.time_passed_boat += delta
-		if self.time_passed_boat > 1:
+		if self.time_passed_boat > 30:
 			self.time_passed_boat = 0
 			boat = self.boat_models[self.boat_idx].instance()
 			if self.boat_spawn_dir:

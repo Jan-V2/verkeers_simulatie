@@ -16,6 +16,9 @@ class TrafficLightArea(Node):
 	vehicles_waiting30 = []
 	vehicles_waiting31 = []
 	vehicles_waiting32 = []
+	vehicles_waiting33 = []
+	vehicles_waiting34 = []
+	vehicles_waiting35 = []
 
 	def _ready(self):
 		"""
@@ -73,6 +76,18 @@ class TrafficLightArea(Node):
 			for car in self.vehicles_waiting32:
 				car.speed = 10
 			self.vehicles_waiting32.clear()
+		if self.find_parent("World").find_node("trafficlight33a").get_node("GreenLight").visible:
+			for car in self.vehicles_waiting33:
+				car.speed = 10
+			self.vehicles_waiting33.clear()
+		if self.find_parent("World").find_node("trafficlight34a").get_node("GreenLight").visible:
+			for car in self.vehicles_waiting34:
+				car.speed = 10
+			self.vehicles_waiting34.clear()
+		if self.find_parent("World").find_node("trafficlight35a").get_node("GreenLight").visible:
+			for car in self.vehicles_waiting35:
+				car.speed = 10
+			self.vehicles_waiting35.clear()
 		pass
 	
 	def _on_TrafficLightArea21_body_entered(self, body):
@@ -170,3 +185,27 @@ class TrafficLightArea(Node):
 		if greenlight != True:
 			car.speed = 0
 			self.vehicles_waiting32.append(car)
+	
+	def _on_TrafficLightArea33_body_entered(self, body):
+		car = body.get_parent()
+		greenlight = self.find_parent("World").find_node("trafficlight33a").get_node("GreenLight").visible
+		
+		if greenlight != True:
+			car.speed = 0
+			self.vehicles_waiting33.append(car)
+	
+	def _on_TrafficLightArea34_body_entered(self, body):
+		car = body.get_parent()
+		greenlight = self.find_parent("World").find_node("trafficlight34a").get_node("GreenLight").visible
+		
+		if greenlight != True:
+			car.speed = 0
+			self.vehicles_waiting34.append(car)
+	
+	def _on_TrafficLightArea35_body_entered(self, body):
+		car = body.get_parent()
+		greenlight = self.find_parent("World").find_node("trafficlight35a").get_node("GreenLight").visible
+		
+		if greenlight != True:
+			car.speed = 0
+			self.vehicles_waiting35.append(car)

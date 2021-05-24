@@ -71,6 +71,7 @@ surfaces/4 = {
 }
 
 [node name="watercraftPack_015" type="PathFollow"]
+loop = false
 script = ExtResource( 6 )
 
 [node name="Mesh1 Group1 Model" type="MeshInstance" parent="."]
