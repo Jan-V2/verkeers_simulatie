@@ -1,10 +1,9 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/websocket_server.py" type="Script" id=2]
 [ext_resource path="res://path.py" type="Script" id=3]
 [ext_resource path="res://scripts/TrafficLightArea.py" type="Script" id=4]
-[ext_resource path="res://scripts/camera_control.gd" type="Script" id=5]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -68,14 +67,14 @@ _data = {
 
 [sub_resource type="Curve3D" id=11]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32.4415, 0.00038147, 106.82, 0, 0, 0, 0, 0, 0, 7.60102, 0.00038147, 107.125, 0, 0, 0, 0, 0, 0, 6.19673, 0.00038147, 105.5, 0, 0, 0, 0, 0, 0, 5.6125, 0.00038147, 103.417, 0, 0, 0, 0, 0, 0, 5.29638, 0.000198364, 56.7322, 0, 0, 0, 0, 0, 0, 5.71326, 0.000156403, 43.6196, 0, 0, 0, 0, 0, 0, 5.71076, 0.423542, -13.3287, 0, 0, 0, 0, 0, 0, 5.48837, 0.815617, -16.6191, 0, 0, 0, 0, 0, 0, 5.34279, 0.725636, -27.854, 0, 0, 0, 0, 0, 0, 5.25569, 0.247429, -29.7148, 0, 0, 0, 0, 0, 0, 4.8163, -0.000133514, -37.1797, 0, 0, 0, 0, 0, 0, 6.80432, -0.000156403, -42.1373, 0, 0, 0, 0, 0, 0, 4.60337, -0.000171661, -46.6816, 0, 0, 0, 0, 0, 0, 5.06003, -0.000126362, -63.4172 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.18187e-25, -2.52441e-29, 2.24208e-44, 0 )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32.4415, 0.00038147, 106.82, 0, 0, 0, 0, 0, 0, 7.60102, 0.00038147, 107.125, 0, 0, 0, 0, 0, 0, 6.19673, 0.00038147, 105.5, 0, 0, 0, 0, 0, 0, 5.6125, 0.00038147, 103.417, 0, 0, 0, 0, 0, 0, 5.29638, 0.000198364, 56.7322, 0, 0, 0, 0, 0, 0, 5.71326, 0.000156403, 43.6196, 0, 0, 0, 0, 0, 0, 4.8163, -0.000133514, -37.1797, 0, 0, 0, 0, 0, 0, 6.80432, -0.000156403, -42.1373, 0, 0, 0, 0, 0, 0, 4.60337, -0.000171661, -46.6816, 0, 0, 0, 0, 0, 0, 4.93134, -0.000240326, -64.0045 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 1.18187e-25, -2.52441e-29, 2.24208e-44, 0 )
 }
 
 [sub_resource type="Curve3D" id=12]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32.3071, 0.000396729, 109.239, 0, 0, 0, 0, 0, 0, 7.90875, 0.000396729, 109.488, 0, 0, 0, 0, 0, 0, 4.28312, 0.000396729, 108.211, 0, 0, 0, 0, 0, 0, 2.98338, 0.00038147, 105.167, 0, 0, 0, 0, 0, 0, 2.74069, 0.000198364, 56.6657, 0, 0, 0, 0, 0, 0, 5.71326, 0.000156403, 43.6196, 0, 0, 0, 0, 0, 0, 5.69144, 0.431089, -14.3737, 0, 0, 0, 0, 0, 0, 5.62655, 0.970795, -16.5915, 0, 0, 0, 0, 0, 0, 5.42326, 0.838161, -27.9109, 0, 0, 0, 0, 0, 0, 5.48779, 0.266394, -29.4214, 0, 0, 0, 0, 0, 0, 4.8163, -0.000133514, -37.1797, 0, 0, 0, 0, 0, 0, 6.80432, -0.000156403, -42.1373, 0, 0, 0, 0, 0, 0, 4.60337, -0.000171661, -46.6816, 0, 0, 0, 0, 0, 0, 5.01812, -0.000145435, -63.1283 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.18189e-25, -6.87827e-41, 7.17465e-43, 0 )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32.3071, 0.000396729, 109.239, 0, 0, 0, 0, 0, 0, 7.90875, 0.000396729, 109.488, 0, 0, 0, 0, 0, 0, 4.28312, 0.000396729, 108.211, 0, 0, 0, 0, 0, 0, 2.98338, 0.00038147, 105.167, 0, 0, 0, 0, 0, 0, 2.74069, 0.000198364, 56.6657, 0, 0, 0, 0, 0, 0, 5.71326, 0.000156403, 43.6196, 0, 0, 0, 0, 0, 0, 4.8163, -0.000133514, -37.1797, 0, 0, 0, 0, 0, 0, 6.80432, -0.000156403, -42.1373, 0, 0, 0, 0, 0, 0, 4.60337, -0.000171661, -46.6816, 0, 0, 0, 0, 0, 0, 4.93134, -0.000240326, -64.0045 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 1.18189e-25, -6.87827e-41, 7.17465e-43, 0 )
 }
 
 [sub_resource type="Curve3D" id=13]
@@ -86,14 +85,14 @@ _data = {
 
 [sub_resource type="Curve3D" id=14]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0875022, 0.00050354, 139.756, 0, 0, 0, 0, 0, 0, 0.179854, 0.000442505, 121.563, 0, 0, 0, 0, 0, 0, 2.9071, 0.000396729, 111.084, 0, 0, 0, 0, 0, 0, 2.5377, 0.00038147, 105.451, 0, 0, 0, 0, 0, 0, 3.21587, 0.000198364, 56.4578, 0, 0, 0, 0, 0, 0, 5.71326, 0.000156403, 43.6196, 0, 0, 0, 0, 0, 0, 5.68123, 0.243434, -13.7252, 0, 0, 0, 0, 0, 0, 5.56105, 0.732747, -16.3989, 0, 0, 0, 0, 0, 0, 5.12269, 0.731467, -27.9114, 0, 0, 0, 0, 0, 0, 5.16445, -0.0145731, -29.7143, 0, 0, 0, 0, 0, 0, 4.8163, -0.000133514, -37.1797, 0, 0, 0, 0, 0, 0, 6.80432, -0.000156403, -42.1373, 0, 0, 0, 0, 0, 0, 4.60337, -0.000171661, -46.6816, 0, 0, 0, 0, 0, 0, 4.93489, -0.000219822, -63.3456 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.18187e-25, -2.52441e-29, 2.24208e-44, 0 )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0875022, 0.00050354, 139.756, 0, 0, 0, 0, 0, 0, 0.179854, 0.000442505, 121.563, 0, 0, 0, 0, 0, 0, 2.9071, 0.000396729, 111.084, 0, 0, 0, 0, 0, 0, 2.5377, 0.00038147, 105.451, 0, 0, 0, 0, 0, 0, 3.21587, 0.000198364, 56.4578, 0, 0, 0, 0, 0, 0, 5.71326, 0.000156403, 43.6196, 0, 0, 0, 0, 0, 0, 4.8163, -0.000133514, -37.1797, 0, 0, 0, 0, 0, 0, 6.80432, -0.000156403, -42.1373, 0, 0, 0, 0, 0, 0, 4.60337, -0.000171661, -46.6816, 0, 0, 0, 0, 0, 0, 4.93134, -0.000240326, -64.0045 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 1.18187e-25, -2.52441e-29, 2.24208e-44, 0 )
 }
 
 [sub_resource type="Curve3D" id=15]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 2.74516, 0.00050354, 139.631, 0, 0, 0, 0, 0, 0, 2.79803, 0.000442505, 121.996, 0, 0, 0, 0, 0, 0, 5.41385, 0.000396729, 111.439, 0, 0, 0, 0, 0, 0, 5.59227, 0.00038147, 104.897, 0, 0, 0, 0, 0, 0, 5.54495, 0.000198364, 56.7294, 0, 0, 0, 0, 0, 0, 5.71326, 0.000156403, 43.6196, 0, 0, 0, 0, 0, 0, 5.48449, 0.23057, -13.3379, 0, 0, 0, 0, 0, 0, 5.45533, 0.781624, -16.6637, 0, 0, 0, 0, 0, 0, 5.5223, 0.752434, -27.7201, 0, 0, 0, 0, 0, 0, 5.54556, 0.0655059, -29.3089, 0, 0, 0, 0, 0, 0, 4.8163, -0.000133514, -37.1797, 0, 0, 0, 0, 0, 0, 6.80432, -0.000156403, -42.1373, 0, 0, 0, 0, 0, 0, 4.60337, -0.000171661, -46.6816, 0, 0, 0, 0, 0, 0, 5.00345, -0.000164986, -63.1441 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4.88627e-30, -2.52437e-29, 2.24208e-44, 0 )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 2.74516, 0.00050354, 139.631, 0, 0, 0, 0, 0, 0, 2.79803, 0.000442505, 121.996, 0, 0, 0, 0, 0, 0, 5.41385, 0.000396729, 111.439, 0, 0, 0, 0, 0, 0, 5.59227, 0.00038147, 104.897, 0, 0, 0, 0, 0, 0, 5.54495, 0.000198364, 56.7294, 0, 0, 0, 0, 0, 0, 5.71326, 0.000156403, 43.6196, 0, 0, 0, 0, 0, 0, 4.8163, -0.000133514, -37.1797, 0, 0, 0, 0, 0, 0, 6.80432, -0.000156403, -42.1373, 0, 0, 0, 0, 0, 0, 4.60337, -0.000171661, -46.6816, 0, 0, 0, 0, 0, 0, 4.93134, -0.000240326, -64.0045 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 4.88627e-30, -2.52437e-29, 2.24208e-44, 0 )
 }
 
 [sub_resource type="Curve3D" id=16]
@@ -116,8 +115,8 @@ _data = {
 
 [sub_resource type="Curve3D" id=19]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -28.6557, 0.000411987, 114.291, 0, 0, 0, 0, 0, 0, -11.4744, 0.000411987, 114.925, 0, 0, 0, 0, 0, 0, -0.253693, 0.000411987, 113.678, 0, 0, 0, 0, 0, 0, 1.96325, 0.000396729, 109.957, 0, 0, 0, 0, 0, 0, 2.59665, 0.00038147, 105.285, 0, 0, 0, 0, 0, 0, 3.02478, 0.000198364, 56.3002, 0, 0, 0, 0, 0, 0, 5.71326, 0.000156403, 43.6196, 0, 0, 0, 0, 0, 0, 5.35456, -0.0175085, -13.5605, 0, 0, 0, 0, 0, 0, 5.14869, 0.78287, -16.6109, 0, 0, 0, 0, 0, 0, 5.12228, 0.693469, -27.9363, 0, 0, 0, 0, 0, 0, 5.20256, -0.120482, -29.9577, 0, 0, 0, 0, 0, 0, 4.8163, -0.000133514, -37.1797, 0, 0, 0, 0, 0, 0, 6.80432, -0.000156403, -42.1373, 0, 0, 0, 0, 0, 0, 4.60337, -0.000171661, -46.6816, 0, 0, 0, 0, 0, 0, 5.03758, -0.000135422, -63.2345 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 1.18186e-25, 0, 0, 0, 0, -3.88192e-34, 3.36312e-44, 0, 0 )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -28.6557, 0.000411987, 114.291, 0, 0, 0, 0, 0, 0, -11.4744, 0.000411987, 114.925, 0, 0, 0, 0, 0, 0, -0.253693, 0.000411987, 113.678, 0, 0, 0, 0, 0, 0, 1.96325, 0.000396729, 109.957, 0, 0, 0, 0, 0, 0, 2.59665, 0.00038147, 105.285, 0, 0, 0, 0, 0, 0, 3.02478, 0.000198364, 56.3002, 0, 0, 0, 0, 0, 0, 5.71326, 0.000156403, 43.6196, 0, 0, 0, 0, 0, 0, 4.8163, -0.000133514, -37.1797, 0, 0, 0, 0, 0, 0, 6.80432, -0.000156403, -42.1373, 0, 0, 0, 0, 0, 0, 4.60337, -0.000171661, -46.6816, 0, 0, 0, 0, 0, 0, 4.93134, -0.000240326, -64.0045 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 1.18186e-25, -3.88192e-34, 3.36312e-44, 0, 0 )
 }
 
 [sub_resource type="Curve3D" id=20]
@@ -139,14 +138,11 @@ _data = {
 }
 
 [sub_resource type="BoxShape" id=23]
-extents = Vector3( 1, 1, 1.09438 )
 
 [sub_resource type="BoxShape" id=24]
+extents = Vector3( 0.974016, 1, 1 )
 
 [sub_resource type="BoxShape" id=25]
-
-[sub_resource type="BoxShape" id=26]
-extents = Vector3( 1.79365, 1.55127, 0.347856 )
 
 [node name="World" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139641, 0, 5.2427 )
@@ -158,10 +154,9 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1789, 0.204462, 46.4619 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.984372, -0.0123216, -0.175669, -0.00471545, 0.999036, -0.0436502, 0.176037, -0.0421397, -0.983481, 2.55066, 15.0948, 30.6902 )
+transform = Transform( 0.999734, -0.00596683, -0.0222685, 0.00613766, 0.999952, 0.00761091, 0.022222, -0.00774556, 0.999723, 3.14276, 8.63869, 4.39068 )
 current = true
 far = 2000.0
-script = ExtResource( 5 )
 
 [node name="paths" type="Node" parent="."]
 
@@ -502,8 +497,7 @@ script = ExtResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -1.54212, 0, 130.127 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea21"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.377259, 0, 0.692627 )
-shape = SubResource( 23 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.335138, 0, 0.692612 )
 
 [node name="TrafficLightArea22" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 0.5, 1.78575, 0, 130.506 )
@@ -570,44 +564,6 @@ transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, -20.6
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea32"]
 shape = SubResource( 25 )
-
-[node name="TrafficLightArea33a" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56536, 0, -33.4804 )
-
-[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea33a"]
-shape = SubResource( 26 )
-
-[node name="TrafficLightArea33b" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95283, 0, -30.7276 )
-
-[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea33b"]
-shape = SubResource( 26 )
-
-[node name="TrafficLightArea33c" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4779, 0, -6.45025 )
-
-[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea33c"]
-shape = SubResource( 26 )
-
-[node name="TrafficLightArea33d" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.842, 0, -14.2612 )
-
-[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea33d"]
-shape = SubResource( 26 )
-
-[node name="TrafficLightArea34" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( -0.0106986, 0, -0.999943, 0, 1, 0, 0.999943, 0, -0.0106986, 17.2576, -1.57723, -29.4361 )
-
-[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea34"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75279, 3.06584, -0.0401516 )
-shape = SubResource( 26 )
-
-[node name="TrafficLightArea35" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 0.0126707, 0, -0.99992, 0, 1, 0, 0.99992, 0, 0.0126707, -10.6473, 1.57054, -19.1881 )
-
-[node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea35"]
-shape = SubResource( 26 )
-
 [connection signal="body_shape_entered" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_entered"]
 [connection signal="body_shape_exited" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_exited"]
 [connection signal="body_shape_entered" from="sensors/s2" to="websocket_server" method="_on_target919_body_shape_entered"]
@@ -700,9 +656,3 @@ shape = SubResource( 26 )
 [connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea30" to="NodeTrafficLightArea" method="_on_TrafficLightArea30_body_entered"]
 [connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea31" to="NodeTrafficLightArea" method="_on_TrafficLightArea31_body_entered"]
 [connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea32" to="NodeTrafficLightArea" method="_on_TrafficLightArea32_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea33a" to="NodeTrafficLightArea" method="_on_TrafficLightArea33_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea33b" to="NodeTrafficLightArea" method="_on_TrafficLightArea33_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea33c" to="NodeTrafficLightArea" method="_on_TrafficLightArea33_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea33d" to="NodeTrafficLightArea" method="_on_TrafficLightArea33_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea34" to="NodeTrafficLightArea" method="_on_TrafficLightArea34_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea35" to="NodeTrafficLightArea" method="_on_TrafficLightArea35_body_entered"]
