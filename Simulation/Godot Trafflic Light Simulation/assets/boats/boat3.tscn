@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://imports/boats/Yellow_metal.material" type="Material" id=1]
 [ext_resource path="res://imports/boats/Dark_metal.material" type="Material" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://imports/boats/Blue_metal.material" type="Material" id=6]
 [ext_resource path="res://imports/boats/Grey_metal_1.material" type="Material" id=7]
 [ext_resource path="res://imports/boats/Red_metal.material" type="Material" id=8]
+[ext_resource path="res://assets/PathFollow.py" type="Script" id=9]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Mesh1 Container_4 Group1 Model"
@@ -132,7 +133,8 @@ surfaces/4 = {
 "vertex_count": 1107
 }
 
-[node name="watercraftPack_006" type="Spatial"]
+[node name="watercraftPack_006" type="PathFollow"]
+script = ExtResource( 9 )
 
 [node name="Mesh1 Container_4 Group1 Model" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
