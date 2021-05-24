@@ -12,9 +12,18 @@ class path(Path):
 		self.paths =['N->W','N->E','N->S1','N->S2','N->E','E->N1','E->N2','E->W','E->S', "E->E",'W->N','W->E','W->S','S->W','S->N1','S->N2','S->E',]
 		self.path_idx = 0
 		
+		self.time_passed_fiets = 0
+		self.fiets_max = 6
+		self.fiets_idx = 0
+		self.fiets_speed = 3
+		self.fietsers = [ResourceLoader.load("res://assets/bikers/bikervampire.tscn"),
+							ResourceLoader.load("res://assets/bikers/bikerzombie.tscn"),
+							ResourceLoader.load("res://assets/bikers/bikerskeleton.tscn")]
+		
 		self.boat_spawn_dir = False
 		self.boat_idx = 0
 		self.boats_max = 10
+		self.boat_speed = 3
 		self.boat_models = []
 		for i in range(self.boats_max):
 			self.boat_models.append(ResourceLoader.load("res://assets/boats/boat{}.tscn".format(i)))
@@ -46,11 +55,23 @@ class path(Path):
 			else:
 				self.get_parent().get_node("boot_weer").add_child(boat)
 				self.boat_spawn_dir =  True
+			boat.speed = self.boat_speed
 			boat.enabled = True
 			#self.boat_spawn_dir = not self.boat_spwan_dir
 			self.boat_idx += 1
 			if not self.boat_idx < self.boats_max:
 				self.boat_idx = 0;
+		
+		self.time_passed_fiets += delta
+		if self.time_passed_fiets > .5:
+			self.time_passed_fiets = 0
+			fiets = choice(self.fietsers).instance()
+			self.get_parent().get_node("fiets{}".format(self.fiets_idx)).add_child(fiets)
+			fiets.speed = self.fiets_speed
+			fiets.enabled = True
+			self.fiets_idx += 1
+			if not self.fiets_idx < self.fiets_max:
+				self.fiets_idx = 0;
 
 	def _on_Area_body_entered(one, two):
 		print("entered area")
