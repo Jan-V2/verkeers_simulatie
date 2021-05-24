@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://imports/boats/Dark_metal.material" type="Material" id=1]
 [ext_resource path="res://imports/boats/Green_metal.material" type="Material" id=2]
@@ -168,29 +168,40 @@ surfaces/5 = {
 "vertex_count": 356
 }
 
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 1.33753, 0.491425, 2.57065 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 1, 1, 1.4388 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 1.33768, 1, 0.271169 )
+
 [node name="watercraftPack_001" type="PathFollow"]
 loop = false
 script = ExtResource( 8 )
 
-[node name="Mesh1 Group2 Group1 Model" type="MeshInstance" parent="."]
+[node name="boat1" type="KinematicBody" parent="."]
+
+[node name="Mesh1 Group2 Group1 Model" type="MeshInstance" parent="boat1"]
 mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
-[node name="Mesh2 Group3 Group1 Model" type="MeshInstance" parent="."]
+[node name="Mesh2 Group3 Group1 Model" type="MeshInstance" parent="boat1"]
 mesh = SubResource( 2 )
 material/0 = null
 material/1 = null
 
-[node name="Mesh3 Group4 Group1 Model" type="MeshInstance" parent="."]
+[node name="Mesh3 Group4 Group1 Model" type="MeshInstance" parent="boat1"]
 mesh = SubResource( 3 )
 material/0 = null
 
-[node name="Mesh4 Group5 Group1 Model" type="MeshInstance" parent="."]
+[node name="Mesh4 Group5 Group1 Model" type="MeshInstance" parent="boat1"]
 mesh = SubResource( 4 )
 material/0 = null
 
-[node name="Mesh5 Group1 Model" type="MeshInstance" parent="."]
+[node name="Mesh5 Group1 Model" type="MeshInstance" parent="boat1"]
 mesh = SubResource( 5 )
 material/0 = null
 material/1 = null
@@ -198,3 +209,19 @@ material/2 = null
 material/3 = null
 material/4 = null
 material/5 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="boat1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50765, 0.391277 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="boat1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00760603, 1.39198, 0.486811 )
+shape = SubResource( 7 )
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.24156 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 8 )
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
