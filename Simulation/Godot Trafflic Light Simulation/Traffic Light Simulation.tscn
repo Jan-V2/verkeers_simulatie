@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/websocket_server.py" type="Script" id=2]
 [ext_resource path="res://path.py" type="Script" id=3]
 [ext_resource path="res://scripts/TrafficLightArea.py" type="Script" id=4]
+[ext_resource path="res://scripts/camera_control.gd" type="Script" id=5]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -125,7 +126,7 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="Curve3D" id=26]
+[sub_resource type="Curve3D" id=21]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32, 0, -25, 0, 0, 0, 0, 0, 0, -28, 0, -25 ),
 "tilts": PoolRealArray( 0, 0 )
@@ -157,6 +158,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1789, 0.204462, 46.4619 )
 transform = Transform( 0.999734, -0.00596683, -0.0222685, 0.00613766, 0.999952, 0.00761091, 0.022222, -0.00774556, 0.999723, 3.14276, 8.63869, 4.39068 )
 current = true
 far = 2000.0
+script = ExtResource( 5 )
 
 [node name="paths" type="Node" parent="."]
 
@@ -222,7 +224,7 @@ curve = SubResource( 19 )
 curve = SubResource( 20 )
 
 [node name="boot_heen" type="Path" parent="paths"]
-curve = SubResource( 26 )
+curve = SubResource( 21 )
 
 [node name="boot_weer" type="Path" parent="paths"]
 curve = SubResource( 22 )
