@@ -11,6 +11,7 @@ class PathFollow(PathFollow):
 
 
 	def _ready(self):
+		self.speed_default = 0
 		self.path_idx = 0;
 		#self.paths =["cross", "out"]
 		self.paths =[]
@@ -38,7 +39,8 @@ class PathFollow(PathFollow):
 		
 	def _process(self, delta):
 		if self.enabled:
-
+			if self.speed_default == 0:
+				self.speed_default = self.speed
 			self.visible = True
 			progress = self.get_unit_offset()
 			if progress >= 1:
@@ -52,6 +54,6 @@ class PathFollow(PathFollow):
 		
 		
 	def _on_Area_body_exited(self, body):
-		self.speed = 10
+		self.speed = self.speed_default
 
 

@@ -138,48 +138,48 @@ _data = {
 "tilts": PoolRealArray( 0, 0 )
 }
 
-[sub_resource type="Curve3D" id=26]
+[sub_resource type="Curve3D" id=23]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32.3212, 0, 99.1562, 0, 0, 0, 0, 0, 0, 11.4289, 0, 99.2144, 0, 0, 0, 0, 0, 0, 11.4685, 0, -32.3841, 0, 0, 0, 0, 0, 0, 11.5626, 0, -38.4965, 0, 0, 0, 0, 0, 0, 32.3167, 0, -38.1979 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="Curve3D" id=31]
+[sub_resource type="Curve3D" id=24]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32.2302, 0, 99.1389, 0, 0, 0, 0, 0, 0, 11.3467, 0, 99.1, 0, 0, 0, 0, 0, 0, 11.3325, 0, 125.532, 0, 0, 0, 0, 0, 0, 32.3422, 0, 125.85 ),
 "tilts": PoolRealArray( 0, 0, 0, 0 )
 }
 
-[sub_resource type="Curve3D" id=27]
+[sub_resource type="Curve3D" id=25]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -28.4918, 0, 121.934, 0, 0, 0, 0, 0, 0, -16.0378, 0, 121.934, 0, 0, 0, 0, 0, 0, -15.9927, 0, 104.362, 0, 0, 0, 0, 0, 0, -28.563, 0, 104.478 ),
 "tilts": PoolRealArray( 0, 0, 0, 0 )
 }
 
-[sub_resource type="Curve3D" id=28]
+[sub_resource type="Curve3D" id=26]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 11.3057, 0, 139.737, 0, 0, 0, 0, 0, 0, 11.3848, 0, 125.407, 0, 0, 0, 0, 0, 0, -15.9352, 0, 125.608, 0, 0, 0, 0, 0, 0, -16.1727, 0, 139.542 ),
 "tilts": PoolRealArray( 0, 0, 0, 0 )
 }
 
-[sub_resource type="Curve3D" id=29]
+[sub_resource type="Curve3D" id=27]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 32.3742, 0, 99.0976, 0, 0, 0, 0, 0, 0, 11.5401, 0, 99.1558, 0, 0, 0, 0, 0, 0, 11.5983, 0, 100.96, 0, 0, 0, 0, 0, 0, -15.9299, 0, 100.791, 0, 0, 0, 0, 0, 0, -16.0633, 0, 121.845, 0, 0, 0, 0, 0, 0, -28.4853, 0, 121.845 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="Curve3D" id=30]
+[sub_resource type="Curve3D" id=28]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.67345, 0, -64.0688, 0, 0, 0, 0, 0, 0, -4.58841, 0, -27.9079, 0, 0, 0, 0, 0, 0, -4.54639, 0, 8.45241, 0, 0, 0, 0, 0, 0, -16.0342, 0, 39.7532, 0, 0, 0, 0, 0, 0, -16.0066, 0, 104.365, 0, 0, 0, 0, 0, 0, -28.5643, 0, 104.704 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="BoxShape" id=23]
+[sub_resource type="BoxShape" id=29]
 
-[sub_resource type="BoxShape" id=24]
+[sub_resource type="BoxShape" id=30]
 extents = Vector3( 0.974016, 1, 1 )
 
-[sub_resource type="BoxShape" id=25]
+[sub_resource type="BoxShape" id=31]
 
 [node name="World" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139641, 0, 5.2427 )
@@ -267,27 +267,27 @@ curve = SubResource( 22 )
 
 [node name="fiets0" type="Path" parent="paths"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
-curve = SubResource( 26 )
+curve = SubResource( 23 )
 
 [node name="fiets1" type="Path" parent="paths"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
-curve = SubResource( 31 )
+curve = SubResource( 24 )
 
 [node name="fiets2" type="Path" parent="paths"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
-curve = SubResource( 27 )
+curve = SubResource( 25 )
 
 [node name="fiets3" type="Path" parent="paths"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
-curve = SubResource( 28 )
+curve = SubResource( 26 )
 
 [node name="fiets4" type="Path" parent="paths"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
-curve = SubResource( 29 )
+curve = SubResource( 27 )
 
 [node name="fiets5" type="Path" parent="paths"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
-curve = SubResource( 30 )
+curve = SubResource( 28 )
 
 [node name="sensors" type="Node" parent="."]
 
@@ -296,261 +296,261 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7198, 0.275764, 125.996 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.2696 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s2" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7694, 0, 128.432 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s3" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12, 0, 128.29 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s4" type="Area" parent="sensors"]
 transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 1, -4.49293, 0, 128.43 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s5" type="Area" parent="sensors"]
 transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 1, -3.83258, 0, 128.472 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s6" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0319, 0, 120.908 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s6"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s7" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1027, 0, 120.673 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s7"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s8" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3004, 0, 104.456 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s8"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s9" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1056, 0, 115.335 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s9"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s10" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.161, 0, 115.359 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s10"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s11" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7751, 0, 101.288 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s11"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s12" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5309, 0, 98.337 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s12"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s13" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.53, 0, 97.7888 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s13"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s14" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15754, 0, 98.5006 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s14"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 29 )
 
 [node name="s15" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34119, 0, 98.3036 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s15"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s16" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.902, 0, 103.156 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s16"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s17" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5711, 0, 103.136 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s17"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s18" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9453, 0, 123.816 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s18"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s19" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.024, 0, 112.303 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s19"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s20" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1254, 0, 111.948 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s20"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s21" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22482, 0, 131.656 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s21"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s21c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24497, 0, 135.104 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s21c"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s22wa" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80491, 0, 131.651 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s22wa"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s22c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77462, 0, 135.134 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s22c"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s22wb" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75306, 0, 138.09 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s22wb"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s23" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15247, 0, 131.932 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s23"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.867886, 0, -0.387329 )
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s23c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0651, 0, 135.168 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s23c"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s24" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6378, 0, 112.419 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s24"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s24c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7453, 0, 112.457 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s24c"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s25wa" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.681, 0, 108.461 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s25wa"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s25c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.72, 0, 108.448 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s25c"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s25wb" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.929, 0, 108.449 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s25wb"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s26wa" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2902, 0, 102.194 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s26wa"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s26wb" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6469, 0, 101.963 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s26wb"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s28wa" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.68217, 0, 94.821 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s28wa"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s28wb" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38781, 0, 94.8071 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s28wb"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s31" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6539, 0.0037632, 117.461 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s31"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s31c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9254, 0, 117.457 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s31c"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s32" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6655, 0, 120.014 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s32"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s32c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8559, 0, 120.035 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s32c"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="s33" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46648, 0, 81.8399 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s33"]
-shape = SubResource( 24 )
+shape = SubResource( 30 )
 
 [node name="NodeTrafficLightArea" type="Node" parent="."]
 script = ExtResource( 4 )
@@ -565,67 +565,67 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.335138, 0, 0.692612 )
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 0.5, 1.78575, 0, 130.506 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea22"]
-shape = SubResource( 25 )
+shape = SubResource( 31 )
 
 [node name="TrafficLightArea23" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 5.64398, 0, 130.639 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea23"]
-shape = SubResource( 25 )
+shape = SubResource( 31 )
 
 [node name="TrafficLightArea24" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, 24.713, 0, 112.878 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea24"]
-shape = SubResource( 25 )
+shape = SubResource( 31 )
 
 [node name="TrafficLightArea25" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( -3.25841e-07, 0, 0.5, 0, 1, 0, -2, 0, -8.14603e-08, 24.6787, 0, 108.485 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea25"]
-shape = SubResource( 25 )
+shape = SubResource( 31 )
 
 [node name="TrafficLightArea26" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( -1.87939, 0, 0.17101, 0, 1, 0, -0.68404, 0, -0.469846, 18.8288, 0, 103.507 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea26"]
-shape = SubResource( 25 )
+shape = SubResource( 31 )
 
 [node name="TrafficLightArea27" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -1.81596, 0, 96.0879 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea27"]
-shape = SubResource( 25 )
+shape = SubResource( 31 )
 
 [node name="TrafficLightArea28" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 0.5, -5.81195, 0, 96.1156 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea28"]
-shape = SubResource( 25 )
+shape = SubResource( 31 )
 
 [node name="TrafficLightArea29" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -9.65159, 0, 96.0968 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea29"]
-shape = SubResource( 25 )
+shape = SubResource( 31 )
 
 [node name="TrafficLightArea30" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, -20.7892, 0, 114.451 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea30"]
-shape = SubResource( 25 )
+shape = SubResource( 31 )
 
 [node name="TrafficLightArea31" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, -20.7617, 0, 117.097 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea31"]
-shape = SubResource( 25 )
+shape = SubResource( 31 )
 
 [node name="TrafficLightArea32" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, -20.6919, 0, 119.829 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea32"]
-shape = SubResource( 25 )
+shape = SubResource( 31 )
 
 [connection signal="body_shape_entered" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_entered"]
 [connection signal="body_shape_exited" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_exited"]

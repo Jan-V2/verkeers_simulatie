@@ -16,9 +16,9 @@ class path(Path):
 		self.fiets_max = 6
 		self.fiets_idx = 0
 		self.fiets_speed = 3
-		self.fietsers = [ResourceLoader.load("res://assets/bikers/bikervampire.tscn"),
-							ResourceLoader.load("res://assets/bikers/bikerzombie.tscn"),
-							ResourceLoader.load("res://assets/bikers/bikerskeleton.tscn")]
+		self.fietsers = [ResourceLoader.load("res://assets/path_bikervampire.tscn"),
+							ResourceLoader.load("res://assets/path_bikerzombie.tscn"),
+							ResourceLoader.load("res://assets/path_bikerskeleton.tscn")]
 		
 		self.boat_spawn_dir = False
 		self.boat_idx = 0

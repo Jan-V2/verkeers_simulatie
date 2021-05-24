@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://imports/characters/_defaultMat.material" type="Material" id=1]
 [ext_resource path="res://imports/characters/woodDark.material" type="Material" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://imports/characters/wood.material" type="Material" id=6]
 [ext_resource path="res://imports/characters/skin.material" type="Material" id=7]
 [ext_resource path="res://assets/bikers/bike.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/PathFollow.py" type="Script" id=9]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "armLeft"
@@ -250,7 +249,6 @@ extents = Vector3( 0.248153, 0.484633, 0.428428 )
 [node name="bikervampire" type="PathFollow"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 loop = false
-script = ExtResource( 9 )
 
 [node name="tmpParent" type="KinematicBody" parent="."]
 
