@@ -20,6 +20,14 @@ class path(Path):
 							ResourceLoader.load("res://assets/path_bikerzombie.tscn"),
 							ResourceLoader.load("res://assets/path_bikerskeleton.tscn")]
 		
+		self.time_passed_voet = 0
+		self.voet_max = 6
+		self.voet_idx = 0
+		self.voet_speed = 3
+		self.voeters = [ResourceLoader.load("res://assets/path_vampire.tscn"),
+							ResourceLoader.load("res://assets/path_zombie.tscn"),
+							ResourceLoader.load("res://assets/path_skeleton.tscn")]
+		
 		self.boat_spawn_dir = False
 		self.boat_idx = 0
 		self.boats_max = 10
@@ -72,6 +80,18 @@ class path(Path):
 			self.fiets_idx += 1
 			if not self.fiets_idx < self.fiets_max:
 				self.fiets_idx = 0;
+				
+		self.time_passed_voet += delta
+		if self.time_passed_voet > .5:
+			self.time_passed_voet = 0
+			voet = choice(self.voeters).instance()
+			self.get_parent().get_node("voet{}".format(self.voet_idx)).add_child(voet)
+			voet.speed = self.voet_speed
+			voet.enabled = True
+			self.voet_idx += 1
+			if not self.voet_idx < self.voet_max:
+				self.voet_idx = 0;
+				
 
 	def _on_Area_body_entered(one, two):
 		print("entered area")
