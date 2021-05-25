@@ -45,25 +45,27 @@ namespace Controller
                             sw.Start();
 
                             {
-                                foreach(TrafficLight tl in trafficLights)
+                                //Cleanup
+                                foreach (TrafficLight tl in trafficLights)
                                 {
                                     if (tl.state == "green" && CurrentTime() - tl.statechangetime > 10)
                                     {
                                         tl.state = "orange";
                                         tl.statechangetime = CurrentTime();
                                     }
-                                    else if(tl.state == "orange" && CurrentTime() - tl.statechangetime > 4)
+                                    else if (tl.state == "orange" && CurrentTime() - tl.statechangetime > 4)
                                     {
                                         tl.state = "red";
                                         tl.statechangetime = CurrentTime();
                                     }
-                                    else if(tl.state == "red" && CurrentTime() - tl.statechangetime > tl.clearing_time)
+                                    else if (tl.state == "red" && CurrentTime() - tl.statechangetime > tl.clearing_time)
                                     {
                                         currentWorkingLights.Remove(tl.id);
                                     }
                                 }
 
-                                foreach(Sensor sensor in sensors)
+                                //For all busses
+                                foreach (Sensor sensor in sensors)
                                 {
                                     if (sensor.public_transport && evaluate_trafficlight_compatibility(sensor.id, currentWorkingLights) && !currentWorkingLights.Contains(sensor.id))
                                     {
@@ -75,16 +77,91 @@ namespace Controller
                                     }
                                 }
 
-                                List<int> nonsensorlist = new List<int>();
-                                for(int i = 1; i <= 36; i++)
+                                List<int> blacklist = new List<int>();
+                                List<int> longerthanninety = new List<int>();
+                                //For all trafficlights who haven't been "greened" for longer than a minute
                                 {
-                                    nonsensorlist.Add(i);
+                                    List<int> waiting_for_long = new List<int>();
+                                    List<long> time = new List<long>();
+
+                                    foreach(TrafficLight tl in trafficLights)
+                                    {
+                                        if(CurrentTime() - tl.lastupdated > 90)
+                                        {
+                                            longerthanninety.Add(tl.id);
+                                        }
+                                    }
+
+                                    foreach (TrafficLight tl in trafficLights)
+                                    {
+                                        if (CurrentTime() - tl.lastupdated > 60)
+                                        {
+                                            waiting_for_long.Add(tl.id);
+                                            time.Add(CurrentTime() - tl.lastupdated);
+                                            if(CurrentTime() - tl.lastupdated > 90)
+                                            {
+                                                foreach(int bl in tl.crosses)
+                                                {
+                                                    if (!blacklist.Contains(bl) && !longerthanninety.Contains(bl)) blacklist.Add(bl);
+                                                }
+                                            }
+                                        }
+                                    }
+                                    /*Console.Write("Blacklist: ");
+                                    foreach(int bl in blacklist)
+                                    {
+                                        Console.Write(bl + " ");
+                                    }
+                                    Console.WriteLine();*/
+                                    int index = 0;
+                                    while (waiting_for_long.Count >= 2)
+                                    {
+                                        if (index == waiting_for_long.Count - 1) break;
+                                        if (time[index] < time[index + 1])
+                                        {
+                                            int waitingtemp = waiting_for_long[index + 1];
+                                            long timetemp = time[index + 1];
+                                            waiting_for_long.RemoveAt(index + 1);
+                                            time.RemoveAt(index + 1);
+                                            waiting_for_long.Insert(index, waitingtemp);
+                                            time.Insert(index, timetemp);
+                                            index = 0;
+                                            continue;
+                                        }
+                                        index++;
+                                    }
+
+                                    foreach (int id in waiting_for_long)
+                                    {
+                                        /*if(longerthanninety.Contains(id))
+                                        {
+                                            //Console.WriteLine(evaluate_trafficlight_compatibility(id, currentWorkingLights).ToString() + " " + !currentWorkingLights.Contains(id) + " " + !blacklist.Contains(id));
+                                            TrafficLight tl = TrafficLightByID(id);
+                                            foreach(int i in tl.crosses)
+                                            {
+                                                if (currentWorkingLights.Contains(i)) Console.Write(i + " ");
+                                            }
+                                            Console.WriteLine("");
+                                        }*/
+                                        if (evaluate_trafficlight_compatibility(id, currentWorkingLights) && !currentWorkingLights.Contains(id) && !blacklist.Contains(id))
+                                        {
+                                            TrafficLight tl = TrafficLightByID(id);
+                                            tl.state = "green";
+                                            tl.statechangetime = CurrentTime();
+                                            tl.Touch();
+                                            currentWorkingLights.Add(id);
+                                        }
+                                        /*else
+                                        {
+                                            Console.WriteLine(id.ToString() + " " + time[waiting_for_long.IndexOf(id)]);
+                                        }*/
+                                    }
                                 }
 
+                                //For all active sensors
                                 foreach (Sensor sensor in sensors)
                                 {
-                                    nonsensorlist.Remove(sensor.id);
-                                    if(!sensor.vehicles_blocking && (sensor.vehicles_waiting || sensor.vehicles_coming) && evaluate_trafficlight_compatibility(sensor.id, currentWorkingLights) && !currentWorkingLights.Contains(sensor.id))
+                                    if (!sensor.vehicles_blocking && (sensor.vehicles_waiting || sensor.vehicles_coming) && evaluate_trafficlight_compatibility(sensor.id, currentWorkingLights) && !currentWorkingLights.Contains(sensor.id) && !blacklist.Contains(sensor.id))
                                     {
                                         TrafficLight tl = TrafficLightByID(sensor.id);
                                         tl.state = "green";
@@ -93,19 +170,6 @@ namespace Controller
                                         currentWorkingLights.Add(sensor.id);
                                     }
                                 }
-
-                                foreach(int id in nonsensorlist)
-                                {
-                                    TrafficLight tl = TrafficLightByID(id);
-                                    if(tl.lastupdated < (CurrentTime() - 60) && evaluate_trafficlight_compatibility(id, currentWorkingLights))
-                                    {
-                                        tl.state = "green";
-                                        tl.statechangetime = CurrentTime();
-                                        tl.Touch();
-                                        currentWorkingLights.Add(id);
-                                    }
-                                }
-
 
                                 message_id++;
                                 string jsonstring = "{\"msg_id\": " + message_id + ", \"msg_type\": \"notify_traffic_light_change\", \"data\": [";
@@ -117,135 +181,13 @@ namespace Controller
                                 }
                                 jsonstring = jsonstring + "]}";
                                 await Send(socket, jsonstring);
-                                /*foreach(Sensor sensor in sensors)
-                                {
-                                    if(trafficLights[sensor.id].state == "green" && CurrentTime() - trafficLights[sensor.id].statechangetime > 10)
-                                    {
-                                        trafficLights[sensor.id].state = "orange";
-                                        trafficLights[sensor.id].statechangetime = CurrentTime();
-                                    }else if(trafficLights[sensor.id].state == "orange" && CurrentTime() - trafficLights[sensor.id].statechangetime > 4)
-                                    {
-                                        trafficLights[sensor.id].state = "red";
-                                        currentWorkingLights.Remove(sensor.id);
-                                        trafficLights[sensor.id].statechangetime = CurrentTime();
-                                    }else if(trafficLights[sensor.id].state == "red" && ((sensor.vehicles_waiting || sensor.vehicles_coming) && !sensor.vehicles_blocking) && trafficLights[sensor.id].statechangetime > trafficLights[sensor.id].clearing_time && evaluate_trafficlight_compatibility(sensor.id, currentWorkingLights))
-                                    {
-                                        trafficLights[sensor.id].state = "green";
-                                        currentWorkingLights.Add(sensor.id);
-                                        trafficLights[sensor.id].statechangetime = CurrentTime();
-                                    }
-
-
-                                }*/
-
-                                /*string jsonstring;
-                                switch (cycle_state)
-                                {
-                                    case "red":
-                                        double longest_clearing_time = 0;
-                                        foreach (int i in currentWorkingLights)
-                                            if (TrafficLightByID(i).clearing_time > longest_clearing_time)
-                                                longest_clearing_time = TrafficLightByID(i).clearing_time;
-
-                                        if (cycle_state_fresh)
-                                        {
-                                            message_id++;
-                                            jsonstring = "{\"msg_id\": " + message_id + ", \"msg_type\": \"notify_traffic_light_change\", \"data\": [";
-                                            for (int c = 0; c < trafficLights.Count; c++)
-                                            {
-                                                jsonstring = jsonstring + "{\"id\": " + trafficLights[c].id + ", \"state\": \"red\"" + "}";
-                                                if ((c + 1) != trafficLights.Count)
-                                                    jsonstring = jsonstring + ", ";
-                                            }
-                                            jsonstring = jsonstring + "]}";
-                                            await Send(socket, jsonstring);
-                                            cycle_state_fresh = false;
-                                        }
-                                        else if ((CurrentTime() - cycle_state_time) > longest_clearing_time)
-                                        {
-                                            cycle_state = "green";
-                                            currentWorkingLights.Clear();
-                                            cycle_state_time = CurrentTime();
-                                            cycle_state_fresh = true;
-                                        }
-                                        break;
-                                    case "orange":
-
-                                        if (cycle_state_fresh)
-                                        {
-                                            message_id++;
-                                            jsonstring = "{\"msg_id\": " + message_id + ", \"msg_type\": \"notify_traffic_light_change\", \"data\": [";
-                                            for (int c = 0; c < trafficLights.Count; c++)
-                                            {
-                                                jsonstring = jsonstring + "{\"id\": " + trafficLights[c].id + ", \"state\": " + (currentWorkingLights.Contains(trafficLights[c].id) ? "\"orange\"" : "\"red\"") + "}";
-                                                if ((c + 1) != trafficLights.Count)
-                                                    jsonstring = jsonstring + ", ";
-                                            }
-                                            jsonstring = jsonstring + "]}";
-                                            await Send(socket, jsonstring);
-                                            cycle_state_fresh = false;
-                                        }else if((CurrentTime() - cycle_state_time) > 4)
-                                        {
-                                            cycle_state = "red";
-                                            cycle_state_fresh = true;
-                                            cycle_state_time = CurrentTime();
-                                        }
-                                        break;
-                                    case "green":
-                                        if(cycle_state_fresh)
-                                        {
-                                            int oldestid = 1;
-                                            long longesttimesinceupdate = 0;
-                                            foreach (TrafficLight tl in trafficLights)
-                                                if ((CurrentTime() - tl.lastupdated) >= longesttimesinceupdate)
-                                                {
-                                                    oldestid = tl.id;
-                                                    longesttimesinceupdate = (CurrentTime() - tl.lastupdated);
-                                                }
-                                            if(debug)
-                                                Console.WriteLine("Longest waiting time: " + longesttimesinceupdate);
-
-                                            if(evaluate_trafficlight_compatibility(oldestid, currentWorkingLights))
-                                                currentWorkingLights.Add(oldestid);
-
-                                            foreach (Sensor sensor in sensors)
-                                                if ((sensor.vehicles_waiting || sensor.vehicles_coming) && !sensor.vehicles_blocking)
-                                                    if (!currentWorkingLights.Contains(sensor.id) && evaluate_trafficlight_compatibility(sensor.id, currentWorkingLights))
-                                                        currentWorkingLights.Add(sensor.id);
-
-                                            foreach (TrafficLight tl in trafficLights)
-                                                if (!currentWorkingLights.Contains(tl.id) && evaluate_trafficlight_compatibility(tl.id, currentWorkingLights))
-                                                    currentWorkingLights.Add(tl.id);
-
-                                            foreach (TrafficLight tl in trafficLights)
-                                                if (currentWorkingLights.Contains(tl.id))
-                                                    tl.Touch();
-                                            cycle_state_fresh = false;
-                                            message_id++;
-                                            jsonstring = "{\"msg_id\": " + message_id + ", \"msg_type\": \"notify_traffic_light_change\", \"data\": [";
-                                            for (int c = 0; c < trafficLights.Count; c++)
-                                            {
-                                                jsonstring = jsonstring + "{\"id\": " + trafficLights[c].id + ", \"state\": " + (currentWorkingLights.Contains(trafficLights[c].id) ? "\"green\"" : "\"red\"") + "}";
-                                                if ((c + 1) != trafficLights.Count)
-                                                    jsonstring = jsonstring + ", ";
-                                            }
-                                            jsonstring = jsonstring + "]}";
-                                            await Send(socket, jsonstring);
-                                        }
-                                        else if((CurrentTime() - cycle_state_time) >  10)
-                                        {
-                                            cycle_state = "orange";
-                                            cycle_state_fresh = true;
-                                            cycle_state_time = CurrentTime();
-                                        }
-                                        break;
-                                }*/
                             }
 
                             //Voer dit uit aan het einde van de loop
                             sw.Stop();
                             if (sw.ElapsedMilliseconds < 1000)
                                 Thread.Sleep(1000 - (int)sw.ElapsedMilliseconds);
+                            sw.Reset();
                             //Console.WriteLine("Current cycle state: " + cycle_state + ", fresh: " + cycle_state_fresh + ", duration of state right now: " + (CurrentTime() - cycle_state_time) + " seconds.");
                         }
                     }
