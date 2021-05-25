@@ -57,10 +57,7 @@ class path(Path):
 				self.get_parent().get_node(path).add_child(car)
 				car.enabled = True
 			else:
-				if not self.testing_lights:
-					truck = choice(self.new_cars).instance()
-				else:
-					truck = self.test_car.instance()
+				truck = choice(self.new_cars).instance()
 				self.get_parent().get_node(self.paths[self.path_idx]).add_child(truck)
 				#self.get_parent().get_node("N->S1").add_child(truck)
 				truck.enabled = True
@@ -86,22 +83,28 @@ class path(Path):
 				self.boat_idx = 0;
 		
 		self.time_passed_fiets += delta
-		if self.time_passed_fiets > 2:
+		if self.time_passed_fiets > 10:
 			self.time_passed_fiets = 0
 			fiets = choice(self.fietsers).instance()
 			self.get_parent().get_node("fiets{}".format(self.fiets_idx)).add_child(fiets)
-			fiets.speed = self.fiets_speed
+			fiets.speed = 3
+			fiets.normal_speed = 3
 			fiets.enabled = True
 			self.fiets_idx += 1
 			if not self.fiets_idx < self.fiets_max:
 				self.fiets_idx = 0;
 				
 		self.time_passed_voet += delta
-		if self.time_passed_voet > 2:
+		if self.time_passed_voet > 10:
 			self.time_passed_voet = 0
 			voet = choice(self.voeters).instance()
 			self.get_parent().get_node("voet{}".format(self.voet_idx)).add_child(voet)
-			voet.speed = self.voet_speed
+			if self.voet_idx == 5:
+				rotation = voet.get_rotation()
+				rotation.y += (180 * 0.0174533)
+				voet.set_rotation(rotation)
+			voet.speed = voet.speed = 3
+			voet.normal_speed = 3
 			voet.enabled = True
 			self.voet_idx += 1
 			if not self.voet_idx < self.voet_max:

@@ -8,6 +8,7 @@ class PathFollow(PathFollow):
 	# member variables here, example:
 	enabled = export(bool, default=False)
 	speed = export(int, default=10)
+	normal_speed = export(int, default=10)
 
 
 	def _ready(self):

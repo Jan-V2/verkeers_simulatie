@@ -109,9 +109,8 @@ surfaces/0 = {
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 0.246794, 0.472812, 0.427551 )
 
-[node name="skeletonbiker" type="PathFollow"]
+[node name="skeletonbiker" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16706, 0 )
-loop = false
 
 [node name="tmpParent" type="KinematicBody" parent="."]
 

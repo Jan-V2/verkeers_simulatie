@@ -97,6 +97,7 @@ loop = false
 script = ExtResource( 7 )
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
 [node name="Mesh1 Group1 Model" type="MeshInstance" parent="KinematicBody"]
 mesh = SubResource( 1 )
@@ -116,9 +117,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40106, 0.478776 )
 shape = SubResource( 3 )
 
 [node name="Area" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02314, 3.3506 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02314, -3.81419 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 4 )
+
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

@@ -7,6 +7,7 @@
 extents = Vector3( 0.760489, 0.681731, 0.197986 )
 
 [node name="Spatial" type="PathFollow"]
+loop = false
 script = ExtResource( 1 )
 
 [node name="schoolbus" parent="." instance=ExtResource( 2 )]

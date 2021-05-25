@@ -67,13 +67,14 @@ extents = Vector3( 0.959068, 1, 1.74752 )
 extents = Vector3( 0.341131, 0.490177, 0.351511 )
 
 [sub_resource type="BoxShape" id=5]
-extents = Vector3( 1.29553, 1, 0.357873 )
+extents = Vector3( 1.29553, 2.00088, 0.357873 )
 
 [node name="watercraftPack_023" type="PathFollow"]
 loop = false
 script = ExtResource( 5 )
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
 [node name="Mesh1 Group1 Model" type="MeshInstance" parent="KinematicBody"]
 mesh = SubResource( 1 )
@@ -99,10 +100,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.83927, 1.45034 )
 shape = SubResource( 4 )
 
 [node name="Area" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.01053 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69175, -4.70913 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0563064 )
 shape = SubResource( 5 )
+
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

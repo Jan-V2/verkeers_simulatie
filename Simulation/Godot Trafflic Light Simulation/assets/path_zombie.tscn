@@ -7,14 +7,16 @@
 extents = Vector3( 0.243956, 0.302043, 0.0323721 )
 
 [node name="Spatial" type="PathFollow"]
+loop = false
 script = ExtResource( 2 )
 
 [node name="Area" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0501874, 0.452775, -0.185429 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0501874, 0.528343, -0.237975 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 1 )
 
 [node name="zombie" parent="." instance=ExtResource( 1 )]
+
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

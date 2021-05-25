@@ -105,9 +105,6 @@ class websocket_server(Node):
 			self.traffic_light_by_id(35).clearing_time = 12
 		for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 31, 32]:
 			self.sensors.append(self.Sensor(i))
-		if self.debug:
-			for sensor in self.sensors:
-				sensor.isOn = True
 		message = {
 			"msg_id": self.new_messageid(),
 			"msg_type": "initialization",
@@ -219,7 +216,7 @@ class websocket_server(Node):
 		templist.append(self.get_parent().find_node("trafficlight11"))
 		self.actual_lights.append(templist)
 		templist = []
-		templist.append(self.get_parent().find_node("trafficlight2"))
+		templist.append(self.get_parent().find_node("trafficlight12"))
 		self.actual_lights.append(templist)
 		templist = []
 		templist.append(self.get_parent().find_node("trafficlight13"))
@@ -620,6 +617,8 @@ class websocket_server(Node):
 		
 	def _ready(self):
 		self.ready_actual_lights()
+		for i in range(1,36):
+			self.change_state(i, "red")
 		self.thread = threading.Thread(target=(self.loopable))
 		self.thread.start()
 	
