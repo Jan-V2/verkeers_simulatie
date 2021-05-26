@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://imports/boats/Dark_blue_metal.material" type="Material" id=2]
 [ext_resource path="res://imports/boats/Blue_metal.material" type="Material" id=4]
@@ -13,9 +13,6 @@ material = ExtResource( 4 )
 [sub_resource type="CylinderMesh" id=3]
 
 [sub_resource type="CylinderMesh" id=4]
-
-[sub_resource type="BoxShape" id=5]
-extents = Vector3( 0.243683, 0.470919, 0.42432 )
 
 [node name="bike" type="Spatial"]
 
@@ -86,7 +83,3 @@ material/0 = ExtResource( 5 )
 transform = Transform( -2.44381e-08, -0.005, 0, 0.15, -8.14603e-10, 0, 0, 0, 0.15, 0, -0.226119, 0.127408 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 5 )
-
-[node name="CollisionShape" type="CollisionShape" parent="bike"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0866246, -0.140881 )
-shape = SubResource( 5 )

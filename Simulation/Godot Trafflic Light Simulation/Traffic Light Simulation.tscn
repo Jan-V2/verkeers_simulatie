@@ -632,7 +632,7 @@ shape = SubResource( 36 )
 script = ExtResource( 4 )
 
 [node name="TrafficLightArea1" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -12.0795, 0, 125.929 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -12.0795, 1.22477, 125.929 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea1"]
@@ -640,7 +640,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea2" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -11.9329, 0, 129.09 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -11.9329, 1.26866, 129.09 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea2"]
@@ -656,7 +656,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea4" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -3.54319, 0, 128.881 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -3.54319, 1.27911, 128.881 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea4"]
@@ -664,7 +664,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea5" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -4.37889, 0, 127.708 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -4.37889, 1.27774, 127.708 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea5"]
@@ -672,7 +672,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea6" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 11.8088, 0, 120.287 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 11.8088, 1.27144, 120.287 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea6"]
@@ -680,7 +680,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea7" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 14.8873, 0, 119.966 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 14.8873, 1.2869, 119.966 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea7"]
@@ -688,7 +688,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea8" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 13.8397, 0, 104.466 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 13.8397, 1.24715, 104.466 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea8"]
@@ -696,7 +696,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea9" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 14.8056, 0, 114.584 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 14.8056, 1.2695, 114.584 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea9"]
@@ -704,7 +704,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea10" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 13.5561, 0, 115.606 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 13.5561, 1.27229, 115.606 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea10"]
@@ -712,7 +712,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea11" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 8.05989, 0, 100.391 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 8.05989, 1.27147, 100.391 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea11"]
@@ -720,7 +720,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea12" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 7.54406, 0, 97.3441 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 7.54406, 1.27956, 97.3441 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea12"]
@@ -728,7 +728,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea13" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -11.546, 0, 98.5666 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -11.546, 1.27126, 98.5666 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea13"]
@@ -736,7 +736,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea14" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0.240667, 0, 97.0399 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0.240667, 1.27531, 97.0399 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea14"]
@@ -744,7 +744,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea15" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 1.15316, 0, 98.3248 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 1.15316, 1.29365, 98.3248 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea15"]
@@ -752,7 +752,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea16" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -16.2824, 0, 105.022 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -16.2824, 1.24996, 105.022 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea16"]
@@ -760,7 +760,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea17" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -19.5448, 0, 103.557 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -19.5448, 1.25501, 103.557 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea17"]
@@ -768,7 +768,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea18" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -18.362, 0, 122.702 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -18.362, 1.26901, 122.702 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea18"]
@@ -776,7 +776,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea19" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -19.5344, 0, 112.15 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -19.5344, 1.25575, 112.15 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea19"]
@@ -784,7 +784,7 @@ transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762
 shape = SubResource( 40 )
 
 [node name="TrafficLightArea20" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -18.3221, 0, 111.368 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -18.3221, 1.27221, 111.368 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea20"]
@@ -877,14 +877,14 @@ script = ExtResource( 6 )
 shape = SubResource( 41 )
 
 [node name="TrafficLightArea33a" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56536, 0, -34.0771 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56536, 1.29048, -34.0771 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea33a"]
 shape = SubResource( 34 )
 
 [node name="TrafficLightArea33b" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22666, 0, -30.7276 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22666, 1.30951, -30.7276 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea33b"]
@@ -898,7 +898,7 @@ script = ExtResource( 6 )
 shape = SubResource( 34 )
 
 [node name="TrafficLightArea33d" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.842, 0, -14.2612 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.842, 1.64412, -14.2612 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea33d"]
