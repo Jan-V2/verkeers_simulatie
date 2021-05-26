@@ -258,7 +258,7 @@ namespace Controller
                                     {
                                         ChangeSensor(id, "emergency", sensor["emergency_vehicle"].ToObject<bool>());
                                     }
-                                    if (sensor["public_transport"] != null)
+                                    if (sensor["public_vehicle"] != null)
                                     {
                                         ChangeSensor(id, "public", sensor["public_vehicle"].ToObject<bool>());
                                     }
