@@ -1773,13 +1773,13 @@ transform = Transform( -8.14603e-08, 0, 10, 0, 1, 0, -0.5, 0, -1.62921e-06, 20.1
 mesh = SubResource( 1 )
 material/0 = ExtResource( 26 )
 
-[node name="alarmlightcomplete" type="Spatial" parent="."]
+[node name="alarmlightcomplete1" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7626, 0, -97.7121 )
 
-[node name="alarmlight" parent="alarmlightcomplete" instance=ExtResource( 14 )]
+[node name="alarmlight" parent="alarmlightcomplete1" instance=ExtResource( 14 )]
 transform = Transform( -0.3, 0, -9.77524e-08, 0, 0.3, 0, 9.77524e-08, 0, -0.3, 0.0342159, 0.597892, -0.00332642 )
 
-[node name="pole" parent="alarmlightcomplete" instance=ExtResource( 27 )]
+[node name="pole" parent="alarmlightcomplete1" instance=ExtResource( 27 )]
 transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, 0.0284376, 0, -0.0108643 )
 
 [node name="alarmlightcomplete2" type="Spatial" parent="."]

@@ -41,7 +41,7 @@ transform = Transform( 0.410756, 0, 0, 0, 0.38428, 0, 0, 0, 0.383014, -0.0032813
 mesh = SubResource( 1 )
 material/0 = null
 
-[node name="YellowLight" type="MeshInstance" parent="."]
+[node name="OrangeLight" type="MeshInstance" parent="."]
 transform = Transform( 0, 0.0472227, 0, -0.250925, 0, 0, 0, 0, 0.250925, -0.36, 2.49, 0 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 3 )
