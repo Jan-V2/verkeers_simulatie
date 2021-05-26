@@ -4,23 +4,14 @@ from godot import *
 
 @exposed
 class bridge(Spatial):
-
-	# member variables here, example:
-	#a = export(int)
-	#b = export(str, default='foo')
-	
+	#Class variables
+	going_up=export(bool, default=False)
 	up = Vector3(-90, 0, 0)
 	down = Vector3(0, 0, 0)
-	
+	rotation_speed=0.2
 	time_passed=0
-	going_up=export(bool, default=False)
-	rotation_speed=0.1
 	
-
-	def _ready(self):
-		#self.set_rotation_degrees(self.rotated)
-		pass
-	
+	#Goes up or down according to going_up attribute
 	def _process(self, delta):
 		self.time_passed += delta
 		if self.going_up and self.rotation_degrees.x > -89.5:

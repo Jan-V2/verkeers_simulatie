@@ -126,7 +126,7 @@ surfaces/2 = {
 extents = Vector3( 0.748613, 0.552474, 0.581114 )
 
 [sub_resource type="BoxShape" id=4]
-extents = Vector3( 0.65068, 0.148155, 1.59908 )
+extents = Vector3( 0.65068, 0.348626, 1.59908 )
 
 [sub_resource type="CylinderShape" id=5]
 radius = 0.288358
@@ -181,7 +181,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.749947, -1.02319 )
 shape = SubResource( 3 )
 
 [node name="CollisionBody" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352149, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.541398, 0 )
 shape = SubResource( 4 )
 
 [node name="CollisionFront" type="CollisionShape" parent="."]

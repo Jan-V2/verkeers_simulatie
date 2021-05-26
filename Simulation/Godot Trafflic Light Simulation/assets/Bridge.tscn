@@ -48,16 +48,16 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 5.7, 15.5974, 0, 5.69279 )
 mesh = SubResource( 3 )
 material/0 = ExtResource( 3 )
 
-[node name="trafficlight35a" parent="." instance=ExtResource( 4 )]
+[node name="trafficlight34a" parent="." instance=ExtResource( 4 )]
 transform = Transform( -0.3, -1.94707e-07, 8.51092e-15, 0, -2.18557e-08, -0.5, 1.16824e-07, -0.5, 2.18557e-08, 15.6727, -0.0969636, 4.45301 )
 
-[node name="trafficlight35b" parent="." instance=ExtResource( 4 )]
+[node name="trafficlight34b" parent="." instance=ExtResource( 4 )]
 transform = Transform( -0.3, -1.94707e-07, 8.51092e-15, 0, -2.18557e-08, -0.5, 1.16824e-07, -0.5, 2.18557e-08, 15.6727, -0.0969636, 9.60601 )
 
-[node name="trafficlight34a" parent="." instance=ExtResource( 4 )]
+[node name="trafficlight35a" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.3, 0, 0, 0, -8.14603e-08, -0.5, 0, 0.5, -8.14603e-08, -8.17235, -0.097, 7.17083 )
 
-[node name="trafficlight34b" parent="." instance=ExtResource( 4 )]
+[node name="trafficlight35b" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.3, 0, 0, 0, -8.14603e-08, -0.5, 0, 0.5, -8.14603e-08, -8.17235, -0.097, 2.22999 )
 
 [node name="StaticBody" type="StaticBody" parent="."]

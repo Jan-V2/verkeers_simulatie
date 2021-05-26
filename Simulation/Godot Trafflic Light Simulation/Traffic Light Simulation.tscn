@@ -1,10 +1,11 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://assets/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/websocket_server.py" type="Script" id=2]
 [ext_resource path="res://path.py" type="Script" id=3]
 [ext_resource path="res://scripts/TrafficLightArea.py" type="Script" id=4]
 [ext_resource path="res://scripts/camera_control.gd" type="Script" id=5]
+[ext_resource path="res://scripts/TLA.py" type="Script" id=6]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -206,27 +207,27 @@ _data = {
 
 [sub_resource type="BoxShape" id=34]
 
-[sub_resource type="BoxShape" id=42]
+[sub_resource type="BoxShape" id=35]
 extents = Vector3( 0.34618, 1, 0.366127 )
 
-[sub_resource type="BoxShape" id=35]
+[sub_resource type="BoxShape" id=36]
 extents = Vector3( 1.00314, 1.55127, 1.1434 )
 
-[sub_resource type="BoxShape" id=41]
+[sub_resource type="BoxShape" id=37]
 extents = Vector3( 0.413256, 1, 0.421328 )
 
-[sub_resource type="BoxShape" id=39]
+[sub_resource type="BoxShape" id=38]
 extents = Vector3( 0.373325, 1, 0.287779 )
 
-[sub_resource type="BoxShape" id=40]
+[sub_resource type="BoxShape" id=39]
 extents = Vector3( 0.454879, 1, 0.322393 )
 
-[sub_resource type="BoxShape" id=38]
+[sub_resource type="BoxShape" id=40]
 extents = Vector3( 0.212948, 1, 0.454036 )
 
-[sub_resource type="BoxShape" id=36]
+[sub_resource type="BoxShape" id=41]
 
-[sub_resource type="BoxShape" id=37]
+[sub_resource type="BoxShape" id=42]
 extents = Vector3( 2.25821, 1, 0.505456 )
 
 [node name="World" type="Spatial"]
@@ -438,7 +439,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.0847, 0, 100.514 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s11"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 42 )
+shape = SubResource( 35 )
 
 [node name="s12" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5309, 0, 98.337 )
@@ -465,420 +466,458 @@ shape = SubResource( 34 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34119, 0, 98.3036 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s15"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s16" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5451, 0, 103.156 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s16"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.618436, 0, 1.86295 )
-shape = SubResource( 41 )
+shape = SubResource( 37 )
 
 [node name="s17" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5711, 0, 103.136 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s17"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s18" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9453, 0, 123.816 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s18"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s19" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.024, 0, 112.303 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s19"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.339752, 0, 0 )
-shape = SubResource( 39 )
+shape = SubResource( 38 )
 
 [node name="s20" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1254, 0, 111.542 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s20"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.743977, 0, 0 )
-shape = SubResource( 40 )
+shape = SubResource( 39 )
 
 [node name="s21" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22482, 0, 131.656 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s21"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s21c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24497, 0, 135.104 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s21c"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s22wa" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80491, 0, 131.651 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s22wa"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s22c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77462, 0, 135.134 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s22c"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s22wb" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75306, 0, 138.09 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s22wb"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s23" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15247, 0, 131.932 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s23"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.867886, 0, -0.387329 )
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s23c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0651, 0, 135.168 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s23c"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s24" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6378, 0, 112.419 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s24"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s24c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7453, 0, 112.457 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s24c"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s25wa" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.681, 0, 108.461 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s25wa"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s25c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.72, 0, 108.448 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s25c"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s25wb" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.929, 0, 108.449 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s25wb"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s26wa" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2902, 0, 102.194 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s26wa"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s26wb" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6469, 0, 101.963 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s26wb"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s28wa" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.68217, 0, 94.821 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s28wa"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s28wb" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38781, 0, 94.8071 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s28wb"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s31" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6539, 0.0037632, 117.461 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s31"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s31c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9254, 0, 117.457 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s31c"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s32" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6655, 0, 120.014 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s32"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s32c" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8559, 0, 120.035 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s32c"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="s33" type="Area" parent="sensors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46648, 0, 81.8399 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sensors/s33"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="NodeTrafficLightArea" type="Node" parent="."]
 script = ExtResource( 4 )
 
 [node name="TrafficLightArea1" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -12.0795, 0, 125.929 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea1"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea2" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -11.9329, 0, 129.09 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea2"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea3" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 8.14774, 0, 127.776 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea3"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea4" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -3.54319, 0, 128.881 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea4"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea5" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -4.37889, 0, 127.708 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea5"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea6" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 11.8088, 0, 120.287 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea6"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea7" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 14.8873, 0, 119.966 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea7"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea8" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 13.8397, 0, 104.466 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea8"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea9" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 14.8056, 0, 114.584 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea9"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea10" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 13.5561, 0, 115.606 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea10"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea11" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 8.05989, 0, 100.391 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea11"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea12" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 7.54406, 0, 97.3441 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea12"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea13" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -11.546, 0, 98.5666 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea13"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea14" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0.240667, 0, 97.0399 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea14"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea15" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 1.15316, 0, 98.3248 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea15"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea16" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -16.2824, 0, 105.022 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea16"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea17" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -19.5448, 0, 103.557 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea17"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea18" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -18.362, 0, 122.702 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea18"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea19" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -19.5344, 0, 112.15 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea19"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea20" type="Area" parent="NodeTrafficLightArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -18.3221, 0, 111.463 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -18.3221, 0, 111.368 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea20"]
 transform = Transform( 0.00460762, 0, 0.499995, 0, 1, 0, -1.99998, 0, 0.00460762, -0.0281639, 0, 0.272461 )
-shape = SubResource( 38 )
+shape = SubResource( 40 )
 
 [node name="TrafficLightArea21" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -1.54212, 0, 130.127 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea21"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.377259, 0, 0.692627 )
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="TrafficLightArea22" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 0.5, 1.78575, 0, 130.506 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea22"]
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="TrafficLightArea23" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 5.64398, 0, 130.639 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea23"]
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="TrafficLightArea24" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, 24.713, 0, 112.878 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea24"]
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="TrafficLightArea25" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( -3.25841e-07, 0, 0.5, 0, 1, 0, -2, 0, -8.14603e-08, 24.6787, 0, 108.485 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea25"]
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="TrafficLightArea26" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( -1.87939, 0, 0.17101, 0, 1, 0, -0.68404, 0, -0.469846, 18.8288, 0, 103.507 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea26"]
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="TrafficLightArea27" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -1.81596, 0, 96.0879 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea27"]
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="TrafficLightArea28" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 0.5, -5.81195, 0, 96.1156 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea28"]
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="TrafficLightArea29" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -9.65159, 0, 96.0968 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea29"]
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="TrafficLightArea30" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, -20.7892, 0, 114.451 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea30"]
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="TrafficLightArea31" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, -20.7617, 0, 117.097 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea31"]
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="TrafficLightArea32" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( -1.62921e-07, 0, 0.5, 0, 1, 0, -1, 0, -8.14603e-08, -20.6919, 0, 119.829 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea32"]
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="TrafficLightArea33a" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56536, 0, -34.0771 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea33a"]
 shape = SubResource( 34 )
 
 [node name="TrafficLightArea33b" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22666, 0, -30.7276 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea33b"]
-shape = SubResource( 37 )
+shape = SubResource( 42 )
 
 [node name="TrafficLightArea33c" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4779, 0, -6.45025 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea33c"]
 shape = SubResource( 34 )
 
 [node name="TrafficLightArea33d" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.842, 0, -14.2612 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea33d"]
-shape = SubResource( 37 )
+shape = SubResource( 42 )
 
 [node name="TrafficLightArea34" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( -0.0106986, 0, -0.999943, 0, 1, 0, 0.999943, 0, -0.0106986, 17.2576, -1.57723, -28.5509 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea34"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75279, 3.06584, -0.0401516 )
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="TrafficLightArea35" type="Area" parent="NodeTrafficLightArea"]
 transform = Transform( 0.0126707, 0, -0.99992, 0, 1, 0, 0.99992, 0, 0.0126707, -10.6473, 1.57054, -19.5573 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NodeTrafficLightArea/TrafficLightArea35"]
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [connection signal="body_shape_entered" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_entered"]
 [connection signal="body_shape_exited" from="sensors/s1" to="websocket_server" method="_on_target819_body_shape_exited"]
@@ -960,41 +999,41 @@ shape = SubResource( 35 )
 [connection signal="body_shape_exited" from="sensors/s32c" to="websocket_server" method="_on_s32c_body_shape_exited"]
 [connection signal="body_shape_entered" from="sensors/s33" to="websocket_server" method="_on_s33_body_shape_entered"]
 [connection signal="body_shape_exited" from="sensors/s33" to="websocket_server" method="_on_s33_body_shape_exited"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea1" to="NodeTrafficLightArea" method="_on_TrafficLightArea1_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea2" to="NodeTrafficLightArea" method="_on_TrafficLightArea2_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea3" to="NodeTrafficLightArea" method="_on_TrafficLightArea3_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea4" to="NodeTrafficLightArea" method="_on_TrafficLightArea4_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea5" to="NodeTrafficLightArea" method="_on_TrafficLightArea5_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea6" to="NodeTrafficLightArea" method="_on_TrafficLightArea6_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea7" to="NodeTrafficLightArea" method="_on_TrafficLightArea7_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea8" to="NodeTrafficLightArea" method="_on_TrafficLightArea8_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea9" to="NodeTrafficLightArea" method="_on_TrafficLightArea9_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea10" to="NodeTrafficLightArea" method="_on_TrafficLightArea10_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea11" to="NodeTrafficLightArea" method="_on_TrafficLightArea11_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea12" to="NodeTrafficLightArea" method="_on_TrafficLightArea12_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea13" to="NodeTrafficLightArea" method="_on_TrafficLightArea13_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea14" to="NodeTrafficLightArea" method="_on_TrafficLightArea14_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea15" to="NodeTrafficLightArea" method="_on_TrafficLightArea15_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea16" to="NodeTrafficLightArea" method="_on_TrafficLightArea16_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea17" to="NodeTrafficLightArea" method="_on_TrafficLightArea17_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea18" to="NodeTrafficLightArea" method="_on_TrafficLightArea18_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea19" to="NodeTrafficLightArea" method="_on_TrafficLightArea19_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea20" to="NodeTrafficLightArea" method="_on_TrafficLightArea20_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea21" to="NodeTrafficLightArea" method="_on_TrafficLightArea21_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea22" to="NodeTrafficLightArea" method="_on_TrafficLightArea22_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea23" to="NodeTrafficLightArea" method="_on_TrafficLightArea23_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea24" to="NodeTrafficLightArea" method="_on_TrafficLightArea24_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea25" to="NodeTrafficLightArea" method="_on_TrafficLightArea25_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea26" to="NodeTrafficLightArea" method="_on_TrafficLightArea26_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea27" to="NodeTrafficLightArea" method="_on_TrafficLightArea27_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea28" to="NodeTrafficLightArea" method="_on_TrafficLightArea28_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea29" to="NodeTrafficLightArea" method="_on_TrafficLightArea29_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea30" to="NodeTrafficLightArea" method="_on_TrafficLightArea30_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea31" to="NodeTrafficLightArea" method="_on_TrafficLightArea31_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea32" to="NodeTrafficLightArea" method="_on_TrafficLightArea32_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea33a" to="NodeTrafficLightArea" method="_on_TrafficLightArea33_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea33b" to="NodeTrafficLightArea" method="_on_TrafficLightArea33_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea33c" to="NodeTrafficLightArea" method="_on_TrafficLightArea33_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea33d" to="NodeTrafficLightArea" method="_on_TrafficLightArea33_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea34" to="NodeTrafficLightArea" method="_on_TrafficLightArea34_body_entered"]
-[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea35" to="NodeTrafficLightArea" method="_on_TrafficLightArea35_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea1" to="NodeTrafficLightArea/TrafficLightArea1" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea2" to="NodeTrafficLightArea/TrafficLightArea2" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea3" to="NodeTrafficLightArea/TrafficLightArea3" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea4" to="NodeTrafficLightArea/TrafficLightArea4" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea5" to="NodeTrafficLightArea/TrafficLightArea5" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea6" to="NodeTrafficLightArea/TrafficLightArea6" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea7" to="NodeTrafficLightArea/TrafficLightArea7" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea8" to="NodeTrafficLightArea/TrafficLightArea8" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea9" to="NodeTrafficLightArea/TrafficLightArea9" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea10" to="NodeTrafficLightArea/TrafficLightArea10" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea11" to="NodeTrafficLightArea/TrafficLightArea11" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea12" to="NodeTrafficLightArea/TrafficLightArea12" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea13" to="NodeTrafficLightArea/TrafficLightArea13" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea14" to="NodeTrafficLightArea/TrafficLightArea14" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea15" to="NodeTrafficLightArea/TrafficLightArea15" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea16" to="NodeTrafficLightArea/TrafficLightArea16" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea17" to="NodeTrafficLightArea/TrafficLightArea17" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea18" to="NodeTrafficLightArea/TrafficLightArea18" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea19" to="NodeTrafficLightArea/TrafficLightArea19" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea20" to="NodeTrafficLightArea/TrafficLightArea20" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea21" to="NodeTrafficLightArea/TrafficLightArea21" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea22" to="NodeTrafficLightArea/TrafficLightArea22" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea23" to="NodeTrafficLightArea/TrafficLightArea23" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea24" to="NodeTrafficLightArea/TrafficLightArea24" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea25" to="NodeTrafficLightArea/TrafficLightArea25" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea26" to="NodeTrafficLightArea/TrafficLightArea26" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea27" to="NodeTrafficLightArea/TrafficLightArea27" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea28" to="NodeTrafficLightArea/TrafficLightArea28" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea29" to="NodeTrafficLightArea/TrafficLightArea29" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea30" to="NodeTrafficLightArea/TrafficLightArea30" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea31" to="NodeTrafficLightArea/TrafficLightArea31" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea32" to="NodeTrafficLightArea/TrafficLightArea32" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea33a" to="NodeTrafficLightArea/TrafficLightArea33a" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea33b" to="NodeTrafficLightArea/TrafficLightArea33b" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea33c" to="NodeTrafficLightArea/TrafficLightArea33c" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea33d" to="NodeTrafficLightArea/TrafficLightArea33d" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea34" to="NodeTrafficLightArea/TrafficLightArea34" method="_on_TrafficLightArea_body_entered"]
+[connection signal="body_entered" from="NodeTrafficLightArea/TrafficLightArea35" to="NodeTrafficLightArea/TrafficLightArea35" method="_on_TrafficLightArea_body_entered"]
