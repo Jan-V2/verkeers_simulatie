@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using System.Net;
-using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,38 +12,39 @@ namespace Controller
 {
     class Program
     {
+        //Global variables
         static int message_id = 0;
-        static List<TrafficLight> trafficLights = new List<TrafficLight>();
-        static List<Sensor> sensors = new List<Sensor>();
-        static List<int> currentWorkingLights = new List<int>();
-        static long cycle_state_time = DateTimeOffset.Now.ToUnixTimeSeconds();
         static string cycle_state = "red";
         static bool cycle_state_fresh = true;
+        static List<Sensor> sensors = new List<Sensor>();
+        static List<int> currentWorkingLights = new List<int>();
+        static List<TrafficLight> trafficLights = new List<TrafficLight>();
+        static long cycle_state_time = DateTimeOffset.Now.ToUnixTimeSeconds();
 
-        static bool debug = false;
-
+        //Main program
         static async Task Main(string[] args)
         {
-            string ip = "ws://127.0.0.1:6969";
+            string ip = "ws://127.0.0.1:6969"; //Starts with local ip
             do
             {
                 using (var socket = new ClientWebSocket())
                     try
                     {
+                        //Make socket connection
                         await socket.ConnectAsync(new Uri(ip), CancellationToken.None);
                         Console.WriteLine("Connected");
-                        //await Send(socket, "data");
+
+                        //Start receive loop
                         Receive(socket);
                         Thread.Sleep(500);
+
+                        //Start main loop
                         Stopwatch sw = new Stopwatch();
-                        //bool tlcolor = true;
                         while (true)
                         {
-                            //Voer dit uit aan het begin van de loop
                             sw.Start();
-
                             {
-                                //Cleanup
+                                //Cleanup from previously "greened" traffic lights
                                 foreach (TrafficLight tl in trafficLights)
                                 {
                                     if (tl.state == "green" && CurrentTime() - tl.statechangetime > 10)
@@ -64,7 +63,7 @@ namespace Controller
                                     }
                                 }
 
-                                //For all busses
+                                //For all busses, try greening them
                                 foreach (Sensor sensor in sensors)
                                 {
                                     if (sensor.public_transport && evaluate_trafficlight_compatibility(sensor.id, currentWorkingLights) && !currentWorkingLights.Contains(sensor.id))
@@ -77,13 +76,14 @@ namespace Controller
                                     }
                                 }
 
+                                //For all trafficlights who haven't been "greened" for longer than a minute
                                 List<int> blacklist = new List<int>();
                                 List<int> longerthanninety = new List<int>();
-                                //For all trafficlights who haven't been "greened" for longer than a minute
                                 {
                                     List<int> waiting_for_long = new List<int>();
                                     List<long> time = new List<long>();
 
+                                    //Make list of traffic lights that haven't been greened for longer than 90s
                                     foreach(TrafficLight tl in trafficLights)
                                     {
                                         if(CurrentTime() - tl.lastupdated > 90)
@@ -92,6 +92,7 @@ namespace Controller
                                         }
                                     }
 
+                                    //All trafficlights that haven't been greened for over 60s get priority and lights that haven't been greened get all crossings blacklisted
                                     foreach (TrafficLight tl in trafficLights)
                                     {
                                         if (CurrentTime() - tl.lastupdated > 60)
@@ -107,12 +108,8 @@ namespace Controller
                                             }
                                         }
                                     }
-                                    /*Console.Write("Blacklist: ");
-                                    foreach(int bl in blacklist)
-                                    {
-                                        Console.Write(bl + " ");
-                                    }
-                                    Console.WriteLine();*/
+
+                                    //Sort the list of long waiting trafficlights by amount of negligence
                                     int index = 0;
                                     while (waiting_for_long.Count >= 2)
                                     {
@@ -131,18 +128,9 @@ namespace Controller
                                         index++;
                                     }
 
+                                    //Green trafficlights that have waited for longer than 60s in order of negligence amount
                                     foreach (int id in waiting_for_long)
                                     {
-                                        /*if(longerthanninety.Contains(id))
-                                        {
-                                            //Console.WriteLine(evaluate_trafficlight_compatibility(id, currentWorkingLights).ToString() + " " + !currentWorkingLights.Contains(id) + " " + !blacklist.Contains(id));
-                                            TrafficLight tl = TrafficLightByID(id);
-                                            foreach(int i in tl.crosses)
-                                            {
-                                                if (currentWorkingLights.Contains(i)) Console.Write(i + " ");
-                                            }
-                                            Console.WriteLine("");
-                                        }*/
                                         if (evaluate_trafficlight_compatibility(id, currentWorkingLights) && !currentWorkingLights.Contains(id) && !blacklist.Contains(id))
                                         {
                                             TrafficLight tl = TrafficLightByID(id);
@@ -151,14 +139,10 @@ namespace Controller
                                             tl.Touch();
                                             currentWorkingLights.Add(id);
                                         }
-                                        /*else
-                                        {
-                                            Console.WriteLine(id.ToString() + " " + time[waiting_for_long.IndexOf(id)]);
-                                        }*/
                                     }
                                 }
 
-                                //For all active sensors
+                                //Finally add trafficlights with active sensors
                                 foreach (Sensor sensor in sensors)
                                 {
                                     if (!sensor.vehicles_blocking && (sensor.vehicles_waiting || sensor.vehicles_coming) && evaluate_trafficlight_compatibility(sensor.id, currentWorkingLights) && !currentWorkingLights.Contains(sensor.id) && !blacklist.Contains(sensor.id))
@@ -171,6 +155,7 @@ namespace Controller
                                     }
                                 }
 
+                                //Send json message to simulation with all traffic lights
                                 message_id++;
                                 string jsonstring = "{\"msg_id\": " + message_id + ", \"msg_type\": \"notify_traffic_light_change\", \"data\": [";
                                 for (int c = 0; c < trafficLights.Count; c++)
@@ -183,14 +168,14 @@ namespace Controller
                                 await Send(socket, jsonstring);
                             }
 
-                            //Voer dit uit aan het einde van de loop
+                            //Sleep for some additional time, so that one message is sent per second
                             sw.Stop();
                             if (sw.ElapsedMilliseconds < 1000)
                                 Thread.Sleep(1000 - (int)sw.ElapsedMilliseconds);
                             sw.Reset();
-                            //Console.WriteLine("Current cycle state: " + cycle_state + ", fresh: " + cycle_state_fresh + ", duration of state right now: " + (CurrentTime() - cycle_state_time) + " seconds.");
                         }
                     }
+                    //Shows any error and asks for a new ip if the user wants to change it
                     catch (Exception ex)
                     {
                         Console.WriteLine($"ERROR - {ex.Message}");
@@ -203,15 +188,15 @@ namespace Controller
             } while (true);
         }
 
+        //Sends a given message and prints useful information to the console
         static async Task Send(ClientWebSocket socket, string data)
         {
             await socket.SendAsync(Encoding.UTF8.GetBytes(data), WebSocketMessageType.Text, true, CancellationToken.None);
-            //Console.WriteLine(data);
-            //Console.WriteLine(socket.State.ToString());
             var details = JObject.Parse(data);
             Console.WriteLine("<- | MSG #" + details["msg_id"] + ", Type: " + details["msg_type"]);
         }
 
+        //Starts a receive loop for receiving messages from the simulation and prints useful information to the console
         static async Task Receive(ClientWebSocket socket)
         {
             var buffer = new ArraySegment<byte>(new byte[2048]);
@@ -239,6 +224,7 @@ namespace Controller
                         
                         Console.WriteLine("-> | MSG #" + message_id + ", Type: " + details["msg_type"]);
 
+                        //Gets message type and acts accordingly
                         switch (details["msg_type"].ToString()){
                             case "initialization":
                                 trafficLights.Clear();
@@ -274,7 +260,7 @@ namespace Controller
                                     }
                                     if (sensor["public_transport"] != null)
                                     {
-                                        ChangeSensor(id, "public", sensor["public_transport"].ToObject<bool>());
+                                        ChangeSensor(id, "public", sensor["public_vehicle"].ToObject<bool>());
                                     }
                                 }
                                 break;
@@ -284,15 +270,16 @@ namespace Controller
             } while (true);
         }
 
+        //Checks whether a traffic light ID has a corresponding sensor
         static bool SensorExists(int sensorid)
         {
             foreach (Sensor sensor in sensors)
                 if (sensor.id == sensorid)
                     return true;
-
             return false;
         }
 
+        //Changes the value of a sensor flag
         static void ChangeSensor(int sensorid, string flagtype, bool value)
         {
             foreach (Sensor sensor in sensors)
@@ -321,11 +308,13 @@ namespace Controller
             }
         }
 
+        //Gives the current time more neatly
         static long CurrentTime()
         {
             return DateTimeOffset.Now.ToUnixTimeSeconds();
         }
 
+        //Returns a TrafficLight object from the list of existing traffic lights by id
         static TrafficLight TrafficLightByID(int id)
         {
             for(int c = 0; c < trafficLights.Count; c++)
@@ -338,6 +327,7 @@ namespace Controller
             return new TrafficLight(746, new List<int>(), 746.0F);
         }
 
+        //Evaluates if a traffic light ID is compatible with the currently (or recently) active traffic lights 
         static bool evaluate_trafficlight_compatibility(int newtl, List<int> currentlist)
         {
             foreach(int valID in currentlist)
@@ -350,6 +340,7 @@ namespace Controller
             return true;
         }
 
+        //Cleans up after a disconnect so that the controller is reuseable
         static void CleanUp()
         {
             message_id = 0;
@@ -361,6 +352,7 @@ namespace Controller
         }
     }
 
+    //TrafficLight class for storing data
     class TrafficLight
     {
         public int id;
@@ -384,7 +376,8 @@ namespace Controller
             lastupdated = DateTimeOffset.Now.ToUnixTimeSeconds();
         }
     }
-    
+
+    //Sensor class for storing data
     class Sensor
     {
         public int id;
